@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions Générales d'Utilisation — Baseload</title>
+    <meta name="description" content="Conditions générales d'utilisation de Baseload — coach sportif IA pour athlètes d'endurance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0E0F11;
+            --paper: #F2F1ED;
+            --card: #16181C;
+            --card-alt: #1C1F24;
+            --signal: #D4FF3D;
+            --signal-tint: rgba(212, 255, 61, 0.12);
+            --caution: #FFA630;
+            --stop: #FF4D3D;
+            --ink-muted: #8A8B8D;
+            --ink-subtle: #5A5B5D;
+            --hairline: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(14, 15, 17, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            background: var(--paper);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            color: var(--ink);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--paper);
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            background: transparent;
+            color: var(--paper);
+            border: 1px solid var(--hairline);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nav-back:hover {
+            border-color: var(--signal);
+            color: var(--signal);
+        }
+
+        /* ─── PAGE HEADER ─── */
+        .page-header {
+            padding: 140px 24px 48px;
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(212, 255, 61, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .page-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--signal);
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: clamp(40px, 6vw, 64px);
+            line-height: 1;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .page-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
+        }
+
+        /* ─── PROSE ─── */
+        .prose {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .prose .notice {
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-left: 3px solid var(--caution);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 48px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        .prose .notice strong {
+            color: var(--caution);
+            font-weight: 600;
+        }
+
+        .prose h2 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-top: 64px;
+            margin-bottom: 20px;
+            color: var(--paper);
+        }
+
+        .prose h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .prose h3 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            color: var(--signal);
+        }
+
+        .prose p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--paper);
+            margin-bottom: 16px;
+        }
+
+        .prose ul {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+
+        .prose li {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--paper);
+            padding-left: 22px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .prose li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 10px;
+            height: 1px;
+            background: var(--signal);
+        }
+
+        .prose strong {
+            color: var(--paper);
+            font-weight: 600;
+        }
+
+        .prose em {
+            color: var(--paper);
+            font-style: italic;
+        }
+
+        .prose code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 4px;
+            padding: 2px 6px;
+            color: var(--signal);
+        }
+
+        .prose a {
+            color: var(--signal);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 255, 61, 0.3);
+            transition: border-color 0.2s;
+            word-break: break-word;
+        }
+
+        .prose a:hover {
+            border-bottom-color: var(--signal);
+        }
+
+        .prose hr {
+            border: none;
+            border-top: 1px solid var(--hairline);
+            margin: 80px 0 48px;
+        }
+
+        .lang-divider {
+            text-align: center;
+            margin: 80px 0 48px;
+            position: relative;
+        }
+
+        .lang-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--hairline);
+        }
+
+        .lang-divider span {
+            position: relative;
+            display: inline-block;
+            background: var(--ink);
+            padding: 0 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--signal);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 40px 24px;
+            border-top: 1px solid var(--hairline);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo {
+            width: 28px;
+            height: 28px;
+            background: var(--paper);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 11px;
+            color: var(--ink);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--ink-subtle);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--signal);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .nav-name { display: none; }
+            .page-header { padding: 110px 20px 32px; }
+            .prose { padding: 24px 20px 60px; }
+            .prose h2 { font-size: 22px; margin-top: 48px; }
+            .prose h3 { font-size: 15px; margin-top: 28px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-brand">
+        <div class="nav-logo">BL</div>
+        <span class="nav-name">Baseload</span>
+    </a>
+    <a href="/" class="nav-back">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+            <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Retour
+    </a>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="page-eyebrow">Mentions légales</div>
+    <h1 class="page-title">Conditions<br>d'utilisation</h1>
+    <div class="page-date">Dernière mise à jour : 23 avril 2026</div>
+</section>
+
+<!-- PROSE CONTENT -->
+<article class="prose">
+
+    <div class="notice">
+        <strong>AVIS — DRAFT.</strong> Ce document est un projet rédigé par l'éditeur sans revue juridique. Il doit être validé par un avocat avant le lancement public sur l'App Store. Pendant la phase TestFlight beta privée, il sert de référence pour les utilisateurs testeurs.
+    </div>
+
+    <h2>1. Objet</h2>
+    <p>Les présentes Conditions Générales d'Utilisation ("CGU") régissent l'utilisation de l'application mobile Baseload ("l'Application") éditée par Florian Boquet ("l'Éditeur").</p>
+    <p>L'utilisation de l'Application implique l'acceptation pleine et entière des présentes CGU. Si vous n'acceptez pas ces conditions, ne téléchargez pas et n'utilisez pas l'Application.</p>
+
+    <h2>2. Description du service</h2>
+    <p>Baseload est un outil d'aide à la planification d'entraînement sportif d'endurance. L'Application :</p>
+    <ul>
+        <li>Lit les données de votre application Apple Santé.</li>
+        <li>Calcule des indicateurs de charge d'entraînement (TRIMP, ACWR, fatigue par groupe musculaire).</li>
+        <li>Propose un plan hebdomadaire et un coaching quotidien généré par intelligence artificielle (Anthropic Claude).</li>
+        <li>Surveille les signaux de récupération et alerte sur les patterns potentiellement à risque.</li>
+    </ul>
+
+    <h2>3. Avertissement médical important</h2>
+
+    <h3>3.1 Pas un substitut au conseil médical</h3>
+    <p><strong>Baseload n'est pas un dispositif médical.</strong> Les recommandations, analyses, scores de fatigue, alertes de douleur et plans d'entraînement générés <strong>ne constituent en aucun cas un avis médical, un diagnostic, ou un traitement</strong>.</p>
+
+    <h3>3.2 Pas un substitut au coaching professionnel</h3>
+    <p>L'Application n'est pas une alternative au suivi par un entraîneur sportif qualifié. Les recommandations sont générées algorithmiquement à partir de vos données et ne tiennent pas compte de votre histoire clinique, de vos blessures passées, ou de spécificités physiologiques qu'un professionnel évaluerait en personne.</p>
+
+    <h3>3.3 Alertes de douleur</h3>
+    <p>Lorsque l'Application signale une douleur récurrente ou en escalade, <strong>il s'agit d'une information</strong>, non d'un diagnostic. <strong>Consultez un professionnel de santé qualifié</strong> (médecin du sport, kinésithérapeute, ostéopathe) pour toute douleur persistante, intense, ou inhabituelle.</p>
+
+    <h3>3.4 Décisions de santé</h3>
+    <p>Vous êtes seul(e) responsable de vos décisions concernant votre santé, votre entraînement, et votre récupération. L'Application est un outil d'aide à la décision, pas une autorité.</p>
+
+    <h2>4. Conditions d'éligibilité</h2>
+    <ul>
+        <li>Être âgé(e) de <strong>16 ans ou plus</strong>.</li>
+        <li>Avoir un iPhone compatible (iOS 18 ou ultérieur).</li>
+        <li>Disposer d'un compte Apple permettant d'installer l'Application via TestFlight ou l'App Store.</li>
+        <li>Ne pas être atteint d'une condition médicale contre-indiquant l'activité physique sans avis médical.</li>
+    </ul>
+
+    <h2>5. Utilisation conforme</h2>
+    <p>Vous vous engagez à :</p>
+    <ul>
+        <li>Utiliser l'Application uniquement dans le cadre d'un usage personnel et non commercial.</li>
+        <li>Ne pas tenter de contourner les mesures de sécurité (limitation de débit, validation d'entrée, isolation des prompts IA).</li>
+        <li>Ne pas tenter d'extraire, copier, ou réutiliser le code source ou les algorithmes propriétaires de l'Application.</li>
+        <li>Ne pas saisir d'informations fausses dans votre profil de manière intentionnelle.</li>
+    </ul>
+    <p>L'Éditeur se réserve le droit de bloquer l'accès au service en cas d'utilisation non conforme.</p>
+
+    <h2>6. Propriété intellectuelle</h2>
+    <p>L'Application, son code source, son design, son nom, son logo, et l'ensemble des contenus algorithmiques (modèles de charge, prompts IA, structure de coaching) sont la propriété exclusive de l'Éditeur. Aucune licence d'utilisation au-delà de l'usage personnel prévu n'est accordée.</p>
+
+    <h2>7. Disponibilité et maintenance</h2>
+    <p>L'Application est fournie "en l'état". L'Éditeur s'efforce de maintenir le service disponible 24/7 mais ne garantit aucune disponibilité contractuelle. Des interruptions peuvent survenir pour maintenance, mise à jour, ou cause externe (panne du fournisseur d'hébergement, de l'API Anthropic, etc.).</p>
+
+    <h2>8. Limitation de responsabilité</h2>
+    <p>Dans la mesure permise par la loi, <strong>l'Éditeur ne peut être tenu responsable</strong> :</p>
+    <ul>
+        <li>Des conséquences sur votre santé d'une décision d'entraînement prise sur la base des recommandations de l'Application.</li>
+        <li>Des blessures, fatigues, contre-performances, ou complications médicales résultant de votre activité physique.</li>
+        <li>Des erreurs ou imprécisions dans les calculs, les recommandations IA, ou les analyses produites par l'Application.</li>
+        <li>Des pertes de données dues à une panne technique, à la désinstallation de l'Application, ou à un changement d'appareil.</li>
+        <li>De l'indisponibilité temporaire ou permanente du service.</li>
+    </ul>
+    <p>L'Application est fournie sans garantie d'adéquation à un usage particulier. Vous assumez tous les risques liés à votre pratique sportive.</p>
+
+    <h2>9. Tarification</h2>
+    <p>Pendant la phase <strong>beta TestFlight</strong>, l'Application est entièrement <strong>gratuite</strong>. Toutes les fonctionnalités sont accessibles sans abonnement.</p>
+    <p>À l'issue de la beta, l'Application sera proposée via un abonnement auto-renouvelable géré par Apple (StoreKit 2). Les conditions tarifaires précises seront communiquées dans une mise à jour de ces CGU avant l'introduction du paiement.</p>
+
+    <h2>10. Données personnelles</h2>
+    <p>Le traitement de vos données personnelles est régi par la <strong>Politique de confidentialité</strong> (accessible depuis Réglages → Mentions légales → Politique de confidentialité dans l'application), qui fait partie intégrante des présentes CGU.</p>
+
+    <h2>11. Résiliation</h2>
+    <p>Vous pouvez cesser d'utiliser l'Application à tout moment en la désinstallant. La suppression complète de vos données serveur se fait depuis Réglages → Compte → Supprimer le compte.</p>
+    <p>L'Éditeur peut suspendre ou résilier votre accès en cas de violation des présentes CGU, après un avertissement préalable lorsque les circonstances le permettent.</p>
+
+    <h2>12. Modifications des CGU</h2>
+    <p>Ces conditions peuvent être modifiées. La date de dernière mise à jour figure en tête de document. Les modifications significatives seront notifiées dans l'Application et nécessiteront votre acceptation explicite avant prise d'effet.</p>
+
+    <h2>13. Droit applicable et juridiction</h2>
+    <p>Les présentes CGU sont soumises au <strong>droit français</strong>. Tout litige relatif à leur interprétation ou exécution sera soumis aux tribunaux français compétents, après tentative de résolution amiable préalable.</p>
+
+    <h2>14. Contact</h2>
+    <p>Pour toute question relative aux présentes CGU : <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a></p>
+
+    <div class="lang-divider"><span>English version</span></div>
+
+    <h2>Terms of Service — Baseload</h2>
+
+    <div class="notice">
+        <strong>NOTICE — DRAFT.</strong> This document is a draft authored by the publisher without legal review. It must be reviewed by a lawyer before public App Store launch.
+    </div>
+
+    <p><strong>Last updated: 23 April 2026</strong></p>
+
+    <h2>1. Purpose</h2>
+    <p>These Terms of Service ("ToS") govern the use of the Baseload mobile application ("the App") published by Florian Boquet ("the Publisher").</p>
+    <p>Use of the App implies full acceptance of these ToS. If you do not accept these conditions, do not download or use the App.</p>
+
+    <h2>2. Service description</h2>
+    <p>Baseload is a training-planning aid for endurance athletes. The App:</p>
+    <ul>
+        <li>Reads data from your Apple Health app.</li>
+        <li>Computes training-load indicators (TRIMP, ACWR, per-muscle-group fatigue).</li>
+        <li>Proposes a weekly plan and AI-generated daily coaching (Anthropic Claude).</li>
+        <li>Monitors recovery signals and alerts on potentially risky patterns.</li>
+    </ul>
+
+    <h2>3. Important medical disclaimer</h2>
+
+    <h3>3.1 Not a substitute for medical advice</h3>
+    <p><strong>Baseload is not a medical device.</strong> Recommendations, analyses, fatigue scores, pain alerts, and training plans generated <strong>do not constitute medical advice, diagnosis, or treatment</strong> in any way.</p>
+
+    <h3>3.2 Not a substitute for professional coaching</h3>
+    <p>The App is not an alternative to qualified coach supervision. Recommendations are generated algorithmically from your data and do not account for your clinical history, past injuries, or physiological specifics that a professional would assess in person.</p>
+
+    <h3>3.3 Pain alerts</h3>
+    <p>When the App signals recurrent or escalating pain, <strong>this is information</strong>, not a diagnosis. <strong>Consult a qualified healthcare professional</strong> (sports physician, physiotherapist, osteopath) for any persistent, intense, or unusual pain.</p>
+
+    <h3>3.4 Health decisions</h3>
+    <p>You are solely responsible for your decisions regarding your health, your training, and your recovery. The App is a decision-aid tool, not an authority.</p>
+
+    <h2>4. Eligibility</h2>
+    <ul>
+        <li>Be <strong>16 years or older</strong>.</li>
+        <li>Have a compatible iPhone (iOS 18 or later).</li>
+        <li>Have an Apple ID allowing App installation via TestFlight or the App Store.</li>
+        <li>Not have a medical condition contraindicating physical activity without medical advice.</li>
+    </ul>
+
+    <h2>5. Acceptable use</h2>
+    <p>You agree to:</p>
+    <ul>
+        <li>Use the App only for personal, non-commercial purposes.</li>
+        <li>Not attempt to bypass security measures (rate limiting, input validation, AI prompt isolation).</li>
+        <li>Not attempt to extract, copy, or reuse the source code or proprietary algorithms of the App.</li>
+        <li>Not enter intentionally false information in your profile.</li>
+    </ul>
+    <p>The Publisher reserves the right to block access in case of non-compliant use.</p>
+
+    <h2>6. Intellectual property</h2>
+    <p>The App, its source code, design, name, logo, and all algorithmic content (load models, AI prompts, coaching structure) are the exclusive property of the Publisher.</p>
+
+    <h2>7. Availability and maintenance</h2>
+    <p>The App is provided "as is". The Publisher strives to keep the service available 24/7 but offers no contractual availability guarantee. Interruptions may occur due to maintenance, updates, or external causes (hosting provider failure, Anthropic API outage, etc.).</p>
+
+    <h2>8. Limitation of liability</h2>
+    <p>To the extent permitted by law, <strong>the Publisher cannot be held liable</strong> for:</p>
+    <ul>
+        <li>Health consequences of a training decision based on the App's recommendations.</li>
+        <li>Injuries, fatigue, underperformance, or medical complications resulting from your physical activity.</li>
+        <li>Errors or inaccuracies in the calculations, AI recommendations, or analyses produced by the App.</li>
+        <li>Data loss due to technical failure, App uninstallation, or device change.</li>
+        <li>Temporary or permanent service unavailability.</li>
+    </ul>
+    <p>The App is provided without warranty of fitness for a particular purpose. You assume all risks related to your sports practice.</p>
+
+    <h2>9. Pricing</h2>
+    <p>During the <strong>TestFlight beta</strong> phase, the App is entirely <strong>free</strong>. All features are accessible without subscription.</p>
+    <p>After the beta, the App will be offered via an auto-renewable subscription managed by Apple (StoreKit 2). Specific pricing terms will be communicated in a ToS update before payment is introduced.</p>
+
+    <h2>10. Personal data</h2>
+    <p>Personal data processing is governed by the <strong>Privacy Policy</strong> (accessible from Settings → Legal → Privacy Policy in the app), which is an integral part of these ToS.</p>
+
+    <h2>11. Termination</h2>
+    <p>You can stop using the App at any time by uninstalling it. Complete deletion of your server data is done via Settings → Account → Delete account.</p>
+    <p>The Publisher may suspend or terminate your access in case of ToS violation, after prior warning where circumstances permit.</p>
+
+    <h2>12. ToS changes</h2>
+    <p>These terms may be modified. The last-updated date appears at the top of the document. Significant modifications will be notified in the App and will require your explicit acceptance before taking effect.</p>
+
+    <h2>13. Governing law and jurisdiction</h2>
+    <p>These ToS are governed by <strong>French law</strong>. Any dispute relating to their interpretation or execution will be submitted to the competent French courts, after a prior attempt at amicable resolution.</p>
+
+    <h2>14. Contact</h2>
+    <p>For any question relating to these ToS: <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a></p>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <div class="footer-logo">BL</div>
+        <span class="footer-copy">© 2026 Baseload</span>
+    </div>
+    <div class="footer-links">
+        <a href="/privacy">Confidentialité</a>
+        <a href="/terms">Conditions</a>
+        <a href="mailto:contact@getbaseload.com">Contact</a>
+    </div>
+</footer>
+
+</body>
+</html>

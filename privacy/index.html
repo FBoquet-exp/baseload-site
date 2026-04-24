@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité — Baseload</title>
+    <meta name="description" content="Politique de confidentialité de Baseload — coach sportif IA pour athlètes d'endurance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0E0F11;
+            --paper: #F2F1ED;
+            --card: #16181C;
+            --card-alt: #1C1F24;
+            --signal: #D4FF3D;
+            --signal-tint: rgba(212, 255, 61, 0.12);
+            --caution: #FFA630;
+            --stop: #FF4D3D;
+            --ink-muted: #8A8B8D;
+            --ink-subtle: #5A5B5D;
+            --hairline: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(14, 15, 17, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            background: var(--paper);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            color: var(--ink);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--paper);
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            background: transparent;
+            color: var(--paper);
+            border: 1px solid var(--hairline);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nav-back:hover {
+            border-color: var(--signal);
+            color: var(--signal);
+        }
+
+        /* ─── PAGE HEADER ─── */
+        .page-header {
+            padding: 140px 24px 48px;
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(212, 255, 61, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .page-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--signal);
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: clamp(40px, 6vw, 64px);
+            line-height: 1;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .page-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
+        }
+
+        /* ─── PROSE ─── */
+        .prose {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .prose .notice {
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-left: 3px solid var(--caution);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 48px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        .prose .notice strong {
+            color: var(--caution);
+            font-weight: 600;
+        }
+
+        .prose h2 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-top: 64px;
+            margin-bottom: 20px;
+            color: var(--paper);
+        }
+
+        .prose h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .prose h3 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            color: var(--signal);
+        }
+
+        .prose p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--paper);
+            margin-bottom: 16px;
+        }
+
+        .prose ul {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+
+        .prose li {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--paper);
+            padding-left: 22px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .prose li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 10px;
+            height: 1px;
+            background: var(--signal);
+        }
+
+        .prose strong {
+            color: var(--paper);
+            font-weight: 600;
+        }
+
+        .prose em {
+            color: var(--paper);
+            font-style: italic;
+        }
+
+        .prose code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 4px;
+            padding: 2px 6px;
+            color: var(--signal);
+        }
+
+        .prose a {
+            color: var(--signal);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 255, 61, 0.3);
+            transition: border-color 0.2s;
+            word-break: break-word;
+        }
+
+        .prose a:hover {
+            border-bottom-color: var(--signal);
+        }
+
+        .prose hr {
+            border: none;
+            border-top: 1px solid var(--hairline);
+            margin: 80px 0 48px;
+        }
+
+        .lang-divider {
+            text-align: center;
+            margin: 80px 0 48px;
+            position: relative;
+        }
+
+        .lang-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--hairline);
+        }
+
+        .lang-divider span {
+            position: relative;
+            display: inline-block;
+            background: var(--ink);
+            padding: 0 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--signal);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 40px 24px;
+            border-top: 1px solid var(--hairline);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo {
+            width: 28px;
+            height: 28px;
+            background: var(--paper);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 11px;
+            color: var(--ink);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--ink-subtle);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--signal);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .nav-name { display: none; }
+            .page-header { padding: 110px 20px 32px; }
+            .prose { padding: 24px 20px 60px; }
+            .prose h2 { font-size: 22px; margin-top: 48px; }
+            .prose h3 { font-size: 15px; margin-top: 28px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-brand">
+        <div class="nav-logo">BL</div>
+        <span class="nav-name">Baseload</span>
+    </a>
+    <a href="/" class="nav-back">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+            <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Retour
+    </a>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="page-eyebrow">Mentions légales</div>
+    <h1 class="page-title">Politique de<br>confidentialité</h1>
+    <div class="page-date">Dernière mise à jour : 23 avril 2026</div>
+</section>
+
+<!-- PROSE CONTENT -->
+<article class="prose">
+
+    <div class="notice">
+        <strong>AVIS — DRAFT.</strong> Ce document est un projet rédigé par l'éditeur sans revue juridique. Il doit être validé par un avocat avant le lancement public sur l'App Store. Pendant la phase TestFlight beta privée, il sert de référence pour les utilisateurs testeurs.
+    </div>
+
+    <h2>1. Identité et contact</h2>
+    <ul>
+        <li><strong>Éditeur</strong> : Baseload (application iOS)</li>
+        <li><strong>Développeur</strong> : Florian Boquet</li>
+        <li><strong>Contact</strong> : <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a></li>
+        <li><strong>Pays</strong> : France</li>
+    </ul>
+    <p>Pour toute question relative à vos données personnelles, ou pour exercer vos droits RGPD, contactez l'adresse ci-dessus. Réponse garantie sous 30 jours conformément au RGPD.</p>
+
+    <h2>2. Données collectées</h2>
+
+    <h3>2.1 Données HealthKit (Apple Santé)</h3>
+    <p>Baseload accède en <strong>lecture seule</strong> à votre application Santé d'Apple. L'application <strong>n'écrit jamais</strong> dans HealthKit en v1.</p>
+    <p>Données lues sur l'appareil :</p>
+    <ul>
+        <li>Séances d'entraînement (workouts)</li>
+        <li>Fréquence cardiaque (moyenne par séance, repos)</li>
+        <li>Variabilité de fréquence cardiaque (VFC SDNN)</li>
+        <li>Sommeil (durée et stades)</li>
+        <li>VO2max</li>
+        <li>Énergie active et basale</li>
+        <li>Poids corporel, taille</li>
+        <li>Sexe biologique, date de naissance</li>
+    </ul>
+    <p><strong>Important</strong> : ces données restent <strong>sur votre iPhone</strong>. Seuls des <strong>résumés agrégés</strong> (TRIMP par séance, score ACWR, fatigue par groupe musculaire, tendance VFC) sont transmis au serveur Baseload pour générer le coaching. Les flux bruts de fréquence cardiaque, traces GPS, et séries minute-par-minute ne quittent <strong>jamais</strong> l'appareil.</p>
+
+    <h3>2.2 Données saisies dans l'application</h3>
+    <ul>
+        <li><strong>Profil</strong> : prénom, âge, sexe, poids, taille, discipline pratiquée, objectif d'entraînement, équipement disponible (vélo, piscine, salle).</li>
+        <li><strong>Check-in matinal</strong> : ressenti du jour (quatre niveaux), heures de sommeil (auto-rempli depuis HealthKit), zones de douleur signalées.</li>
+        <li><strong>Feedback de séance</strong> : RPE (intensité ressentue), groupes musculaires travaillés, douleur post-séance, satisfaction.</li>
+    </ul>
+    <p>Ces données sont stockées <strong>localement</strong> dans SwiftData (base chiffrée par le système iOS). Elles sont également incluses dans les payloads agrégés envoyés au serveur pour le coaching.</p>
+
+    <h3>2.3 Localisation (WeatherKit)</h3>
+    <p>L'application utilise votre position approximative <strong>uniquement</strong> pour récupérer la météo locale via Apple WeatherKit. Cette position <strong>n'est jamais stockée</strong>, ni sur l'appareil ni sur le serveur. Elle est utilisée au moment de la requête puis oubliée.</p>
+
+    <h3>2.4 Identifiant utilisateur</h3>
+    <p>Un <strong>UUID anonyme</strong> est généré au premier lancement de l'application, stocké localement, et envoyé en en-tête (<code>X-User-ID</code>) à chaque appel serveur pour la limitation de débit et le suivi des sessions.</p>
+    <p><strong>Aucune donnée d'identification personnelle</strong> (email, nom, numéro de téléphone, adresse IP persistée, identifiant publicitaire) n'est collectée par Baseload.</p>
+
+    <h2>3. Traitement par des tiers</h2>
+
+    <h3>3.1 Anthropic (Claude API)</h3>
+    <p>Le coaching quotidien est généré par l'API Anthropic (Claude Sonnet 4.6).</p>
+    <ul>
+        <li><strong>Données envoyées</strong> : résumé agrégé de votre entraînement (sans données brutes HealthKit), check-in du jour, historique de douleurs sur 14 jours, météo, profil (âge, sexe, poids, discipline, objectif).</li>
+        <li><strong>Politique d'Anthropic</strong> : zéro rétention des données. Les requêtes ne sont <strong>pas</strong> utilisées pour entraîner les modèles. Voir <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a>.</li>
+        <li><strong>Localisation des serveurs Anthropic</strong> : États-Unis. Le transfert hors UE est encadré par les clauses contractuelles types (SCC).</li>
+    </ul>
+
+    <h3>3.2 Apple WeatherKit</h3>
+    <p>Données de localisation transmises à Apple uniquement pour la requête météo. Voir la politique de confidentialité d'Apple : <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>.</p>
+
+    <h3>3.3 TelemetryDeck (analytics)</h3>
+    <p>Métriques d'usage anonymes (lancement, écrans visités, fonctionnalités utilisées). <strong>Aucune donnée personnelle ni de santé</strong> n'est envoyée. Hébergement EU. Voir <a href="https://telemetrydeck.com/privacy/">telemetrydeck.com/privacy</a>.</p>
+
+    <h3>3.4 Tiers explicitement exclus</h3>
+    <p>Baseload <strong>n'utilise pas</strong> : Google Analytics, Meta SDK, AppsFlyer, Branch, Adjust, Mixpanel, Amplitude, ni aucun autre SDK de tracking publicitaire. Aucune donnée n'est jamais vendue ou partagée à des fins publicitaires.</p>
+
+    <h2>4. Hébergement et résidence des données</h2>
+    <ul>
+        <li><strong>Serveur applicatif</strong> : Fly.io, région Paris (CDG) — <strong>UE</strong>.</li>
+        <li><strong>Base de données</strong> : Supabase, région UE.</li>
+        <li>Les flux applicatifs entre l'iPhone et le serveur transitent en HTTPS (TLS 1.3).</li>
+    </ul>
+
+    <h2>5. Conservation et suppression</h2>
+    <ul>
+        <li>Données <strong>locales</strong> (SwiftData) : conservées tant que l'application est installée. Désinstaller Baseload supprime toutes les données locales immédiatement.</li>
+        <li>Données <strong>serveur</strong> (résumés de coaching mis en cache) : conservées 90 jours puis supprimées automatiquement.</li>
+        <li><strong>Demande de suppression locale</strong> : depuis Réglages → Compte → Supprimer le compte. L'effacement local sur l'appareil est immédiat.</li>
+        <li><strong>Demande de suppression serveur (beta TestFlight)</strong> : pendant la phase beta, l'effacement des données serveur (cache de coaching) est traité manuellement sur demande envoyée à <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a>, sous 30 jours conformes au RGPD. Une suppression automatisée via l'application sera ajoutée avant le lancement App Store public.</li>
+    </ul>
+
+    <h2>6. Vos droits RGPD</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données, vous disposez des droits suivants :</p>
+    <ul>
+        <li><strong>Droit d'accès</strong> : obtenir une copie de vos données.</li>
+        <li><strong>Droit de rectification</strong> : corriger des données inexactes.</li>
+        <li><strong>Droit à l'effacement</strong> ("droit à l'oubli") : demander la suppression de toutes vos données.</li>
+        <li><strong>Droit à la portabilité</strong> : récupérer vos données dans un format structuré (JSON). Pendant la beta TestFlight, l'export est fourni manuellement sur demande envoyée à <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a> (réponse sous 30 jours). Un bouton d'export auto-déclenché sera ajouté avant le lancement App Store public.</li>
+        <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données.</li>
+        <li><strong>Droit de réclamation</strong> auprès de la CNIL : <a href="https://www.cnil.fr/fr/plaintes">cnil.fr/fr/plaintes</a>.</li>
+    </ul>
+    <p>Pour exercer un de ces droits, contactez <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a>.</p>
+
+    <h2>7. Sécurité</h2>
+    <ul>
+        <li>Stockage local chiffré via les API standard d'iOS (Data Protection, Keychain).</li>
+        <li>Communication réseau exclusivement en HTTPS / TLS 1.3.</li>
+        <li>Aucun secret applicatif (clé API, token) n'est stocké en clair sur l'appareil.</li>
+        <li>Le serveur applique une limite de 100 requêtes par utilisateur par heure pour prévenir l'abus.</li>
+    </ul>
+
+    <h2>8. Mineurs</h2>
+    <p>Baseload <strong>n'est pas destiné aux personnes de moins de 16 ans</strong>. Si vous êtes parent ou tuteur d'un mineur ayant utilisé l'application, contactez-nous pour effacer ses données.</p>
+
+    <h2>9. Pas de conseil médical</h2>
+    <p>Baseload est un outil d'aide à la planification d'entraînement. Les recommandations générées <strong>ne constituent pas un avis médical</strong>. Pour toute douleur persistante, blessure, ou question de santé, consultez un professionnel de santé qualifié. Voir aussi les Conditions Générales d'Utilisation.</p>
+
+    <h2>10. Modifications</h2>
+    <p>Cette politique peut être mise à jour. La date de dernière mise à jour figure en tête de document. Les changements significatifs seront notifiés dans l'application avant prise d'effet.</p>
+
+    <div class="lang-divider"><span>English version</span></div>
+
+    <h2>Privacy Policy — Baseload</h2>
+
+    <div class="notice">
+        <strong>NOTICE — DRAFT.</strong> This document is a draft authored by the publisher without legal review. It must be reviewed by a lawyer before public App Store launch. During the TestFlight private beta phase, it serves as a reference for testers.
+    </div>
+
+    <p><strong>Last updated: 23 April 2026</strong></p>
+
+    <h2>1. Identity and contact</h2>
+    <ul>
+        <li><strong>Publisher</strong>: Baseload (iOS application)</li>
+        <li><strong>Developer</strong>: Florian Boquet</li>
+        <li><strong>Contact</strong>: <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a></li>
+        <li><strong>Country</strong>: France</li>
+    </ul>
+    <p>For any questions about your personal data, or to exercise your GDPR rights, contact the address above. Reply guaranteed within 30 days per GDPR.</p>
+
+    <h2>2. Data collected</h2>
+
+    <h3>2.1 HealthKit data</h3>
+    <p>Baseload accesses your Apple Health app in <strong>read-only</strong> mode. The application <strong>never writes</strong> to HealthKit in v1.</p>
+    <p>Data read on-device:</p>
+    <ul>
+        <li>Workouts</li>
+        <li>Heart rate (per-session average, resting)</li>
+        <li>Heart rate variability (HRV SDNN)</li>
+        <li>Sleep (duration and stages)</li>
+        <li>VO2max</li>
+        <li>Active and basal energy</li>
+        <li>Body mass, height</li>
+        <li>Biological sex, date of birth</li>
+    </ul>
+    <p><strong>Important</strong>: this data stays <strong>on your iPhone</strong>. Only <strong>aggregated summaries</strong> (per-session TRIMP, ACWR score, per-muscle-group fatigue, HRV trend) are sent to the Baseload server to generate coaching. Raw heart-rate streams, GPS tracks, and minute-by-minute series <strong>never</strong> leave the device.</p>
+
+    <h3>2.2 Data entered in the application</h3>
+    <ul>
+        <li><strong>Profile</strong>: first name, age, sex, weight, height, discipline, training goal, available equipment.</li>
+        <li><strong>Morning check-in</strong>: today's feeling (4-level), sleep hours (auto-filled from HealthKit), pain zones reported.</li>
+        <li><strong>Session feedback</strong>: RPE, muscle groups worked, post-session pain, satisfaction.</li>
+    </ul>
+    <p>This data is stored <strong>locally</strong> in SwiftData (encrypted by iOS). It is also included in the aggregated payloads sent to the server for coaching.</p>
+
+    <h3>2.3 Location (WeatherKit)</h3>
+    <p>The app uses your approximate location <strong>only</strong> to fetch local weather via Apple WeatherKit. This location is <strong>never stored</strong>, neither on the device nor on the server. It is used at request time then forgotten.</p>
+
+    <h3>2.4 User identifier</h3>
+    <p>An <strong>anonymous UUID</strong> is generated at first launch, stored locally, and sent in a header (<code>X-User-ID</code>) on every server call for rate limiting and session tracking.</p>
+    <p><strong>No personal identification data</strong> (email, name, phone, persisted IP, advertising identifier) is collected by Baseload.</p>
+
+    <h2>3. Third-party processing</h2>
+
+    <h3>3.1 Anthropic (Claude API)</h3>
+    <p>Daily coaching is generated by the Anthropic API (Claude Sonnet 4.6).</p>
+    <ul>
+        <li><strong>Data sent</strong>: aggregated training summary (no raw HealthKit data), today's check-in, 14-day pain history, weather, profile.</li>
+        <li><strong>Anthropic policy</strong>: zero data retention. Requests are <strong>not</strong> used to train models. See <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a>.</li>
+        <li><strong>Anthropic server location</strong>: United States. EU-to-US transfer is governed by Standard Contractual Clauses (SCC).</li>
+    </ul>
+
+    <h3>3.2 Apple WeatherKit</h3>
+    <p>Location data transmitted to Apple solely for the weather request. See <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>.</p>
+
+    <h3>3.3 TelemetryDeck (analytics)</h3>
+    <p>Anonymous usage metrics (launch, screens viewed, features used). <strong>No personal or health data</strong> is sent. EU hosting.</p>
+
+    <h3>3.4 Explicitly excluded third parties</h3>
+    <p>Baseload <strong>does not use</strong>: Google Analytics, Meta SDK, AppsFlyer, Branch, Adjust, Mixpanel, Amplitude, or any other ad-tracking SDK. No data is ever sold or shared for advertising purposes.</p>
+
+    <h2>4. Hosting and data residency</h2>
+    <ul>
+        <li><strong>Application server</strong>: Fly.io, Paris region (CDG) — <strong>EU</strong>.</li>
+        <li><strong>Database</strong>: Supabase, EU region.</li>
+        <li>All traffic between the iPhone and the server is HTTPS (TLS 1.3).</li>
+    </ul>
+
+    <h2>5. Retention and deletion</h2>
+    <ul>
+        <li><strong>Local data</strong> (SwiftData): kept as long as the app is installed. Uninstalling Baseload deletes all local data immediately.</li>
+        <li><strong>Server data</strong> (cached coaching summaries): kept for 90 days then automatically deleted.</li>
+        <li><strong>Local deletion request</strong>: from Settings → Account → Delete account. Local on-device erasure is immediate.</li>
+        <li><strong>Server deletion request (TestFlight beta)</strong>: during the beta phase, server-side erasure (coaching cache) is handled manually on request sent to <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a>, within 30 days per GDPR. An automated in-app server deletion flow will be added before public App Store launch.</li>
+    </ul>
+
+    <h2>6. Your GDPR rights</h2>
+    <p>Per the General Data Protection Regulation, you have:</p>
+    <ul>
+        <li><strong>Right of access</strong>: obtain a copy of your data.</li>
+        <li><strong>Right to rectification</strong>: correct inaccurate data.</li>
+        <li><strong>Right to erasure</strong> ("right to be forgotten"): request deletion of all your data.</li>
+        <li><strong>Right to portability</strong>: get your data in a structured (JSON) format. During the TestFlight beta, export is provided manually on request sent to <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a> (reply within 30 days). An in-app one-tap export will be added before public App Store launch.</li>
+        <li><strong>Right to object</strong>: object to data processing.</li>
+        <li><strong>Right to lodge a complaint</strong> with the CNIL: <a href="https://www.cnil.fr/en/plaintes">cnil.fr/en/plaintes</a>.</li>
+    </ul>
+    <p>To exercise any of these rights, contact <a href="mailto:mollobeck@gmail.com">mollobeck@gmail.com</a>.</p>
+
+    <h2>7. Security</h2>
+    <ul>
+        <li>Local storage encrypted via iOS standard APIs (Data Protection, Keychain).</li>
+        <li>Network communication exclusively HTTPS / TLS 1.3.</li>
+        <li>No application secret (API key, token) is stored in cleartext on the device.</li>
+        <li>The server applies a 100 request/user/hour limit to prevent abuse.</li>
+    </ul>
+
+    <h2>8. Minors</h2>
+    <p>Baseload <strong>is not intended for people under 16</strong>. If you are a parent or guardian of a minor who used the app, contact us to erase their data.</p>
+
+    <h2>9. Not medical advice</h2>
+    <p>Baseload is a training-planning aid. Generated recommendations <strong>do not constitute medical advice</strong>. For any persistent pain, injury, or health question, consult a qualified healthcare professional. See also the Terms of Service.</p>
+
+    <h2>10. Changes</h2>
+    <p>This policy may be updated. The last-updated date appears at the top of the document. Significant changes will be notified in the app before taking effect.</p>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <div class="footer-logo">BL</div>
+        <span class="footer-copy">© 2026 Baseload</span>
+    </div>
+    <div class="footer-links">
+        <a href="/privacy">Confidentialité</a>
+        <a href="/terms">Conditions</a>
+        <a href="mailto:contact@getbaseload.com">Contact</a>
+    </div>
+</footer>
+
+</body>
+</html>
