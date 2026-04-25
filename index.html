@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baseload — Coach sportif IA pour athlètes d'endurance</title>
-    <meta name="description" content="Analyse ta charge, planifie tes séances, préviens le surentraînement. Un coach IA qui lit tes données Apple Watch et s'adapte à ton corps.">
-    <meta property="og:title" content="Baseload — Coach sportif IA">
-    <meta property="og:description" content="Ton coach d'endurance, propulsé par l'IA. Analyse de charge, planning adaptatif, prévention des blessures.">
+    <title>Baseload — Un coach sportif personnel qui te connaît</title>
+    <meta name="description" content="Baseload analyse tes séances, ta fatigue et ton corps pour te guider chaque jour. Pas de programme générique — un accompagnement qui s'adapte à ta réalité.">
+    <meta property="og:title" content="Baseload — Un coach qui te connaît">
+    <meta property="og:description" content="Un coach sportif personnel qui s'adapte à ta réalité, pas un programme générique.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getbaseload.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -202,53 +202,6 @@
             animation: fadeUp 0.8s ease forwards 1s;
         }
 
-        /* ─── METRICS BAR ─── */
-        .metrics-bar {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            margin: 0 auto;
-            max-width: 680px;
-            border: 1px solid var(--hairline);
-            border-radius: 12px;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 1.2s;
-        }
-
-        .metric {
-            flex: 1;
-            padding: 24px 20px;
-            text-align: center;
-            border-right: 1px solid var(--hairline);
-        }
-
-        .metric:last-child { border-right: none; }
-
-        .metric-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--ink-subtle);
-            margin-bottom: 8px;
-        }
-
-        .metric-value {
-            font-family: 'Archivo', sans-serif;
-            font-weight: 800;
-            font-size: 28px;
-            color: var(--paper);
-        }
-
-        .metric-value .unit {
-            font-size: 14px;
-            color: var(--ink-muted);
-            font-weight: 500;
-            font-family: 'DM Sans', sans-serif;
-        }
-
         /* ─── FEATURES ─── */
         .features {
             padding: 120px 24px;
@@ -321,6 +274,46 @@
             font-size: 15px;
             line-height: 1.6;
             color: var(--ink-muted);
+        }
+
+        /* ─── POUR QUI ─── */
+        .for-who {
+            padding: 80px 24px 40px;
+            max-width: 880px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .for-who-inner {
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            padding: 48px 40px;
+            background: var(--card);
+        }
+
+        .for-who-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--signal);
+            margin-bottom: 20px;
+        }
+
+        .for-who-text {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: clamp(20px, 2.6vw, 28px);
+            line-height: 1.4;
+            letter-spacing: -0.5px;
+            color: var(--paper);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .for-who-text .accent {
+            color: var(--signal);
         }
 
         /* ─── HOW IT WORKS ─── */
@@ -516,9 +509,7 @@
             nav { padding: 16px 20px; }
             .nav-name { display: none; }
             .hero { padding: 100px 20px 60px; }
-            .metrics-bar { flex-direction: column; max-width: 320px; }
-            .metric { border-right: none; border-bottom: 1px solid var(--hairline); padding: 16px; }
-            .metric:last-child { border-bottom: none; }
+            .for-who-inner { padding: 32px 24px; }
             .step { flex-direction: column; gap: 12px; }
             .step-num { font-size: 36px; }
             footer { flex-direction: column; text-align: center; }
@@ -538,105 +529,89 @@
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-eyebrow">Coach sportif IA · Endurance</div>
+    <div class="hero-eyebrow">Coach sportif personnel</div>
     <h1 class="hero-title">
-        Ton coach<br>
-        qui lit ton <span class="accent">corps</span>
+        Un coach qui<br>
+        te <span class="accent">connaît</span>
     </h1>
     <p class="hero-sub">
-        Baseload analyse ta charge d'entraînement via Apple Watch, 
-        génère un coaching quotidien personnalisé et adapte ton planning 
-        en temps réel. Pas de formule générique — un coach qui te connaît.
+        Baseload analyse tes séances, ta fatigue et ton corps pour te guider
+        chaque jour. Pas de programme générique — un accompagnement qui
+        s'adapte à ta réalité.
     </p>
     <a href="https://testflight.apple.com/join/QrkWunZe" class="hero-cta">
-        Tester gratuitement
+        Rejoindre la beta gratuite
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
     </a>
     <div class="hero-badge">Gratuit pendant la beta · Apple Watch recommandée</div>
-
-    <div style="height: 64px"></div>
-
-    <div class="metrics-bar">
-        <div class="metric">
-            <div class="metric-label">ACWR</div>
-            <div class="metric-value">1.12</div>
-        </div>
-        <div class="metric">
-            <div class="metric-label">Fatigue</div>
-            <div class="metric-value">42 <span class="unit">/ 100</span></div>
-        </div>
-        <div class="metric">
-            <div class="metric-label">VO2max</div>
-            <div class="metric-value">49.8 <span class="unit">mL</span></div>
-        </div>
-        <div class="metric">
-            <div class="metric-label">Statut</div>
-            <div class="metric-value" style="color: var(--signal); font-size: 16px;">● FEU VERT</div>
-        </div>
-    </div>
 </section>
 
 <!-- FEATURES -->
 <section class="features">
-    <div class="features-eyebrow">Fonctionnalités</div>
-    <h2 class="features-title">Un coach complet<br>dans ta poche</h2>
+    <div class="features-eyebrow">Pourquoi Baseload</div>
+    <h2 class="features-title">Un coach qui<br>s'adapte à toi</h2>
 
     <div class="feature-grid">
         <div class="feature-card">
-            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 5-10"/></svg></div>
-            <h3 class="feature-name">Charge d'entraînement</h3>
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3 class="feature-name">Il sait ce que tu as fait</h3>
             <p class="feature-desc">
-                Modèle ACWR et TRIMP en temps réel. Baseload détecte quand ta charge aiguë monte 
-                trop vite par rapport à ta charge chronique — le premier signal de blessure.
+                Baseload lit tes séances Apple Watch automatiquement. Course,
+                vélo, natation, renfo — tout est pris en compte.
             </p>
         </div>
 
         <div class="feature-card">
-            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-6.5l-2.8 2.8m-5.4 5.4l-2.8 2.8m0-11l2.8 2.8m5.4 5.4l2.8 2.8"/></svg></div>
-            <h3 class="feature-name">Coaching IA quotidien</h3>
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <h3 class="feature-name">Il sait comment tu te sens</h3>
             <p class="feature-desc">
-                Chaque matin, un message personnalisé qui tient compte de ta fatigue musculaire, 
-                tes douleurs, ton sommeil, ta VO2max et la météo.
+                Chaque matin, 30 secondes pour dire comment tu te sens. Le coach
+                adapte tout en conséquence.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
-            <h3 class="feature-name">Planning adaptatif</h3>
+            <h3 class="feature-name">Il planifie pour toi</h3>
             <p class="feature-desc">
-                Un plan de semaine qui s'adapte à la réalité. Les jours passés montrent tes vrais 
-                entraînements, le coach ajuste le reste. Verrouille tes séances préférées.
+                Un planning de semaine qui tient compte de ta fatigue, tes
+                douleurs, la météo, ton matériel et tes échéances.
             </p>
         </div>
 
         <div class="feature-card">
-            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><path d="M6 18L18 6"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M13 6h4v4"/></svg></div>
-            <h3 class="feature-name">Fatigue musculaire</h3>
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3 class="feature-name">Il te protège</h3>
             <p class="feature-desc">
-                Suivi par groupe musculaire : haut-tirage, haut-poussée, gainage, bas du corps. 
-                Le coach évite de surcharger les zones déjà fatiguées.
+                Malade ? Blessé ? Trop fatigué ? Le coach passe en mode repos.
+                Zéro compromis sur ta santé.
             </p>
         </div>
 
         <div class="feature-card">
-            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><path d="M2 20c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M2 16c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><circle cx="8" cy="6" r="2"/><path d="M10 6l4 4-3 2"/></svg></div>
-            <h3 class="feature-name">Multi-sport</h3>
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 5-10"/></svg></div>
+            <h3 class="feature-name">Il progresse avec toi</h3>
             <p class="feature-desc">
-                Course, vélo, natation, renforcement, trail, marche, rameur. Chaque discipline 
-                a son modèle de fatigue et ses types de séances spécifiques.
+                Plus tu utilises Baseload, mieux il te connaît. Tes zones
+                d'effort, tes points faibles, tes objectifs — tout est
+                personnalisé.
             </p>
         </div>
+    </div>
+</section>
 
-        <div class="feature-card">
-            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4m0 4h.01"/></svg></div>
-            <h3 class="feature-name">Prévention blessures</h3>
-            <p class="feature-desc">
-                Check-in matinal avec suivi des douleurs sur silhouette corporelle. Le coach passe 
-                en mode repos quand tu es malade ou blessé. Zéro compromis.
-            </p>
-        </div>
+<!-- POUR QUI -->
+<section class="for-who">
+    <div class="for-who-inner">
+        <div class="for-who-eyebrow">Pour qui ?</div>
+        <p class="for-who-text">
+            Baseload est conçu pour les sportifs d'endurance qui s'entraînent
+            <span class="accent">3 à 6 fois par semaine</span> et veulent
+            progresser sans se blesser. Course, vélo, natation, triathlon,
+            trail — quel que soit ton sport.
+        </p>
     </div>
 </section>
 
@@ -658,7 +633,7 @@
             <div class="step-num">02</div>
             <div class="step-content">
                 <h3>Le coach analyse</h3>
-                <p>L'IA croise ta charge ACWR, ta fatigue musculaire, ta VO2max, ton sommeil et la météo pour produire un conseil actionnable.</p>
+                <p>L'IA croise ta charge d'entraînement, ta fatigue musculaire, ton sommeil et la météo pour un conseil actionnable.</p>
             </div>
         </div>
 
@@ -674,7 +649,7 @@
             <div class="step-num">04</div>
             <div class="step-content">
                 <h3>Tu progresses</h3>
-                <p>Suis ta VO2max, ta charge chronique et tes tendances de récupération. L'objectif : progresser sans casser.</p>
+                <p>Suis tes progrès semaine après semaine. L'objectif : avancer durablement, sans casser.</p>
             </div>
         </div>
     </div>
