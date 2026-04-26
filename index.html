@@ -362,81 +362,38 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        .compare-grid {
-            display: grid;
-            grid-template-columns: 1fr 1px 1fr;
-            background: var(--ink);
-            border: 1px solid var(--hairline);
-            border-radius: 16px;
-            overflow: hidden;
+        .difference-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
-        .compare-col {
-            padding: 40px 32px;
+        .difference-list li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--paper);
         }
-        .compare-divider {
-            background: var(--hairline);
-        }
-        .compare-col h3 {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600; font-size: 11px;
-            letter-spacing: 2px; text-transform: uppercase;
-            margin-bottom: 28px;
-        }
-        .compare-col.before h3 { color: #A8A9AB; }
-        .compare-col.after h3 { color: var(--signal); }
-        .compare-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
-        .compare-list li {
-            display: flex; gap: 12px; align-items: flex-start;
-            font-size: 15px; line-height: 1.55;
-        }
-        .compare-col.before li { color: #A8A9AB; }
-        .compare-col.after li { color: var(--paper); }
-        .compare-col.after li strong {
+        .difference-list li strong {
             color: var(--signal);
             font-weight: 600;
         }
-
-        .compare-list li::before {
+        .difference-list li::before {
             content: '';
             flex-shrink: 0;
-            width: 18px; height: 18px;
+            width: 18px;
+            height: 18px;
             border-radius: 5px;
             margin-top: 2px;
+            background-color: var(--signal-tint);
             background-position: center;
             background-repeat: no-repeat;
             background-size: 12px 12px;
-        }
-        .compare-col.before li::before {
-            background-color: rgba(255, 255, 255, 0.04);
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A5B5D' stroke-width='3' stroke-linecap='round'><line x1='6' y1='6' x2='18' y2='18'/><line x1='18' y1='6' x2='6' y2='18'/></svg>");
-        }
-        .compare-col.after li::before {
-            background-color: var(--signal-tint);
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4FF3D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
-        }
-
-        .compare-punchline {
-            font-family: 'DM Sans', sans-serif;
-            font-style: italic;
-            font-size: 16px;
-            line-height: 1.55;
-            color: var(--paper);
-            text-align: center;
-            max-width: 600px;
-            margin: 32px auto 0;
-        }
-
-        .credibility-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ink-subtle);
-            text-align: center;
-            max-width: 640px;
-            margin: 20px auto 0;
-            line-height: 1.6;
         }
 
         /* ─── HERO EXPLAINER ─── */
@@ -694,9 +651,6 @@
             .hero-text { max-width: 560px; margin: 0 auto; }
             .hero-sub { margin-left: auto; margin-right: auto; }
             .hero-screenshot { transform: rotate(2deg); max-width: 260px; }
-
-            .compare-grid { grid-template-columns: 1fr; }
-            .compare-divider { height: 1px; width: 100%; }
         }
 
         @media (max-width: 768px) {
@@ -842,42 +796,19 @@
     </div>
 </section>
 
-<!-- COMPARE / DIFFERENCE -->
+<!-- DIFFERENCE -->
 <section class="compare">
     <div class="compare-inner">
         <div class="section-eyebrow">La différence</div>
         <h2 class="section-title">Ce que les autres apps<br>ne font pas</h2>
 
-        <div class="compare-grid">
-            <div class="compare-col before">
-                <h3>Sans Baseload</h3>
-                <ul class="compare-list">
-                    <li><span>Tu suis tes séances, mais personne ne les analyse pour toi</span></li>
-                    <li><span>Tu sens que tu en fais trop, mais tu ne sais pas quoi ajuster</span></li>
-                    <li><span>Ton programme est le même que celui de milliers d'autres</span></li>
-                    <li><span>Tu te blesses et tu comprends pourquoi… après coup</span></li>
-                </ul>
-            </div>
-            <div class="compare-divider"></div>
-            <div class="compare-col after">
-                <h3>Avec Baseload</h3>
-                <ul class="compare-list">
-                    <li><span>Chaque séance est analysée : charge, fatigue musculaire, récupération</span></li>
-                    <li><span>Le coach te dit exactement quoi faire : alléger, pousser ou te reposer</span></li>
-                    <li><span>Ton programme s'adapte à <strong>ton</strong> corps, <strong>ta</strong> fatigue, <strong>tes</strong> douleurs</span></li>
-                    <li><span>Le coach détecte le surentraînement <strong>avant</strong> la blessure</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <p class="compare-punchline">
-            Baseload est le seul coach qui croise ta fatigue musculaire, ta
-            charge réelle et tes douleurs pour adapter ton plan chaque jour.
-        </p>
-        <p class="credibility-badge">
-            Méthodologie basée sur les modèles de charge d'entraînement de la
-            recherche en médecine du sport (Gabbett, 2016 &amp; 2020).
-        </p>
+        <ul class="difference-list">
+            <li><span>Chaque séance est analysée : charge, fatigue musculaire, récupération</span></li>
+            <li><span>Le coach te dit exactement quoi faire : alléger, pousser ou te reposer</span></li>
+            <li><span>Ton programme s'adapte à <strong>ton</strong> corps, <strong>ta</strong> fatigue, <strong>tes</strong> douleurs</span></li>
+            <li><span>Le coach détecte le surentraînement <strong>avant</strong> la blessure</span></li>
+            <li><span>Basé sur les modèles de charge d'entraînement de la recherche en médecine du sport (Gabbett, 2016 &amp; 2020)</span></li>
+        </ul>
     </div>
 </section>
 
