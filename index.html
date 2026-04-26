@@ -189,7 +189,7 @@
             font-size: 10px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--ink-subtle);
+            color: var(--paper);
             opacity: 0;
             animation: fadeUp 0.8s ease forwards 1s;
         }
@@ -382,14 +382,14 @@
             letter-spacing: 2px; text-transform: uppercase;
             margin-bottom: 28px;
         }
-        .compare-col.before h3 { color: var(--ink-muted); }
+        .compare-col.before h3 { color: #A8A9AB; }
         .compare-col.after h3 { color: var(--signal); }
         .compare-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
         .compare-list li {
             display: flex; gap: 12px; align-items: flex-start;
             font-size: 15px; line-height: 1.55;
         }
-        .compare-col.before li { color: var(--ink-subtle); }
+        .compare-col.before li { color: #A8A9AB; }
         .compare-col.after li { color: var(--paper); }
         .compare-col.after li strong {
             color: var(--signal);
@@ -413,6 +413,55 @@
         .compare-col.after li::before {
             background-color: var(--signal-tint);
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4FF3D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+        }
+
+        .compare-punchline {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.55;
+            color: var(--paper);
+            text-align: center;
+            max-width: 600px;
+            margin: 32px auto 0;
+        }
+
+        .credibility-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
+            text-align: center;
+            max-width: 640px;
+            margin: 20px auto 0;
+            line-height: 1.6;
+        }
+
+        /* ─── HERO EXPLAINER ─── */
+        .hero-explainer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: var(--ink-muted);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            line-height: 1.6;
+        }
+        .hero-explainer strong {
+            color: var(--signal);
+            font-weight: 600;
+        }
+        .hero-explainer .dot-sep {
+            color: var(--ink-subtle);
         }
 
         /* ─── FEATURES ─── */
@@ -613,7 +662,9 @@
             font-weight: 900; font-size: 11px;
             color: var(--ink);
         }
+        .footer-copy-block { display: flex; flex-direction: column; gap: 4px; }
         .footer-copy { font-size: 12px; color: var(--ink-subtle); }
+        .footer-disclaimer { font-size: 11px; color: var(--ink-subtle); line-height: 1.4; }
         .footer-links { display: flex; gap: 24px; }
         .footer-links a {
             font-family: 'JetBrains Mono', monospace;
@@ -677,7 +728,7 @@
         <div class="nav-logo">BL</div>
         <span class="nav-name">Baseload</span>
     </div>
-    <a href="https://testflight.apple.com/join/QrkWunZe" class="nav-cta">Essayer gratuitement</a>
+    <a href="https://testflight.apple.com/join/QrkWunZe" class="nav-cta">Tester mon coach</a>
 </nav>
 
 <!-- HERO -->
@@ -689,12 +740,11 @@
             qui te <span class="accent">connaît</span>
         </h1>
         <p class="hero-sub">
-            Baseload analyse tes séances, ta fatigue et ton corps pour te
-            guider chaque jour. Pas de programme générique — un accompagnement
-            qui s'adapte à ta réalité.
+            Un coach et un plan. Sur mesure. Baseload analyse tes séances, ta
+            fatigue et ton corps pour te guider chaque jour.
         </p>
         <a href="https://testflight.apple.com/join/QrkWunZe" class="hero-cta">
-            Commencer mon coaching
+            Tester mon coach
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
@@ -717,12 +767,12 @@
                 </div>
                 <div class="placeholder-metrics">
                     <div class="placeholder-metric">
-                        <div class="label">ACWR</div>
+                        <div class="label">Charge</div>
                         <div class="value">1.05</div>
                     </div>
                     <div class="placeholder-metric">
-                        <div class="label">Fatigue</div>
-                        <div class="value">32</div>
+                        <div class="label">Récup</div>
+                        <div class="value">68</div>
                     </div>
                     <div class="placeholder-metric">
                         <div class="label">VO2max</div>
@@ -733,6 +783,13 @@
         </div>
     </div>
 </section>
+
+<!-- HERO EXPLAINER -->
+<div class="hero-explainer">
+    <span><strong>Charge</strong> = ton effort par rapport à tes habitudes</span>
+    <span class="dot-sep">·</span>
+    <span><strong>Récup</strong> = tes réserves, comme une batterie</span>
+</div>
 
 <!-- POUR QUI -->
 <section class="for-who">
@@ -763,10 +820,10 @@
                     <path d="M16 2v4M8 2v4M3 10h18"/>
                 </svg>
             </div>
-            <h3 class="profile-name">Tu t'entraînes 3 à 6 fois par semaine</h3>
+            <h3 class="profile-name">Tu t'entraînes régulièrement</h3>
             <p class="profile-desc">
-                Assez pour avoir besoin de structure, pas assez pour avoir un
-                coach privé. Baseload comble ce vide.
+                Tu veux structurer ta progression et t'entraîner plus
+                intelligemment. Baseload te donne la méthode.
             </p>
         </div>
 
@@ -812,85 +869,15 @@
                 </ul>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- FEATURES -->
-<section class="features">
-    <div class="section-eyebrow">Pourquoi Baseload</div>
-    <h2 class="section-title">Un coach qui<br>s'adapte à toi</h2>
-
-    <div class="feature-grid">
-        <div class="feature-card">
-            <div class="feature-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 3v18h18"/>
-                    <path d="M7 16l4-8 4 4 5-10"/>
-                </svg>
-            </div>
-            <h3 class="feature-name">Il sait ce que tu as fait</h3>
-            <p class="feature-desc">
-                Baseload lit tes séances Apple Watch automatiquement. Course,
-                vélo, natation, renfo — tout est pris en compte.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-6.5l-2.8 2.8m-5.4 5.4l-2.8 2.8m0-11l2.8 2.8m5.4 5.4l2.8 2.8"/>
-                </svg>
-            </div>
-            <h3 class="feature-name">Il sait comment tu te sens</h3>
-            <p class="feature-desc">
-                Chaque matin, 30 secondes pour dire comment tu te sens. Le coach
-                adapte tout en conséquence.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2"/>
-                    <path d="M16 2v4M8 2v4M3 10h18"/>
-                    <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
-                </svg>
-            </div>
-            <h3 class="feature-name">Il planifie pour toi</h3>
-            <p class="feature-desc">
-                Un planning de semaine qui tient compte de ta fatigue, tes
-                douleurs, la météo, ton matériel et tes échéances.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-            </div>
-            <h3 class="feature-name">Il te protège</h3>
-            <p class="feature-desc">
-                Malade ? Blessé ? Trop fatigué ? Le coach passe en mode repos.
-                Zéro compromis sur ta santé.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-                    <polyline points="16 7 22 7 22 13"/>
-                </svg>
-            </div>
-            <h3 class="feature-name">Il progresse avec toi</h3>
-            <p class="feature-desc">
-                Plus tu utilises Baseload, mieux il te connaît. Tes zones
-                d'effort, tes points faibles, tes objectifs — tout est
-                personnalisé.
-            </p>
-        </div>
+        <p class="compare-punchline">
+            Baseload est le seul coach qui croise ta fatigue musculaire, ta
+            charge réelle et tes douleurs pour adapter ton plan chaque jour.
+        </p>
+        <p class="credibility-badge">
+            Méthodologie basée sur les modèles de charge d'entraînement de la
+            recherche en médecine du sport (Gabbett, 2016 &amp; 2020).
+        </p>
     </div>
 </section>
 
@@ -904,7 +891,7 @@
             <div class="step-num">01</div>
             <div class="step-content">
                 <h3>Check-in du matin</h3>
-                <p>Comment tu te sens ? Malade, fatigué, OK ou en forme. Rate tes séances d'hier en un tap. Signale tes douleurs.</p>
+                <p>Comment tu te sens ? En forme, un peu fatigué, ou pas au top ? Rate tes séances d'hier en un tap.</p>
             </div>
         </div>
 
@@ -969,19 +956,21 @@
         Gratuit pendant la beta. Aucun engagement.
     </p>
     <a href="https://testflight.apple.com/join/QrkWunZe" class="cta-button">
-        Essayer gratuitement
+        Tester mon coach
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </a>
-    <div class="cta-note">Fonctionne avec iPhone · Encore mieux avec Apple Watch</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
     <div class="footer-brand">
         <div class="footer-logo">BL</div>
-        <span class="footer-copy">© 2026 Baseload</span>
+        <div class="footer-copy-block">
+            <span class="footer-copy">© 2026 Baseload</span>
+            <span class="footer-disclaimer">Baseload ne remplace pas un avis médical.</span>
+        </div>
     </div>
     <div class="footer-links">
         <a href="/privacy">Confidentialité</a>
