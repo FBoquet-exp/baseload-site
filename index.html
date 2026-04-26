@@ -484,6 +484,64 @@
             opacity: 0.7;
         }
 
+        /* Section head (between cards) */
+        .chart-section {
+            padding: 14px 16px 6px;
+            flex-shrink: 0;
+        }
+        .chart-section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 8px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
+        }
+
+        /* Chart card */
+        .chart-card {
+            margin: 0 14px;
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 12px;
+            padding: 10px 12px;
+            flex-shrink: 0;
+        }
+        .chart-svg {
+            display: block;
+            width: 100%;
+            height: 70px;
+            overflow: visible;
+        }
+        .chart-footer {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--hairline);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .chart-footer-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--signal);
+            box-shadow: 0 0 6px rgba(212, 255, 61, 0.5);
+            flex-shrink: 0;
+        }
+        .chart-footer-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 9.5px;
+            color: var(--ink-muted);
+            line-height: 1.35;
+        }
+        .chart-footer-text strong {
+            color: var(--paper);
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px;
+        }
+
         /* Tab bar */
         .phone-tabbar {
             display: flex;
@@ -901,13 +959,16 @@
             }
             .phone-mockup {
                 width: 260px;
-                height: 540px;
+                height: 580px;
             }
             .app-title { font-size: 26px; }
+            .app-pagetitle { padding: 4px 16px 12px; }
             .briefing-headline { font-size: 13px; }
             .metric-value { font-size: 19px; }
             .briefing-cta-title { font-size: 10.5px; }
             .briefing-cta-sub { font-size: 9px; }
+            .chart-svg { height: 58px; }
+            .chart-section { padding: 12px 14px 5px; }
 
             .step { flex-direction: column; gap: 12px; }
             .step-num { font-size: 36px; }
@@ -987,14 +1048,14 @@
                                     <div class="metric-status m-charge-status"></div>
                                 </div>
                                 <div class="briefing-metric">
-                                    <div class="metric-label">Jambes</div>
-                                    <div class="metric-value m-legs"></div>
-                                    <div class="metric-status m-legs-status"></div>
+                                    <div class="metric-label">Récup</div>
+                                    <div class="metric-value m-recup"></div>
+                                    <div class="metric-status m-recup-status"></div>
                                 </div>
                                 <div class="briefing-metric">
-                                    <div class="metric-label">Forme</div>
-                                    <div class="metric-value m-form"></div>
-                                    <div class="metric-status m-form-status"></div>
+                                    <div class="metric-label">VO₂max</div>
+                                    <div class="metric-value m-vo2"></div>
+                                    <div class="metric-status m-vo2-status"></div>
                                 </div>
                             </div>
                         </div>
@@ -1007,6 +1068,26 @@
                                 <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <span class="chart-section-label">Charge · 28 jours</span>
+                </div>
+                <div class="chart-card">
+                    <svg class="chart-svg" viewBox="0 0 270 80" preserveAspectRatio="none" aria-hidden="true">
+                        <rect x="0" y="15" width="270" height="25" fill="#3A4520"/>
+                        <line x1="0" y1="15" x2="270" y2="15" stroke="#D4FF3D" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.5"/>
+                        <line x1="0" y1="40" x2="270" y2="40" stroke="#D4FF3D" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.5"/>
+                        <line x1="0" y1="30" x2="270" y2="30" stroke="#5A5B5D" stroke-width="0.5" stroke-dasharray="1 3" opacity="0.6"/>
+                        <polyline fill="none" stroke="#F2F1ED" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"
+                            points="0,27.5 10,29 20,32.5 30,36 40,34 50,30 60,25 70,22.5 80,24 90,27.5 100,31 110,26 120,20 130,17.5 140,15 150,19 160,22.5 170,26 180,30 190,27.5 200,24 210,21 220,22.5 230,19 240,16 250,17.5 260,20 270,21"/>
+                        <circle cx="270" cy="21" r="6" fill="#D4FF3D" opacity="0.18"/>
+                        <circle cx="270" cy="21" r="3" fill="#D4FF3D"/>
+                    </svg>
+                    <div class="chart-footer">
+                        <span class="chart-footer-dot"></span>
+                        <span class="chart-footer-text">Dans la zone optimale depuis <strong>9 jours</strong></span>
                     </div>
                 </div>
 
@@ -1227,8 +1308,8 @@
             time: '07:42',
             headline: 'Réserves au top. Tu peux suivre le <em>tempo</em> prévu.',
             charge: { value: '48', unit: '/100', status: 'En zone',   tone: 'signal' },
-            legs:   { value: '24', unit: '/100', status: 'Frais',     tone: 'signal' },
-            form:   { value: '50.0', unit: '',   status: '→ Stable',  tone: 'muted'  }
+            recup:  { value: '76', unit: '%',    status: 'Dispo',     tone: 'signal' },
+            vo2:    { value: '50.0', unit: '',   status: '→ Stable',  tone: 'muted'  }
         },
         {
             tone: 'signal',
@@ -1236,8 +1317,8 @@
             time: '08:15',
             headline: 'Belle séance. On allège le renfo demain pour tes <em>jambes</em>.',
             charge: { value: '64', unit: '/100', status: 'Élevée',    tone: 'caution' },
-            legs:   { value: '64', unit: '/100', status: 'Chargé',    tone: 'caution' },
-            form:   { value: '50.2', unit: '',   status: '↑ 0.2',     tone: 'signal'  }
+            recup:  { value: '36', unit: '%',    status: 'Chargé',    tone: 'caution' },
+            vo2:    { value: '50.2', unit: '',   status: '↑ 0.2',     tone: 'signal'  }
         },
         {
             tone: 'caution',
@@ -1245,8 +1326,8 @@
             time: '07:30',
             headline: 'Charge en hausse rapide. Sortie <em>facile</em> aujourd’hui.',
             charge: { value: '88', unit: '/100', status: 'Surcharge', tone: 'caution' },
-            legs:   { value: '82', unit: '/100', status: 'Fatigué',   tone: 'stop'    },
-            form:   { value: '50.2', unit: '',   status: '→ Stable',  tone: 'muted'   }
+            recup:  { value: '18', unit: '%',    status: 'Fatigué',   tone: 'stop'    },
+            vo2:    { value: '50.2', unit: '',   status: '→ Stable',  tone: 'muted'   }
         },
         {
             tone: 'signal',
@@ -1254,8 +1335,8 @@
             time: 'Dim. 9:00',
             headline: 'Belle semaine. 4 séances. Tu <em>progresses</em> sans te brûler.',
             charge: { value: '56', unit: '/100', status: 'En zone',   tone: 'signal' },
-            legs:   { value: '32', unit: '/100', status: 'Frais',     tone: 'signal' },
-            form:   { value: '50.4', unit: '',   status: '↑ 0.4',     tone: 'signal' }
+            recup:  { value: '68', unit: '%',    status: 'Dispo',     tone: 'signal' },
+            vo2:    { value: '50.4', unit: '',   status: '↑ 0.4',     tone: 'signal' }
         }
     ];
 
@@ -1269,10 +1350,10 @@
 
     const charge = content.querySelector('.m-charge');
     const chargeStatus = content.querySelector('.m-charge-status');
-    const legs = content.querySelector('.m-legs');
-    const legsStatus = content.querySelector('.m-legs-status');
-    const form = content.querySelector('.m-form');
-    const formStatus = content.querySelector('.m-form-status');
+    const recup = content.querySelector('.m-recup');
+    const recupStatus = content.querySelector('.m-recup-status');
+    const vo2 = content.querySelector('.m-vo2');
+    const vo2Status = content.querySelector('.m-vo2-status');
 
     function valueHTML(v) {
         const unit = v.unit ? '<span class="metric-unit">' + v.unit + '</span>' : '';
@@ -1292,15 +1373,15 @@
         chargeStatus.className = 'metric-status m-charge-status tone-' + m.charge.tone;
         chargeStatus.textContent = m.charge.status;
 
-        legs.className = 'metric-value m-legs tone-' + m.legs.tone;
-        legs.innerHTML = valueHTML(m.legs);
-        legsStatus.className = 'metric-status m-legs-status tone-' + m.legs.tone;
-        legsStatus.textContent = m.legs.status;
+        recup.className = 'metric-value m-recup tone-' + m.recup.tone;
+        recup.innerHTML = valueHTML(m.recup);
+        recupStatus.className = 'metric-status m-recup-status tone-' + m.recup.tone;
+        recupStatus.textContent = m.recup.status;
 
-        form.className = 'metric-value m-form tone-' + m.form.tone;
-        form.innerHTML = valueHTML(m.form);
-        formStatus.className = 'metric-status m-form-status tone-' + m.form.tone;
-        formStatus.textContent = m.form.status;
+        vo2.className = 'metric-value m-vo2 tone-' + m.vo2.tone;
+        vo2.innerHTML = valueHTML(m.vo2);
+        vo2Status.className = 'metric-status m-vo2-status tone-' + m.vo2.tone;
+        vo2Status.textContent = m.vo2.status;
     }
 
     let index = 0;
