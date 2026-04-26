@@ -194,7 +194,7 @@
             animation: fadeUp 0.8s ease forwards 1s;
         }
 
-        /* ─── PHONE MOCKUP ─── */
+        /* ─── PHONE MOCKUP — Baseload Design System ─── */
         .phone-mockup {
             position: relative;
             width: 300px;
@@ -211,22 +211,36 @@
                 0 0 0 9px rgba(255, 255, 255, 0.06);
             opacity: 0;
             animation: fadeUp 0.9s ease forwards 0.5s;
+            font-feature-settings: "tnum", "lnum";
         }
 
+        /* Dynamic Island */
+        .phone-island {
+            position: absolute;
+            top: 9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 86px;
+            height: 24px;
+            background: #000;
+            border-radius: 14px;
+            z-index: 5;
+        }
+
+        /* Status bar */
         .phone-statusbar {
-            height: 30px;
-            padding: 8px 22px 4px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 14px 22px 8px;
             color: var(--paper);
             flex-shrink: 0;
         }
         .phone-time {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: -apple-system, "SF Pro", "DM Sans", sans-serif;
             font-weight: 600;
-            font-size: 12px;
-            color: var(--paper);
+            font-size: 11px;
+            letter-spacing: -0.2px;
         }
         .phone-statusbar-icons {
             display: flex;
@@ -234,196 +248,277 @@
             align-items: center;
         }
 
+        /* App page area */
         .phone-screen {
             flex: 1;
-            padding: 10px 16px 12px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
             min-height: 0;
         }
 
-        .app-topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* Page title — Display + brandmark eyebrow */
+        .app-pagetitle {
+            padding: 6px 18px 14px;
+            flex-shrink: 0;
         }
-        .app-logo {
-            width: 22px;
-            height: 22px;
+        .app-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .app-brandmark {
+            width: 16px;
+            height: 16px;
             background: var(--paper);
-            border-radius: 6px;
             color: var(--ink);
+            border-radius: 3px;
             font-family: 'Archivo', sans-serif;
             font-weight: 900;
-            font-size: 10px;
+            font-size: 8px;
+            letter-spacing: -0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            letter-spacing: -0.5px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .app-brandmark::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--signal);
         }
         .app-date {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 500;
-            font-size: 9px;
-            letter-spacing: 1px;
+            font-size: 8.5px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             color: var(--ink-muted);
         }
-
         .app-title {
             font-family: 'Archivo', sans-serif;
             font-weight: 900;
-            font-size: 22px;
+            font-size: 30px;
+            line-height: 0.98;
+            letter-spacing: -0.8px;
             text-transform: uppercase;
             color: var(--paper);
-            letter-spacing: -0.5px;
             margin: 0;
         }
 
-        .coach-card {
+        /* Briefing card (the hero on Analyse) */
+        .briefing-card {
+            margin: 0 14px;
             background: var(--card);
-            border: 1px solid var(--hairline);
-            border-radius: 16px;
-            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
         }
-        .coach-card-content {
+        .briefing-content {
             transition: opacity 0.6s ease;
             opacity: 1;
         }
-        .coach-card-content.fading {
+        .briefing-content.fading {
             opacity: 0;
         }
 
-        .coach-header {
+        /* Top strip — signal-tinted */
+        .briefing-strip {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
+            justify-content: space-between;
+            padding: 9px 14px;
+            border-bottom: 1px solid var(--hairline);
+            background: var(--signal-tint);
         }
-        .coach-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
+        .briefing-strip.tone-caution { background: rgba(255, 166, 48, 0.10); }
+        .briefing-strip.tone-stop    { background: rgba(255, 77, 61, 0.10); }
+        .briefing-strip-left {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .briefing-dot {
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             flex-shrink: 0;
+            background: var(--signal);
+            box-shadow: 0 0 6px rgba(212, 255, 61, 0.55);
         }
-        .coach-dot.dot-signal { background: var(--signal); box-shadow: 0 0 8px rgba(212, 255, 61, 0.55); }
-        .coach-dot.dot-caution { background: var(--caution); box-shadow: 0 0 8px rgba(255, 166, 48, 0.5); }
-        .coach-dot.dot-stop { background: var(--stop); box-shadow: 0 0 8px rgba(255, 77, 61, 0.5); }
-        .coach-dot.dot-pill { display: none; }
-
-        .coach-header-text {
+        .briefing-dot.tone-caution { background: var(--caution); box-shadow: 0 0 6px rgba(255, 166, 48, 0.5); }
+        .briefing-dot.tone-stop    { background: var(--stop); box-shadow: 0 0 6px rgba(255, 77, 61, 0.5); }
+        .briefing-label {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 600;
-            font-size: 9px;
-            letter-spacing: 1.5px;
+            font-size: 8.5px;
+            letter-spacing: 1.4px;
             text-transform: uppercase;
             color: var(--signal);
         }
-        .coach-card-pill .coach-header-text {
-            background: var(--signal-tint);
-            padding: 4px 8px;
-            border-radius: 5px;
-        }
-
-        .coach-message {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 1.5;
-            color: var(--paper);
-            margin: 0 0 14px;
-        }
-
-        .coach-metrics {
-            display: flex;
-            border-top: 1px solid var(--hairline);
-            padding-top: 12px;
-        }
-        .coach-metrics .metric {
-            flex: 1;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            align-items: center;
-            padding: 4px 0;
-        }
-        .coach-metrics .metric:not(:last-child) {
-            border-right: 1px solid var(--hairline);
-        }
-        .metric-label {
+        .briefing-label.tone-caution { color: var(--caution); }
+        .briefing-label.tone-stop    { color: var(--stop); }
+        .briefing-time {
             font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            font-size: 8px;
-            letter-spacing: 1.5px;
+            font-weight: 500;
+            font-size: 8.5px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             color: var(--ink-muted);
+        }
+
+        /* Body — Display headline + metric grid */
+        .briefing-body {
+            padding: 14px 14px 12px;
+        }
+        .briefing-headline {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 1.28;
+            letter-spacing: -0.2px;
+            text-transform: uppercase;
+            color: var(--paper);
+            margin: 0;
+        }
+        .briefing-headline em {
+            font-style: normal;
+            color: var(--signal);
+            text-decoration: underline;
+            text-decoration-color: var(--signal);
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 2px;
+        }
+
+        .briefing-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--hairline);
+        }
+        .briefing-metric {
+            padding: 0 8px;
+        }
+        .briefing-metric + .briefing-metric {
+            border-left: 1px solid var(--hairline);
+        }
+        .briefing-metric:first-child { padding-left: 2px; }
+        .briefing-metric:last-child  { padding-right: 2px; }
+        .metric-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 8px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
         }
         .metric-value {
             font-family: 'Archivo', sans-serif;
             font-weight: 900;
             font-size: 22px;
-            color: var(--paper);
             line-height: 1;
+            letter-spacing: -0.6px;
+            color: var(--paper);
+            margin-top: 5px;
             display: flex;
             align-items: baseline;
-            gap: 1px;
-            justify-content: center;
+            font-feature-settings: "tnum", "lnum";
         }
-        .metric-value.value-signal { color: var(--signal); }
-        .metric-value.value-caution { color: var(--caution); }
-        .metric-value.value-stop { color: var(--stop); }
+        .metric-value.tone-caution { color: var(--caution); }
+        .metric-value.tone-stop    { color: var(--stop); }
         .metric-unit {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            font-size: 12px;
-            color: var(--ink-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 500;
+            color: var(--ink-subtle);
+            margin-left: 2px;
         }
         .metric-status {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 600;
-            font-size: 8px;
-            letter-spacing: 1px;
+            font-size: 7.5px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            color: var(--ink-muted);
+            color: var(--signal);
+            margin-top: 4px;
             white-space: nowrap;
         }
-        .metric-status.status-signal { color: var(--signal); }
-        .metric-status.status-caution { color: var(--caution); }
-        .metric-status.status-stop { color: var(--stop); }
-        .metric-status.status-muted { color: var(--ink-muted); }
+        .metric-status.tone-caution { color: var(--caution); }
+        .metric-status.tone-stop    { color: var(--stop); }
+        .metric-status.tone-muted   { color: var(--ink-muted); }
 
+        /* CTA footer strip */
+        .briefing-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: var(--card-alt);
+            border-top: 1px solid var(--hairline);
+        }
+        .briefing-cta-text { display: flex; flex-direction: column; gap: 2px; }
+        .briefing-cta-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            color: var(--paper);
+            letter-spacing: -0.1px;
+        }
+        .briefing-cta-sub {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 9.5px;
+            color: var(--ink-muted);
+        }
+        .briefing-cta-chevron {
+            color: var(--paper);
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        /* Tab bar */
         .phone-tabbar {
             display: flex;
             border-top: 1px solid var(--hairline);
-            padding: 10px 0 4px;
+            padding: 8px 4px 4px;
+            margin-top: auto;
             flex-shrink: 0;
+            background: var(--ink);
         }
         .phone-tab {
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
-            color: var(--ink-muted);
+            gap: 3px;
+            color: var(--ink-subtle);
             font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            font-size: 9px;
-            letter-spacing: 0.5px;
+            font-weight: 500;
+            font-size: 7.5px;
+            letter-spacing: 0.6px;
             text-transform: uppercase;
+            padding: 4px 0;
         }
         .phone-tab.active {
-            color: var(--signal);
+            color: var(--paper);
+            font-weight: 600;
         }
 
+        /* Home indicator */
         .phone-home-indicator {
-            width: 110px;
+            width: 100px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.45);
             border-radius: 2px;
-            margin: 0 auto 8px;
+            margin: 4px auto 8px;
             flex-shrink: 0;
         }
 
@@ -808,6 +903,11 @@
                 width: 260px;
                 height: 540px;
             }
+            .app-title { font-size: 26px; }
+            .briefing-headline { font-size: 13px; }
+            .metric-value { font-size: 19px; }
+            .briefing-cta-title { font-size: 10.5px; }
+            .briefing-cta-sub { font-size: 9px; }
 
             .step { flex-direction: column; gap: 12px; }
             .step-num { font-size: 36px; }
@@ -849,68 +949,99 @@
 
     <div class="hero-visual">
         <div class="phone-mockup" aria-label="Aperçu de l'application Baseload">
+            <div class="phone-island"></div>
+
             <div class="phone-statusbar">
                 <span class="phone-time">9:41</span>
                 <div class="phone-statusbar-icons">
-                    <svg width="16" height="10" viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><rect x="0" y="6" width="3" height="4" rx="0.5"/><rect x="4" y="4" width="3" height="6" rx="0.5"/><rect x="8" y="2" width="3" height="8" rx="0.5"/><rect x="12" y="0" width="3" height="10" rx="0.5"/></svg>
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M1 3 c2 -2 5 -3 6 -3 c1 0 4 1 6 3"/><path d="M3 5.5 c1 -1 3 -1.5 4 -1.5 c1 0 3 0.5 4 1.5"/><circle cx="7" cy="8" r="0.8" fill="currentColor"/></svg>
-                    <svg width="24" height="10" viewBox="0 0 24 10" fill="none" stroke="currentColor" stroke-width="0.8" aria-hidden="true"><rect x="0.5" y="0.5" width="20" height="9" rx="2.5"/><rect x="2" y="2" width="16" height="6" rx="1" fill="currentColor"/><rect x="21.5" y="3" width="2" height="4" rx="0.5" fill="currentColor"/></svg>
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="currentColor" aria-hidden="true"><rect x="0" y="5.5" width="2.4" height="3.5" rx="0.5"/><rect x="3.6" y="3.5" width="2.4" height="5.5" rx="0.5"/><rect x="7.2" y="1.5" width="2.4" height="7.5" rx="0.5"/><rect x="10.8" y="0" width="2.4" height="9" rx="0.5"/></svg>
+                    <svg width="13" height="9" viewBox="0 0 13 9" fill="currentColor" aria-hidden="true"><path d="M6.5 2.4c1.7 0 3.3.7 4.4 1.8l.9-.9C10.4 2 8.5 1.1 6.5 1.1S2.6 2 1.2 3.3l.9.9c1.1-1.1 2.7-1.8 4.4-1.8z"/><path d="M6.5 5.1c1 0 2 .4 2.6 1.1l.9-.9c-1-1-2.2-1.5-3.5-1.5s-2.5.6-3.5 1.5l.9.9c.7-.7 1.6-1.1 2.6-1.1z"/><circle cx="6.5" cy="7.7" r="1.1"/></svg>
+                    <svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="18.5" height="9" rx="2.5" stroke="currentColor" stroke-opacity="0.4"/><rect x="2" y="2" width="15.5" height="6" rx="1.2" fill="currentColor"/><path d="M20 3.4v3.2c.6-.2 1.1-.8 1.1-1.6 0-.7-.5-1.4-1.1-1.6z" fill="currentColor" fill-opacity="0.5"/></svg>
                 </div>
             </div>
 
             <div class="phone-screen">
-                <div class="app-topbar">
-                    <div class="app-logo">BL</div>
-                    <div class="app-date">Samedi 26 avril · 9:41</div>
+                <div class="app-pagetitle">
+                    <div class="app-eyebrow">
+                        <span class="app-brandmark">BL</span>
+                        <span class="app-date">Sam. 26 avril · 9:41</span>
+                    </div>
+                    <h2 class="app-title">Analyse</h2>
                 </div>
-                <h2 class="app-title">Analyse</h2>
 
-                <div class="coach-card">
-                    <div class="coach-card-content">
-                        <div class="coach-header">
-                            <span class="coach-dot"></span>
-                            <span class="coach-header-text"></span>
+                <div class="briefing-card">
+                    <div class="briefing-content">
+                        <div class="briefing-strip">
+                            <div class="briefing-strip-left">
+                                <span class="briefing-dot"></span>
+                                <span class="briefing-label"></span>
+                            </div>
+                            <span class="briefing-time"></span>
                         </div>
-                        <p class="coach-message"></p>
-                        <div class="coach-metrics">
-                            <div class="metric">
-                                <div class="metric-label">Charge</div>
-                                <div class="metric-value charge-icon"></div>
-                                <div class="metric-status charge-status"></div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-label">Récup</div>
-                                <div class="metric-value">
-                                    <span class="recup-value"></span><span class="metric-unit">%</span>
+                        <div class="briefing-body">
+                            <p class="briefing-headline"></p>
+                            <div class="briefing-metrics">
+                                <div class="briefing-metric">
+                                    <div class="metric-label">Charge</div>
+                                    <div class="metric-value m-charge"></div>
+                                    <div class="metric-status m-charge-status"></div>
                                 </div>
-                                <div class="metric-status recup-status"></div>
+                                <div class="briefing-metric">
+                                    <div class="metric-label">Jambes</div>
+                                    <div class="metric-value m-legs"></div>
+                                    <div class="metric-status m-legs-status"></div>
+                                </div>
+                                <div class="briefing-metric">
+                                    <div class="metric-label">Forme</div>
+                                    <div class="metric-value m-form"></div>
+                                    <div class="metric-status m-form-status"></div>
+                                </div>
                             </div>
-                            <div class="metric">
-                                <div class="metric-label">VO₂max</div>
-                                <div class="metric-value vo2-value"></div>
-                                <div class="metric-status vo2-trend"></div>
+                        </div>
+                        <div class="briefing-cta">
+                            <div class="briefing-cta-text">
+                                <div class="briefing-cta-title">Check-in du matin</div>
+                                <div class="briefing-cta-sub">30 sec · ressenti, sommeil</div>
                             </div>
+                            <svg class="briefing-cta-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="phone-tabbar">
-                <div class="phone-tab active">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2" y="6" width="2" height="6" rx="0.5"/><rect x="6" y="3" width="2" height="9" rx="0.5"/><rect x="10" y="8" width="2" height="4" rx="0.5"/></svg>
-                    <span>Analyse</span>
+                <div class="phone-tabbar">
+                    <div class="phone-tab active">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M2 12 L6 7 L9 9 L14 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Analyse</span>
+                    </div>
+                    <div class="phone-tab">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <rect x="3" y="2" width="10" height="12" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Journal</span>
+                    </div>
+                    <div class="phone-tab">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <rect x="2" y="3" width="12" height="11" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 6.5h12M5 2v2.5M11 2v2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Planning</span>
+                    </div>
+                    <div class="phone-tab">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <circle cx="8" cy="6" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M3 14c0.8-2.5 2.8-4 5-4s4.2 1.5 5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Profil</span>
+                    </div>
                 </div>
-                <div class="phone-tab">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="3" width="10" height="9" rx="1.5"/><line x1="2" y1="6" x2="12" y2="6"/><line x1="5" y1="2" x2="5" y2="4"/><line x1="9" y1="2" x2="9" y2="4"/></svg>
-                    <span>Planning</span>
-                </div>
-                <div class="phone-tab">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="7" cy="5" r="2"/><path d="M2 12 c0.5 -2.5 3 -4 5 -4 c2 0 4.5 1.5 5 4"/></svg>
-                    <span>Profil</span>
-                </div>
-            </div>
 
-            <div class="phone-home-indicator"></div>
+                <div class="phone-home-indicator"></div>
+            </div>
         </div>
     </div>
 </section>
@@ -1091,69 +1222,85 @@
 (function() {
     const messages = [
         {
-            dotClass: 'signal',
-            header: 'Ton coach du jour · Feu vert',
-            message: "Bonjour ! Belle journée pour ta sortie vélo. Tes réserves sont bonnes, tu peux y aller sereinement sur le tempo prévu.",
-            charge: { icon: '●', state: 'Optimal', color: 'signal' },
-            recup: { value: '72', state: 'Disponible', color: 'signal' },
-            vo2: { value: '50.0', trend: '→ Stable', color: 'muted' }
+            tone: 'signal',
+            label: 'Briefing du jour · Feu vert',
+            time: '07:42',
+            headline: 'Réserves au top. Tu peux suivre le <em>tempo</em> prévu.',
+            charge: { value: '48', unit: '/100', status: 'En zone',   tone: 'signal' },
+            legs:   { value: '24', unit: '/100', status: 'Frais',     tone: 'signal' },
+            form:   { value: '50.0', unit: '',   status: '→ Stable',  tone: 'muted'  }
         },
         {
-            dotClass: 'signal',
-            header: 'Ton coach du jour · Feu vert',
-            message: "Super run ce matin. On allègera le renfo prévu demain pour laisser tes jambes récupérer. Concentre-toi sur le haut du corps.",
-            charge: { icon: '↑', state: 'Élevée', color: 'caution' },
-            recup: { value: '38', state: 'Chargé', color: 'caution' },
-            vo2: { value: '50.2', trend: '↑ 0.2', color: 'signal' }
+            tone: 'signal',
+            label: 'Briefing du jour · Feu vert',
+            time: '08:15',
+            headline: 'Belle séance. On allège le renfo demain pour tes <em>jambes</em>.',
+            charge: { value: '64', unit: '/100', status: 'Élevée',    tone: 'caution' },
+            legs:   { value: '64', unit: '/100', status: 'Chargé',    tone: 'caution' },
+            form:   { value: '50.2', unit: '',   status: '↑ 0.2',     tone: 'signal'  }
         },
         {
-            dotClass: 'caution',
-            header: 'Ton coach du jour · Attention',
-            message: "Ta charge a monté vite ces 3 derniers jours. Remplaçons la séance de seuil par une sortie facile — ton corps a besoin d'absorber le travail.",
-            charge: { icon: '↑', state: 'Élevée', color: 'caution' },
-            recup: { value: '22', state: 'Chargé', color: 'stop' },
-            vo2: { value: '50.2', trend: '→ Stable', color: 'muted' }
+            tone: 'caution',
+            label: 'Briefing du jour · Attention',
+            time: '07:30',
+            headline: 'Charge en hausse rapide. Sortie <em>facile</em> aujourd’hui.',
+            charge: { value: '88', unit: '/100', status: 'Surcharge', tone: 'caution' },
+            legs:   { value: '82', unit: '/100', status: 'Fatigué',   tone: 'stop'    },
+            form:   { value: '50.2', unit: '',   status: '→ Stable',  tone: 'muted'   }
         },
         {
-            dotClass: 'pill',
-            header: 'Bilan de la semaine',
-            message: "Belle semaine ! 4 séances, 5h12 au total. Ta VO₂max progresse. La semaine prochaine, on maintient le cap avec une sortie longue samedi.",
-            charge: { icon: '●', state: 'Optimal', color: 'signal' },
-            recup: { value: '65', state: 'Disponible', color: 'signal' },
-            vo2: { value: '50.4', trend: '↑ 0.4', color: 'signal' }
+            tone: 'signal',
+            label: 'Bilan de la semaine',
+            time: 'Dim. 9:00',
+            headline: 'Belle semaine. 4 séances. Tu <em>progresses</em> sans te brûler.',
+            charge: { value: '56', unit: '/100', status: 'En zone',   tone: 'signal' },
+            legs:   { value: '32', unit: '/100', status: 'Frais',     tone: 'signal' },
+            form:   { value: '50.4', unit: '',   status: '↑ 0.4',     tone: 'signal' }
         }
     ];
 
-    const card = document.querySelector('.coach-card');
-    const content = card.querySelector('.coach-card-content');
-    const dot = content.querySelector('.coach-dot');
-    const headerEl = content.querySelector('.coach-header-text');
-    const messageEl = content.querySelector('.coach-message');
-    const chargeIcon = content.querySelector('.charge-icon');
-    const chargeStatus = content.querySelector('.charge-status');
-    const recupValue = content.querySelector('.recup-value');
-    const recupStatus = content.querySelector('.recup-status');
-    const vo2Value = content.querySelector('.vo2-value');
-    const vo2Trend = content.querySelector('.vo2-trend');
+    const card = document.querySelector('.briefing-card');
+    const content = card.querySelector('.briefing-content');
+    const strip = content.querySelector('.briefing-strip');
+    const dot = content.querySelector('.briefing-dot');
+    const labelEl = content.querySelector('.briefing-label');
+    const timeEl = content.querySelector('.briefing-time');
+    const headlineEl = content.querySelector('.briefing-headline');
+
+    const charge = content.querySelector('.m-charge');
+    const chargeStatus = content.querySelector('.m-charge-status');
+    const legs = content.querySelector('.m-legs');
+    const legsStatus = content.querySelector('.m-legs-status');
+    const form = content.querySelector('.m-form');
+    const formStatus = content.querySelector('.m-form-status');
+
+    function valueHTML(v) {
+        const unit = v.unit ? '<span class="metric-unit">' + v.unit + '</span>' : '';
+        return v.value + unit;
+    }
 
     function applyMessage(m) {
-        dot.className = 'coach-dot dot-' + m.dotClass;
-        card.classList.toggle('coach-card-pill', m.dotClass === 'pill');
-        headerEl.textContent = m.header;
-        messageEl.textContent = m.message;
+        strip.className = 'briefing-strip tone-' + m.tone;
+        dot.className = 'briefing-dot tone-' + m.tone;
+        labelEl.className = 'briefing-label tone-' + m.tone;
+        labelEl.textContent = m.label;
+        timeEl.textContent = m.time;
+        headlineEl.innerHTML = m.headline;
 
-        chargeIcon.textContent = m.charge.icon;
-        chargeIcon.className = 'metric-value charge-icon value-' + m.charge.color;
-        chargeStatus.textContent = m.charge.state;
-        chargeStatus.className = 'metric-status charge-status status-' + m.charge.color;
+        charge.className = 'metric-value m-charge tone-' + m.charge.tone;
+        charge.innerHTML = valueHTML(m.charge);
+        chargeStatus.className = 'metric-status m-charge-status tone-' + m.charge.tone;
+        chargeStatus.textContent = m.charge.status;
 
-        recupValue.textContent = m.recup.value;
-        recupStatus.textContent = m.recup.state;
-        recupStatus.className = 'metric-status recup-status status-' + m.recup.color;
+        legs.className = 'metric-value m-legs tone-' + m.legs.tone;
+        legs.innerHTML = valueHTML(m.legs);
+        legsStatus.className = 'metric-status m-legs-status tone-' + m.legs.tone;
+        legsStatus.textContent = m.legs.status;
 
-        vo2Value.textContent = m.vo2.value;
-        vo2Trend.textContent = m.vo2.trend;
-        vo2Trend.className = 'metric-status vo2-trend status-' + m.vo2.color;
+        form.className = 'metric-value m-form tone-' + m.form.tone;
+        form.innerHTML = valueHTML(m.form);
+        formStatus.className = 'metric-status m-form-status tone-' + m.form.tone;
+        formStatus.textContent = m.form.status;
     }
 
     let index = 0;
