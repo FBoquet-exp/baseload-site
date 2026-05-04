@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseload — A personal coach who knows you</title>
+    <meta name="description" content="Baseload reads your training, fatigue and progress to guide you every single day. No generic plan — coaching built around you.">
+    <meta property="og:title" content="Baseload — A coach who knows you">
+    <meta property="og:description" content="A personal sports coach built around you, not a generic plan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://getbaseload.com/en/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0E0F11;
+            --paper: #F2F1ED;
+            --card: #16181C;
+            --card-alt: #1C1F24;
+            --signal: #D4FF3D;
+            --signal-tint: rgba(212, 255, 61, 0.12);
+            --caution: #FFA630;
+            --stop: #FF4D3D;
+            --ink-muted: #8A8B8D;
+            --ink-subtle: #5A5B5D;
+            --hairline: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'DM Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(14, 15, 17, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+
+        .nav-logo {
+            width: 36px; height: 36px;
+            background: var(--paper);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900; font-size: 14px;
+            color: var(--ink); letter-spacing: -0.5px;
+        }
+
+        .nav-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600; font-size: 13px;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--paper);
+        }
+
+        .nav-cta {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600; font-size: 11px;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            padding: 10px 20px;
+            background: var(--signal); color: var(--ink);
+            border: none; border-radius: 6px;
+            cursor: pointer; text-decoration: none;
+            transition: all 0.2s;
+        }
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(212, 255, 61, 0.3);
+        }
+
+        /* ─── HERO (split layout) ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            padding: 140px 40px 80px;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: min(800px, 100%);
+            height: 800px;
+            max-width: 100%;
+            background: radial-gradient(ellipse, rgba(212, 255, 61, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 560px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600; font-size: 11px;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--signal);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero-title {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: clamp(44px, 6vw, 80px);
+            line-height: 0.95;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+        .hero-title .accent { color: var(--signal); }
+
+        .hero-sub {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+            max-width: 520px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600; font-size: 13px;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            padding: 16px 36px;
+            background: var(--signal); color: var(--ink);
+            border: none; border-radius: 8px;
+            cursor: pointer; text-decoration: none;
+            transition: all 0.2s;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.8s;
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(212, 255, 61, 0.25);
+        }
+
+        .hero-badge {
+            margin-top: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--paper);
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1s;
+        }
+
+        /* ─── PHONE MOCKUP — Baseload Design System ─── */
+        .phone-mockup {
+            position: relative;
+            width: 300px;
+            height: 620px;
+            background: var(--ink);
+            border-radius: 44px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: rotate(2deg);
+            box-shadow:
+                0 24px 64px rgba(0, 0, 0, 0.55),
+                0 0 0 8px #1a1d23,
+                0 0 0 9px rgba(255, 255, 255, 0.06);
+            opacity: 0;
+            animation: fadeUp 0.9s ease forwards 0.5s;
+            font-feature-settings: "tnum", "lnum";
+        }
+
+        /* Dynamic Island */
+        .phone-island {
+            position: absolute;
+            top: 9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 86px;
+            height: 24px;
+            background: #000;
+            border-radius: 14px;
+            z-index: 5;
+        }
+
+        /* Status bar */
+        .phone-statusbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 22px 8px;
+            color: var(--paper);
+            flex-shrink: 0;
+        }
+        .phone-time {
+            font-family: -apple-system, "SF Pro", "DM Sans", sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: -0.2px;
+        }
+        .phone-statusbar-icons {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* App page area */
+        .phone-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        /* Page title — Display + brandmark eyebrow */
+        .app-pagetitle {
+            padding: 6px 18px 14px;
+            flex-shrink: 0;
+        }
+        .app-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .app-brandmark {
+            width: 16px;
+            height: 16px;
+            background: var(--paper);
+            color: var(--ink);
+            border-radius: 3px;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 8px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .app-brandmark::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--signal);
+        }
+        .app-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 8.5px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+        .app-title {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 30px;
+            line-height: 0.98;
+            letter-spacing: -0.8px;
+            text-transform: uppercase;
+            color: var(--paper);
+            margin: 0;
+        }
+
+        /* Briefing card (the hero on Analyse) */
+        .briefing-card {
+            margin: 0 14px;
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .briefing-content {
+            transition: opacity 0.6s ease;
+            opacity: 1;
+        }
+        .briefing-content.fading {
+            opacity: 0;
+        }
+
+        /* Top strip — signal-tinted */
+        .briefing-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 9px 14px;
+            border-bottom: 1px solid var(--hairline);
+            background: var(--signal-tint);
+        }
+        .briefing-strip.tone-caution { background: rgba(255, 166, 48, 0.10); }
+        .briefing-strip.tone-stop    { background: rgba(255, 77, 61, 0.10); }
+        .briefing-strip-left {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .briefing-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: var(--signal);
+            box-shadow: 0 0 6px rgba(212, 255, 61, 0.55);
+        }
+        .briefing-dot.tone-caution { background: var(--caution); box-shadow: 0 0 6px rgba(255, 166, 48, 0.5); }
+        .briefing-dot.tone-stop    { background: var(--stop); box-shadow: 0 0 6px rgba(255, 77, 61, 0.5); }
+        .briefing-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 8.5px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--signal);
+        }
+        .briefing-label.tone-caution { color: var(--caution); }
+        .briefing-label.tone-stop    { color: var(--stop); }
+        .briefing-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 8.5px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+
+        /* Body — Display headline + metric grid */
+        .briefing-body {
+            padding: 14px 14px 12px;
+        }
+        .briefing-headline {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 1.28;
+            letter-spacing: -0.2px;
+            text-transform: uppercase;
+            color: var(--paper);
+            margin: 0;
+        }
+        .briefing-headline em {
+            font-style: normal;
+            color: var(--signal);
+            text-decoration: underline;
+            text-decoration-color: var(--signal);
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 2px;
+        }
+
+        .briefing-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--hairline);
+        }
+        .briefing-metric {
+            padding: 0 8px;
+        }
+        .briefing-metric + .briefing-metric {
+            border-left: 1px solid var(--hairline);
+        }
+        .briefing-metric:first-child { padding-left: 2px; }
+        .briefing-metric:last-child  { padding-right: 2px; }
+        .metric-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 8px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
+        }
+        .metric-value {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+            line-height: 1;
+            letter-spacing: -0.6px;
+            color: var(--paper);
+            margin-top: 5px;
+            display: flex;
+            align-items: baseline;
+            font-feature-settings: "tnum", "lnum";
+        }
+        .metric-value.tone-caution { color: var(--caution); }
+        .metric-value.tone-stop    { color: var(--stop); }
+        .metric-unit {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 500;
+            color: var(--ink-subtle);
+            margin-left: 2px;
+        }
+        .metric-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 7.5px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--signal);
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+        .metric-status.tone-caution { color: var(--caution); }
+        .metric-status.tone-stop    { color: var(--stop); }
+        .metric-status.tone-muted   { color: var(--ink-muted); }
+
+        /* CTA footer strip */
+        .briefing-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: var(--card-alt);
+            border-top: 1px solid var(--hairline);
+        }
+        .briefing-cta-text { display: flex; flex-direction: column; gap: 2px; }
+        .briefing-cta-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            color: var(--paper);
+            letter-spacing: -0.1px;
+        }
+        .briefing-cta-sub {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 9.5px;
+            color: var(--ink-muted);
+        }
+        .briefing-cta-chevron {
+            color: var(--paper);
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        /* Section head (between cards) */
+        .chart-section {
+            padding: 14px 16px 6px;
+            flex-shrink: 0;
+        }
+        .chart-section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 8px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
+        }
+
+        /* Chart card */
+        .chart-card {
+            margin: 0 14px;
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 12px;
+            padding: 10px 12px;
+            flex-shrink: 0;
+        }
+        .chart-svg {
+            display: block;
+            width: 100%;
+            height: 70px;
+            overflow: visible;
+        }
+        .chart-footer {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--hairline);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .chart-footer-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--signal);
+            box-shadow: 0 0 6px rgba(212, 255, 61, 0.5);
+            flex-shrink: 0;
+        }
+        .chart-footer-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 9.5px;
+            color: var(--ink-muted);
+            line-height: 1.35;
+        }
+        .chart-footer-text strong {
+            color: var(--paper);
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px;
+        }
+
+        /* Tab bar */
+        .phone-tabbar {
+            display: flex;
+            border-top: 1px solid var(--hairline);
+            padding: 8px 4px 4px;
+            margin-top: auto;
+            flex-shrink: 0;
+            background: var(--ink);
+        }
+        .phone-tab {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            color: var(--ink-subtle);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 7.5px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            padding: 4px 0;
+        }
+        .phone-tab.active {
+            color: var(--paper);
+            font-weight: 600;
+        }
+
+        /* Home indicator */
+        .phone-home-indicator {
+            width: 100px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 2px;
+            margin: 4px auto 8px;
+            flex-shrink: 0;
+        }
+
+        /* ─── SECTION SHARED ─── */
+        .section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600; font-size: 11px;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--signal);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: clamp(32px, 5vw, 52px);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 64px;
+            line-height: 1.05;
+        }
+
+        /* ─── POUR QUI ─── */
+        .for-who {
+            padding: 100px 24px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .for-who-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .profile-card {
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-top: 2px solid var(--signal);
+            border-radius: 16px;
+            padding: 36px 32px;
+            transition: all 0.3s;
+        }
+        .profile-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 255, 61, 0.3);
+            border-top-color: var(--signal);
+        }
+        .profile-icon {
+            width: 44px; height: 44px;
+            background: var(--signal-tint);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .profile-name {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800; font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .profile-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        /* ─── COMPARE / DIFFERENCE ─── */
+        .compare {
+            padding: 100px 24px;
+            background: var(--card);
+            border-top: 1px solid var(--hairline);
+            border-bottom: 1px solid var(--hairline);
+        }
+        .compare-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .difference-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .difference-list li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--paper);
+        }
+        .difference-list li strong {
+            color: var(--signal);
+            font-weight: 600;
+        }
+        .difference-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 5px;
+            margin-top: 2px;
+            background-color: var(--signal-tint);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4FF3D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+        }
+
+        /* ─── HERO EXPLAINER ─── */
+        .hero-explainer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: var(--ink-muted);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            line-height: 1.6;
+        }
+        .hero-explainer strong {
+            color: var(--signal);
+            font-weight: 600;
+        }
+        .hero-explainer .dot-sep {
+            color: var(--ink-subtle);
+        }
+
+        /* ─── FEATURES ─── */
+        .features {
+            padding: 100px 24px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+        }
+        .feature-card {
+            flex: 1 1 300px;
+            max-width: 340px;
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            padding: 36px 32px;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            border-color: rgba(212, 255, 61, 0.2);
+            transform: translateY(-4px);
+        }
+        .feature-icon {
+            width: 44px; height: 44px;
+            background: var(--signal-tint);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .feature-name {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800; font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .feature-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        /* ─── HOW IT WORKS ─── */
+        .how {
+            padding: 100px 24px;
+            background: var(--card);
+            border-top: 1px solid var(--hairline);
+            border-bottom: 1px solid var(--hairline);
+        }
+        .how-inner { max-width: 800px; margin: 0 auto; }
+        .step {
+            display: flex; gap: 32px;
+            margin-bottom: 56px;
+            align-items: flex-start;
+        }
+        .step:last-child { margin-bottom: 0; }
+        .step-num {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900; font-size: 48px;
+            color: var(--signal);
+            line-height: 1; min-width: 60px;
+            opacity: 0.4;
+        }
+        .step-content h3 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800; font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .step-content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        /* ─── TESTIMONIALS ─── */
+        .testimonials {
+            padding: 100px 0;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .testimonials .section-eyebrow,
+        .testimonials .section-title {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+        .testimonial-grid {
+            position: relative;
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 4px 8%;
+            scrollbar-width: none;
+        }
+        .testimonial-grid::-webkit-scrollbar { display: none; }
+        .testimonial-card {
+            position: relative;
+            flex: 0 0 84%;
+            scroll-snap-align: center;
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            padding: 56px 32px 32px;
+        }
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .testimonial-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ink-subtle);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+        .testimonial-dot:hover {
+            background: var(--ink-muted);
+        }
+        .testimonial-dot.active {
+            background: var(--signal);
+            transform: scale(1.15);
+        }
+        .testimonial-mark {
+            position: absolute;
+            top: 12px;
+            left: 24px;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 1;
+            color: var(--signal);
+            opacity: 0.85;
+        }
+        .testimonial-quote {
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--paper);
+            margin-bottom: 24px;
+        }
+        .testimonial-author {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600; font-size: 11px;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+        .testimonial-author .accent { color: var(--signal); }
+
+        /* ─── CTA SECTION ─── */
+        .cta-section {
+            padding: 120px 24px;
+            text-align: center;
+        }
+        .cta-title {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: clamp(36px, 6vw, 64px);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+        .cta-title .accent { color: var(--signal); }
+        .cta-sub {
+            font-size: 16px;
+            color: var(--ink-muted);
+            margin-bottom: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600; font-size: 13px;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            padding: 18px 44px;
+            background: var(--signal); color: var(--ink);
+            border: none; border-radius: 8px;
+            cursor: pointer; text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(212, 255, 61, 0.25);
+        }
+        .cta-note {
+            margin-top: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink-subtle);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 40px 24px;
+            border-top: 1px solid var(--hairline);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 10px; }
+        .footer-logo {
+            width: 28px; height: 28px;
+            background: var(--paper);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900; font-size: 11px;
+            color: var(--ink);
+        }
+        .footer-copy-block { display: flex; flex-direction: column; gap: 4px; }
+        .footer-copy { font-size: 12px; color: var(--ink-subtle); }
+        .footer-disclaimer { font-size: 11px; color: var(--ink-subtle); line-height: 1.4; }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--signal); }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 980px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 120px 24px 60px;
+                gap: 56px;
+            }
+            .hero-text { max-width: 560px; margin: 0 auto; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .nav-name { display: none; }
+
+            .hero-visual {
+                width: 260px;
+                margin: 0 auto;
+            }
+            .phone-mockup {
+                width: 260px;
+                height: 580px;
+            }
+            .app-title { font-size: 26px; }
+            .app-pagetitle { padding: 4px 16px 12px; }
+            .briefing-headline { font-size: 13px; }
+            .metric-value { font-size: 19px; }
+            .briefing-cta-title { font-size: 10.5px; }
+            .briefing-cta-sub { font-size: 9px; }
+            .chart-svg { height: 58px; }
+            .chart-section { padding: 12px 14px 5px; }
+
+            .step { flex-direction: column; gap: 12px; }
+            .step-num { font-size: 36px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-brand">
+        <div class="nav-logo">BL</div>
+        <span class="nav-name">Baseload</span>
+    </div>
+    <a href="https://testflight.apple.com/join/QrkWunZe" class="nav-cta">Try my coach</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <div class="hero-eyebrow">Personal sports coach</div>
+        <h1 class="hero-title">
+            A coach<br>
+            who <span class="accent">knows</span> you
+        </h1>
+        <p class="hero-sub">
+            One coach, one plan — built around you. Baseload reads your sessions,
+            your fatigue and your progress to guide you every single day.
+        </p>
+        <a href="https://testflight.apple.com/join/QrkWunZe" class="hero-cta">
+            Try my coach
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+        <div class="hero-badge">Works with iPhone.</div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="phone-mockup" aria-label="Baseload app preview">
+            <div class="phone-island"></div>
+
+            <div class="phone-statusbar">
+                <span class="phone-time">9:41</span>
+                <div class="phone-statusbar-icons">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="currentColor" aria-hidden="true"><rect x="0" y="5.5" width="2.4" height="3.5" rx="0.5"/><rect x="3.6" y="3.5" width="2.4" height="5.5" rx="0.5"/><rect x="7.2" y="1.5" width="2.4" height="7.5" rx="0.5"/><rect x="10.8" y="0" width="2.4" height="9" rx="0.5"/></svg>
+                    <svg width="13" height="9" viewBox="0 0 13 9" fill="currentColor" aria-hidden="true"><path d="M6.5 2.4c1.7 0 3.3.7 4.4 1.8l.9-.9C10.4 2 8.5 1.1 6.5 1.1S2.6 2 1.2 3.3l.9.9c1.1-1.1 2.7-1.8 4.4-1.8z"/><path d="M6.5 5.1c1 0 2 .4 2.6 1.1l.9-.9c-1-1-2.2-1.5-3.5-1.5s-2.5.6-3.5 1.5l.9.9c.7-.7 1.6-1.1 2.6-1.1z"/><circle cx="6.5" cy="7.7" r="1.1"/></svg>
+                    <svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="18.5" height="9" rx="2.5" stroke="currentColor" stroke-opacity="0.4"/><rect x="2" y="2" width="15.5" height="6" rx="1.2" fill="currentColor"/><path d="M20 3.4v3.2c.6-.2 1.1-.8 1.1-1.6 0-.7-.5-1.4-1.1-1.6z" fill="currentColor" fill-opacity="0.5"/></svg>
+                </div>
+            </div>
+
+            <div class="phone-screen">
+                <div class="app-pagetitle">
+                    <div class="app-eyebrow">
+                        <span class="app-brandmark">BL</span>
+                        <span class="app-date">Sat Apr 26 · 9:41</span>
+                    </div>
+                    <h2 class="app-title">Today</h2>
+                </div>
+
+                <div class="briefing-card">
+                    <div class="briefing-content">
+                        <div class="briefing-strip">
+                            <div class="briefing-strip-left">
+                                <span class="briefing-dot"></span>
+                                <span class="briefing-label"></span>
+                            </div>
+                            <span class="briefing-time"></span>
+                        </div>
+                        <div class="briefing-body">
+                            <p class="briefing-headline"></p>
+                            <div class="briefing-metrics">
+                                <div class="briefing-metric">
+                                    <div class="metric-label">Load</div>
+                                    <div class="metric-value m-charge"></div>
+                                    <div class="metric-status m-charge-status"></div>
+                                </div>
+                                <div class="briefing-metric">
+                                    <div class="metric-label">Recovery</div>
+                                    <div class="metric-value m-recup"></div>
+                                    <div class="metric-status m-recup-status"></div>
+                                </div>
+                                <div class="briefing-metric">
+                                    <div class="metric-label">VO₂max</div>
+                                    <div class="metric-value m-vo2"></div>
+                                    <div class="metric-status m-vo2-status"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="briefing-cta">
+                            <div class="briefing-cta-text">
+                                <div class="briefing-cta-title">Morning check-in</div>
+                                <div class="briefing-cta-sub">30 sec · how you feel, sleep</div>
+                            </div>
+                            <svg class="briefing-cta-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <span class="chart-section-label">Load · 28 days</span>
+                </div>
+                <div class="chart-card">
+                    <svg class="chart-svg" viewBox="0 0 270 80" preserveAspectRatio="none" aria-hidden="true">
+                        <rect x="0" y="15" width="270" height="25" fill="#3A4520"/>
+                        <line x1="0" y1="15" x2="270" y2="15" stroke="#D4FF3D" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.5"/>
+                        <line x1="0" y1="40" x2="270" y2="40" stroke="#D4FF3D" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.5"/>
+                        <line x1="0" y1="30" x2="270" y2="30" stroke="#5A5B5D" stroke-width="0.5" stroke-dasharray="1 3" opacity="0.6"/>
+                        <polyline fill="none" stroke="#F2F1ED" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"
+                            points="0,27.5 10,29 20,32.5 30,36 40,34 50,30 60,25 70,22.5 80,24 90,27.5 100,31 110,26 120,20 130,17.5 140,15 150,19 160,22.5 170,26 180,30 190,27.5 200,24 210,21 220,22.5 230,19 240,16 250,17.5 260,20 270,21"/>
+                        <circle cx="270" cy="21" r="6" fill="#D4FF3D" opacity="0.18"/>
+                        <circle cx="270" cy="21" r="3" fill="#D4FF3D"/>
+                    </svg>
+                    <div class="chart-footer">
+                        <span class="chart-footer-dot"></span>
+                        <span class="chart-footer-text">In the optimal zone for <strong>9 days</strong></span>
+                    </div>
+                </div>
+
+                <div class="phone-tabbar">
+                    <div class="phone-tab active">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M2 12 L6 7 L9 9 L14 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Today</span>
+                    </div>
+                    <div class="phone-tab">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <rect x="3" y="2" width="10" height="12" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Log</span>
+                    </div>
+                    <div class="phone-tab">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <rect x="2" y="3" width="12" height="11" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 6.5h12M5 2v2.5M11 2v2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Plan</span>
+                    </div>
+                    <div class="phone-tab">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <circle cx="8" cy="6" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M3 14c0.8-2.5 2.8-4 5-4s4.2 1.5 5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Profile</span>
+                    </div>
+                </div>
+
+                <div class="phone-home-indicator"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HERO EXPLAINER -->
+<div class="hero-explainer">
+    <span><strong>Load</strong> = your effort vs. your baseline (based on ACWR)</span>
+    <span><strong>Recovery</strong> = your reserves, like a battery</span>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section class="for-who">
+    <div class="section-eyebrow">Who's it for?</div>
+    <h2 class="section-title">For everyone who trains<br>seriously and wants to last</h2>
+
+    <div class="for-who-grid">
+        <div class="profile-card">
+            <div class="profile-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/>
+                    <path d="M2 16c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/>
+                    <circle cx="8" cy="6" r="2"/>
+                    <path d="M10 6l4 4-3 2"/>
+                </svg>
+            </div>
+            <h3 class="profile-name">Whatever your endurance sport</h3>
+            <p class="profile-desc">
+                Baseload adapts to your discipline and your mix of activities.
+                Running, cycling, swimming, trail, triathlon — it all counts.
+            </p>
+        </div>
+
+        <div class="profile-card">
+            <div class="profile-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                    <path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+            </div>
+            <h3 class="profile-name">You train consistently</h3>
+            <p class="profile-desc">
+                You want to structure your progress and train smarter.
+                Baseload gives you the plan.
+            </p>
+        </div>
+
+        <div class="profile-card">
+            <div class="profile-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+            </div>
+            <h3 class="profile-name">You want to progress without breaking down</h3>
+            <p class="profile-desc">
+                Too many athletes break down by overdoing it. Baseload watches
+                your load and keeps you in one piece.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- DIFFERENCE -->
+<section class="compare">
+    <div class="compare-inner">
+        <div class="section-eyebrow">The difference</div>
+        <h2 class="section-title">What other apps<br>don't do</h2>
+
+        <ul class="difference-list">
+            <li><span>Every session gets analyzed: training load, muscle fatigue, recovery</span></li>
+            <li><span>The coach tells you exactly what to do: ease off, push, or rest</span></li>
+            <li><span>Your plan adapts to <strong>your</strong> body, <strong>your</strong> fatigue, <strong>your</strong> aches</span></li>
+            <li><span>The coach catches overtraining <strong>before</strong> the injury</span></li>
+            <li><span>The coach factors in your <strong>past injuries</strong> to keep you protected</span></li>
+            <li><span>Built on training-load models from sports medicine research (Gabbett, 2016 &amp; 2020)</span></li>
+        </ul>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+    <div class="how-inner">
+        <div class="section-eyebrow">How it works</div>
+        <h2 class="section-title">30 seconds<br>every morning</h2>
+
+        <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+                <h3>Morning check-in</h3>
+                <p>How do you feel? Fresh, a bit tired, or off? Rate yesterday's sessions in one tap.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+                <h3>The coach reads the picture</h3>
+                <p>Your coach combines training load, muscle fatigue, sleep and weather into one actionable call.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+                <h3>Your plan adapts</h3>
+                <p>Your week reflects what you actually did, not what was scheduled. The coach reshuffles the rest around real life.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+                <h3>You progress</h3>
+                <p>Track your progress week after week. The goal: build long-term, without breaking.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+    <div class="section-eyebrow">They're testing Baseload</div>
+    <h2 class="section-title">What our<br>early users say</h2>
+
+    <div class="testimonial-grid" id="testimonialCarousel">
+        <div class="testimonial-card">
+            <div class="testimonial-mark">&ldquo;</div>
+            <p class="testimonial-quote">I always pushed too hard after a rest day. Baseload taught me how to pace it.</p>
+            <div class="testimonial-author">Thomas, 35 · <span class="accent">Swimmer</span></div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-mark">&ldquo;</div>
+            <p class="testimonial-quote">The morning check-in turned into a reflex. 30 seconds and I know exactly what to do.</p>
+            <div class="testimonial-author">Marie, 42 · <span class="accent">Runner</span></div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-mark">&ldquo;</div>
+            <p class="testimonial-quote">First app that gets that I do multiple sports. My plan finally takes all of it into account.</p>
+            <div class="testimonial-author">Lucas, 28 · <span class="accent">Triathlete</span></div>
+        </div>
+    </div>
+
+    <div class="testimonial-dots" id="testimonialDots" role="tablist" aria-label="Testimonials">
+        <button class="testimonial-dot active" type="button" aria-label="Testimonial 1" aria-current="true"></button>
+        <button class="testimonial-dot" type="button" aria-label="Testimonial 2"></button>
+        <button class="testimonial-dot" type="button" aria-label="Testimonial 3"></button>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="beta">
+    <h2 class="cta-title">
+        Start your <span class="accent">coaching</span>
+    </h2>
+    <p class="cta-sub">
+        Free during the beta. No commitment.
+    </p>
+    <a href="https://testflight.apple.com/join/QrkWunZe" class="cta-button">
+        Try my coach
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <div class="footer-logo">BL</div>
+        <div class="footer-copy-block">
+            <span class="footer-copy">© 2026 Baseload</span>
+            <span class="footer-disclaimer">Baseload is not a substitute for medical advice.</span>
+        </div>
+    </div>
+    <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:contact@getbaseload.com">Contact</a>
+    </div>
+</footer>
+
+<script>
+(function() {
+    const messages = [
+        {
+            tone: 'signal',
+            label: "Today's briefing · Green light",
+            time: '07:42',
+            headline: 'Reserves are full. You can hit the planned <em>tempo</em>.',
+            charge: { value: '48', unit: '/100', status: 'In zone',   tone: 'signal' },
+            recup:  { value: '76', unit: '%',    status: 'Ready',     tone: 'signal' },
+            vo2:    { value: '50.0', unit: '',   status: '→ Stable',  tone: 'muted'  }
+        },
+        {
+            tone: 'signal',
+            label: "Today's briefing · Green light",
+            time: '08:15',
+            headline: "Solid session. We'll lighten strength tomorrow for your <em>legs</em>.",
+            charge: { value: '64', unit: '/100', status: 'High',      tone: 'caution' },
+            recup:  { value: '36', unit: '%',    status: 'Loaded',    tone: 'caution' },
+            vo2:    { value: '50.2', unit: '',   status: '↑ 0.2',     tone: 'signal'  }
+        },
+        {
+            tone: 'caution',
+            label: "Today's briefing · Caution",
+            time: '07:30',
+            headline: 'Load spiking fast. Keep it <em>easy</em> today.',
+            charge: { value: '88', unit: '/100', status: 'Overload',  tone: 'caution' },
+            recup:  { value: '18', unit: '%',    status: 'Drained',   tone: 'stop'    },
+            vo2:    { value: '50.2', unit: '',   status: '→ Stable',  tone: 'muted'   }
+        },
+        {
+            tone: 'signal',
+            label: 'Weekly recap',
+            time: 'Sun 9:00',
+            headline: "Strong week. 4 sessions. You're <em>progressing</em> without burning out.",
+            charge: { value: '56', unit: '/100', status: 'In zone',   tone: 'signal' },
+            recup:  { value: '68', unit: '%',    status: 'Ready',     tone: 'signal' },
+            vo2:    { value: '50.4', unit: '',   status: '↑ 0.4',     tone: 'signal' }
+        }
+    ];
+
+    const card = document.querySelector('.briefing-card');
+    const content = card.querySelector('.briefing-content');
+    const strip = content.querySelector('.briefing-strip');
+    const dot = content.querySelector('.briefing-dot');
+    const labelEl = content.querySelector('.briefing-label');
+    const timeEl = content.querySelector('.briefing-time');
+    const headlineEl = content.querySelector('.briefing-headline');
+
+    const charge = content.querySelector('.m-charge');
+    const chargeStatus = content.querySelector('.m-charge-status');
+    const recup = content.querySelector('.m-recup');
+    const recupStatus = content.querySelector('.m-recup-status');
+    const vo2 = content.querySelector('.m-vo2');
+    const vo2Status = content.querySelector('.m-vo2-status');
+
+    function valueHTML(v) {
+        const unit = v.unit ? '<span class="metric-unit">' + v.unit + '</span>' : '';
+        return v.value + unit;
+    }
+
+    function applyMessage(m) {
+        strip.className = 'briefing-strip tone-' + m.tone;
+        dot.className = 'briefing-dot tone-' + m.tone;
+        labelEl.className = 'briefing-label tone-' + m.tone;
+        labelEl.textContent = m.label;
+        timeEl.textContent = m.time;
+        headlineEl.innerHTML = m.headline;
+
+        charge.className = 'metric-value m-charge tone-' + m.charge.tone;
+        charge.innerHTML = valueHTML(m.charge);
+        chargeStatus.className = 'metric-status m-charge-status tone-' + m.charge.tone;
+        chargeStatus.textContent = m.charge.status;
+
+        recup.className = 'metric-value m-recup tone-' + m.recup.tone;
+        recup.innerHTML = valueHTML(m.recup);
+        recupStatus.className = 'metric-status m-recup-status tone-' + m.recup.tone;
+        recupStatus.textContent = m.recup.status;
+
+        vo2.className = 'metric-value m-vo2 tone-' + m.vo2.tone;
+        vo2.innerHTML = valueHTML(m.vo2);
+        vo2Status.className = 'metric-status m-vo2-status tone-' + m.vo2.tone;
+        vo2Status.textContent = m.vo2.status;
+    }
+
+    let index = 0;
+    applyMessage(messages[0]);
+
+    setInterval(function() {
+        content.classList.add('fading');
+        setTimeout(function() {
+            index = (index + 1) % messages.length;
+            applyMessage(messages[index]);
+            content.classList.remove('fading');
+        }, 600);
+    }, 5000);
+})();
+
+/* ─── Testimonial carousel ─── */
+(function() {
+    const carousel = document.getElementById('testimonialCarousel');
+    const dotsContainer = document.getElementById('testimonialDots');
+    if (!carousel || !dotsContainer) return;
+    const cards = carousel.querySelectorAll('.testimonial-card');
+    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+    if (cards.length === 0 || dots.length === 0) return;
+
+    let currentIndex = 0;
+    let userPaused = false;
+    let resumeTimer = null;
+    let advanceTimer = null;
+
+    function setActiveDot(idx) {
+        dots.forEach(function(d, i) {
+            const isActive = i === idx;
+            d.classList.toggle('active', isActive);
+            if (isActive) d.setAttribute('aria-current', 'true');
+            else d.removeAttribute('aria-current');
+        });
+        currentIndex = idx;
+    }
+
+    function scrollToCard(idx) {
+        const card = cards[idx];
+        if (!card) return;
+        const target = card.offsetLeft - (carousel.clientWidth - card.offsetWidth) / 2;
+        carousel.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    }
+
+    function pauseAndScheduleResume() {
+        userPaused = true;
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(function() { userPaused = false; }, 10000);
+    }
+
+    function startAutoAdvance() {
+        if (advanceTimer) clearInterval(advanceTimer);
+        advanceTimer = setInterval(function() {
+            if (userPaused) return;
+            const next = (currentIndex + 1) % cards.length;
+            scrollToCard(next);
+        }, 6000);
+    }
+
+    let scrollDebounce;
+    carousel.addEventListener('scroll', function() {
+        clearTimeout(scrollDebounce);
+        scrollDebounce = setTimeout(function() {
+            const center = carousel.scrollLeft + carousel.clientWidth / 2;
+            let closest = 0;
+            let closestDist = Infinity;
+            cards.forEach(function(card, i) {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const dist = Math.abs(cardCenter - center);
+                if (dist < closestDist) { closest = i; closestDist = dist; }
+            });
+            if (closest !== currentIndex) setActiveDot(closest);
+        }, 80);
+    }, { passive: true });
+
+    ['touchstart', 'pointerdown', 'wheel'].forEach(function(ev) {
+        carousel.addEventListener(ev, pauseAndScheduleResume, { passive: true });
+    });
+
+    dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() {
+            scrollToCard(i);
+            pauseAndScheduleResume();
+        });
+    });
+
+    setActiveDot(0);
+    startAutoAdvance();
+})();
+</script>
+
+</body>
+</html>
