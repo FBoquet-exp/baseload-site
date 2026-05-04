@@ -90,6 +90,38 @@
             box-shadow: 0 4px 20px rgba(212, 255, 61, 0.3);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .lang-active {
+            color: var(--paper);
+        }
+        .lang-link {
+            color: var(--ink-subtle);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .lang-link:hover {
+            color: var(--paper);
+        }
+        .lang-sep {
+            color: var(--ink-subtle);
+            font-weight: 400;
+        }
+
         /* ─── HERO (split layout) ─── */
         .hero {
             min-height: 100vh;
@@ -1016,7 +1048,14 @@
         <div class="nav-logo">BL</div>
         <span class="nav-name">Baseload</span>
     </div>
-    <a href="https://testflight.apple.com/join/QrkWunZe" class="nav-cta">Tester mon coach</a>
+    <div class="nav-right">
+        <div class="lang-switch" aria-label="Langue">
+            <span class="lang-active" aria-current="page">FR</span>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <a href="/en/" class="lang-link" hreflang="en">EN</a>
+        </div>
+        <a href="https://testflight.apple.com/join/QrkWunZe" class="nav-cta">Tester mon coach</a>
+    </div>
 </nav>
 
 <!-- HERO -->
