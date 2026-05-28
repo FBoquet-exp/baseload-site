@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script defer src="https://stats.getbaseload.com/script.js" data-website-id="7e389fa9-de08-4450-94ee-96360c03508b"></script>
     <style>
         :root {
             --ink: #0E0F11;
@@ -988,6 +989,7 @@
         .footer-disclaimer { font-size: 11px; color: var(--ink-subtle); line-height: 1.4; }
         .footer-disclaimer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
         .footer-disclaimer a:hover { color: var(--signal); }
+        .footer-note { flex-basis: 100%; font-size: 11px; color: var(--ink-subtle); line-height: 1.5; margin: 0; }
         .footer-links { display: flex; gap: 24px; }
         .footer-links a {
             font-family: 'JetBrains Mono', monospace;
@@ -1059,7 +1061,7 @@
             <span class="lang-sep" aria-hidden="true">|</span>
             <span class="lang-active" aria-current="page">EN</span>
         </div>
-        <a href="https://testflight.apple.com/join/QrkWunZe" class="nav-cta">Try my coach</a>
+        <a href="https://testflight.apple.com/join/QrkWunZe" class="nav-cta" data-umami-event="cta-download">Try my coach</a>
     </div>
 </nav>
 
@@ -1075,7 +1077,7 @@
             One coach, one plan — built around you. Baseload reads your sessions,
             your fatigue and your progress to guide you every single day.
         </p>
-        <a href="https://testflight.apple.com/join/QrkWunZe" class="hero-cta">
+        <a href="https://testflight.apple.com/join/QrkWunZe" class="hero-cta" data-umami-event="cta-download">
             Try my coach
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -1350,7 +1352,7 @@
     <p class="cta-sub">
         Free during the beta. No commitment.
     </p>
-    <a href="https://testflight.apple.com/join/QrkWunZe" class="cta-button">
+    <a href="https://testflight.apple.com/join/QrkWunZe" class="cta-button" data-umami-event="cta-download">
         Try my coach
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1372,6 +1374,7 @@
         <a href="/en/terms">Terms</a>
         <a href="mailto:contact@getbaseload.com">Contact</a>
     </div>
+    <p class="footer-note">This site uses anonymous, cookieless audience measurement (Umami, self-hosted in the European Union). No personal data, no third-party trackers.</p>
 </footer>
 
 <script>
