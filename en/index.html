@@ -986,6 +986,8 @@
         .footer-copy-block { display: flex; flex-direction: column; gap: 4px; }
         .footer-copy { font-size: 12px; color: var(--ink-subtle); }
         .footer-disclaimer { font-size: 11px; color: var(--ink-subtle); line-height: 1.4; }
+        .footer-disclaimer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+        .footer-disclaimer a:hover { color: var(--signal); }
         .footer-links { display: flex; gap: 24px; }
         .footer-links a {
             font-family: 'JetBrains Mono', monospace;
@@ -1362,12 +1364,12 @@
         <div class="footer-logo">BL</div>
         <div class="footer-copy-block">
             <span class="footer-copy">© 2026 Baseload</span>
-            <span class="footer-disclaimer">Baseload is not a substitute for medical advice.</span>
+            <span class="footer-disclaimer"><a href="/en/terms#health">Baseload is not a substitute for medical advice.</a></span>
         </div>
     </div>
     <div class="footer-links">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+        <a href="/en/privacy">Privacy</a>
+        <a href="/en/terms">Terms</a>
         <a href="mailto:contact@getbaseload.com">Contact</a>
     </div>
 </footer>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de confidentialité — Baseload</title>
-    <meta name="description" content="Politique de confidentialité de Baseload — coach sportif IA pour athlètes d'endurance.">
-    <meta property="og:title" content="Politique de confidentialité — Baseload">
-    <meta property="og:description" content="Comment Baseload traite tes données : tes données de santé restent sur ton iPhone.">
+    <title>Terms of Service — Baseload</title>
+    <meta name="description" content="Baseload terms of service — AI sports coach for endurance athletes.">
+    <meta property="og:title" content="Terms of Service — Baseload">
+    <meta property="og:description" content="Baseload terms of service, including the health disclaimer: Baseload is not a substitute for medical advice.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://getbaseload.com/privacy/">
-    <link rel="alternate" hreflang="fr" href="https://getbaseload.com/privacy/">
-    <link rel="alternate" hreflang="en" href="https://getbaseload.com/en/privacy/">
-    <link rel="alternate" hreflang="x-default" href="https://getbaseload.com/privacy/">
+    <meta property="og:url" content="https://getbaseload.com/en/terms/">
+    <link rel="alternate" hreflang="fr" href="https://getbaseload.com/terms/">
+    <link rel="alternate" hreflang="en" href="https://getbaseload.com/en/terms/">
+    <link rel="alternate" hreflang="x-default" href="https://getbaseload.com/terms/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -215,6 +215,10 @@
             font-weight: 600;
         }
 
+        .prose .notice ul { margin-bottom: 0; }
+        .prose .notice li { color: var(--paper); }
+        .prose .notice li:last-child { margin-bottom: 0; }
+
         .prose h2 {
             font-family: 'Archivo', sans-serif;
             font-weight: 900;
@@ -274,7 +278,7 @@
             background: var(--signal);
         }
 
-        /* Ordered lists (e.g. exhaustive analytics list §2.4) */
+        /* Ordered lists */
         .prose ol {
             list-style: none;
             counter-reset: item;
@@ -300,7 +304,7 @@
             color: var(--signal);
         }
 
-        /* Tables (e.g. Finalités §4) */
+        /* Tables */
         .prose table {
             width: 100%;
             border-collapse: collapse;
@@ -447,155 +451,86 @@
 
 <!-- NAV -->
 <nav>
-    <a href="/" class="nav-brand">
+    <a href="/en/" class="nav-brand">
         <div class="nav-logo">BL</div>
         <span class="nav-name">Baseload</span>
     </a>
     <div class="nav-right">
-        <div class="lang-switch" aria-label="Langue">
-            <span class="lang-active" aria-current="page">FR</span>
+        <div class="lang-switch" aria-label="Language">
+            <a href="/terms/" class="lang-link" hreflang="fr">FR</a>
             <span class="lang-sep" aria-hidden="true">|</span>
-            <a href="/en/privacy/" class="lang-link" hreflang="en">EN</a>
+            <span class="lang-active" aria-current="page">EN</span>
         </div>
-        <a href="/" class="nav-back">
+        <a href="/en/" class="nav-back">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                 <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            Retour
+            Back
         </a>
     </div>
 </nav>
 
 <!-- PAGE HEADER -->
 <section class="page-header">
-    <div class="page-eyebrow">Mentions légales</div>
-    <h1 class="page-title">Politique de<br>confidentialité</h1>
-    <div class="page-date">Dernière mise à jour : 28 mai 2026</div>
+    <div class="page-eyebrow">Legal</div>
+    <h1 class="page-title">Terms of<br>Service</h1>
+    <div class="page-date">Last updated: 28 May 2026</div>
 </section>
 
 <!-- PROSE CONTENT -->
 <article class="prose">
 
-    <p class="lead"><strong>Responsable de traitement :</strong> Florian Boquet · <strong>Contact :</strong> <a href="mailto:contact@getbaseload.com">contact@getbaseload.com</a></p>
+    <p class="lead"><strong>Publisher:</strong> Florian Boquet — <a href="mailto:contact@getbaseload.com">contact@getbaseload.com</a></p>
 
-    <h2>1. Préambule</h2>
-    <p>Baseload est une application de coaching sportif d'endurance. Nous attachons une importance centrale à la protection de tes données, en particulier tes données de santé. Notre principe directeur : <strong>tes données de santé restent sur ton iPhone.</strong> Seules des informations agrégées et anonymisées sont, le cas échéant, transmises à nos serveurs pour faire fonctionner le coaching.</p>
-    <p>Cette politique explique quelles données nous traitons, pourquoi, sur quelle base légale, avec qui elles sont éventuellement partagées, combien de temps elles sont conservées, et quels sont tes droits.</p>
+    <h2>1. Purpose and acceptance</h2>
+    <p>These Terms govern your use of the Baseload app. By creating an account or using the app, you accept these Terms. If you do not accept them, do not use the app.</p>
 
-    <h2>2. Les données que nous traitons</h2>
+    <h2>2. Description of the service</h2>
+    <p>Baseload is an <strong>endurance sports coaching</strong> app that analyzes your training data, computes fatigue and recovery indicators, and offers a program and a daily briefing.</p>
 
-    <h3>2.1 Données de santé (lues via Apple HealthKit) — restent sur ton appareil</h3>
-    <p>Avec ton autorisation explicite, l'application LIT depuis Apple Santé : séances d'entraînement, fréquence cardiaque, variabilité de la fréquence cardiaque (VFC), VO2max, phases de sommeil, fréquence cardiaque au repos, masse corporelle.</p>
+    <h2 id="health">3. Health disclaimer — IMPORTANT (not a substitute for medical advice)</h2>
+    <div class="notice">
+        <ul>
+            <li>Baseload <strong>is not a medical device</strong> and <strong>does not provide medical advice</strong>. Its recommendations are <strong>informational and sports-related</strong> in nature.</li>
+            <li>The recommendations <strong>do not replace</strong> the advice of a healthcare professional. In case of pain, injury, symptoms, or doubt, consult a healthcare professional.</li>
+            <li><strong>Consult a doctor before starting or changing a training program</strong>, especially if you have a relevant medical history.</li>
+            <li>You use the app <strong>at your own risk</strong> and declare that you are physically fit to perform the activities you record.</li>
+            <li>Baseload cannot be held liable for training decisions made on the basis of the information provided, within the limits permitted by law.</li>
+        </ul>
+    </div>
+
+    <h2>4. Eligibility</h2>
+    <p>You must be at least 15 years old and fit to engage in physical activity.</p>
+
+    <h2>5. Account and acceptable use</h2>
+    <p>You are responsible for the accuracy of the information you provide and for the security of your access. You agree not to misuse the app, not to attempt to compromise its security, and not to use it unlawfully.</p>
+
+    <h2>6. Pricing and subscription</h2>
     <ul>
-        <li>Ces données sont traitées <strong>localement, sur ton iPhone</strong>. L'application n'écrit jamais dans Apple Santé.</li>
-        <li>Elles <strong>ne sont pas envoyées telles quelles</strong> à nos serveurs : ni fréquence cardiaque brute, ni tracé GPS, ni série de séance complète ne quittent l'appareil.</li>
-        <li>Seules des <strong>caractéristiques agrégées</strong> (par ex. une charge d'entraînement quotidienne, une tendance de récupération, un indicateur de fatigue par groupe musculaire) peuvent être transmises pour le calcul du bilan hebdomadaire (voir §4).</li>
+        <li><strong>During the beta phase, the app is FREE.</strong></li>
+        <li>A paid subscription plan (auto-renewing subscription, indicative target price ~€6.99/month) may be introduced later. Any pricing change will be communicated to you and will not apply without your agreement. Billing and any renewals will be handled by Apple's App Store under its own terms.</li>
     </ul>
 
-    <h3>2.2 Données de profil (que tu renseignes)</h3>
-    <p>Prénom, âge, sexe, poids, taille, objectif sportif, disciplines pratiquées, nombre de séances cible, historique de blessures (zone + description), préférences (heure du briefing, langue, unités, ton du coach).</p>
+    <h2>7. Beta nature of the service</h2>
+    <p>The app is provided in a testing (beta) phase <strong>"as is"</strong>. It may contain imperfections, change, or be discontinued. No warranty of availability or of absence of errors is given during this phase, within the limits permitted by law.</p>
 
-    <h3>2.3 Données du canal de coaching hebdomadaire</h3>
-    <p>Une fois par semaine, pour générer un bilan narratif, des <strong>caractéristiques agrégées et anonymisées</strong> (voir §2.1), rattachées à un identifiant technique (UUID), sont transmises à notre prestataire d'intelligence artificielle (Anthropic — voir §6). <strong>Ton prénom n'est PAS transmis</strong> : il est réinséré <strong>localement, sur ton appareil</strong>, dans le texte du bilan après calcul.</p>
+    <h2>8. Intellectual property</h2>
+    <p>The app, its brand, its content, and its code are protected. No transfer of rights is granted to you beyond the right of personal use of the app.</p>
 
-    <h3>2.4 Données de mesure d'usage (analytique) — uniquement si tu y consens</h3>
-    <p>Si tu actives la mesure d'usage (désactivée par défaut, voir §8), nous collectons un ensemble <strong>restreint, anonyme et agrégé</strong> d'événements, rattachés à un <strong>identifiant technique aléatoire (UUID)</strong> — jamais à ton identité. Aucune donnée de santé brute n'y figure. Liste exhaustive :</p>
-    <ol>
-        <li><strong>Instantané de profil</strong> : objectif, niveau, disciplines, nombre de séances cible, ton, langue — sous forme de <strong>tranches/catégories</strong> (jamais de valeurs exactes comme l'âge ou le poids).</li>
-        <li><strong>Ouverture quotidienne de l'app</strong> : une fois par jour calendaire (pour mesurer la fidélité d'usage). Pas de géolocalisation.</li>
-        <li><strong>Résultat de coaching du jour</strong> : niveau de vigilance, action recommandée, palier de forme — en catégories fermées.</li>
-        <li><strong>Suivi des recommandations</strong> : si la recommandation de la veille a été suivie ou non (4 valeurs catégorielles).</li>
-        <li><strong>Progression dans l'onboarding</strong> : étape atteinte (pour comprendre les abandons).</li>
-    </ol>
+    <h2>9. Personal data</h2>
+    <p>The processing of your data is described in the <strong><a href="/en/privacy">Privacy Policy</a></strong> (Part 1), which forms an integral part of your use of the app.</p>
 
-    <h3>2.5 Identifiant technique</h3>
-    <p>Un identifiant aléatoire (UUID) est associé à ton appareil/compte. Il ne permet pas de t'identifier nommément.</p>
+    <h2>10. Limitation of liability</h2>
+    <p>Within the limits permitted by law, and without prejudice to the statutory warranties applicable to consumers, Baseload cannot be held liable for indirect damages resulting from the use of the app, nor for training decisions made on the basis of its recommendations (see §3).</p>
 
-    <h2>3. Ce que nous ne faisons PAS</h2>
-    <ul>
-        <li>Nous <strong>ne vendons</strong> aucune donnée.</li>
-        <li>Nous <strong>n'utilisons aucun SDK de pistage publicitaire tiers</strong> (pas de Google Analytics, Firebase Analytics, Meta SDK, etc.).</li>
-        <li>Nous <strong>n'affichons pas de publicité</strong> et ne profilons pas à des fins publicitaires.</li>
-        <li>Nous <strong>n'utilisons jamais tes données de santé à des fins de marketing ou de publicité</strong>, et ne les divulguons pas à des tiers à de telles fins (engagement requis par les règles Apple HealthKit).</li>
-        <li>Nous <strong>ne comparons pas</strong> les utilisateurs entre eux.</li>
-    </ul>
+    <h2>11. Governing law and disputes</h2>
+    <p>These Terms are governed by <strong>French law</strong>.</p>
 
-    <h2>4. Finalités</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Finalité</th>
-                <th>Données concernées</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Fournir le coaching quotidien et générer ton programme</td>
-                <td>Profil + caractéristiques santé (traitées localement)</td>
-            </tr>
-            <tr>
-                <td>Générer le bilan hebdomadaire narratif</td>
-                <td>Caractéristiques agrégées anonymisées (via un service d'IA tiers — Anthropic). <strong>Le prénom n'est pas transmis</strong> : il est réinséré localement sur ton appareil.</td>
-            </tr>
-            <tr>
-                <td>Améliorer le produit et comprendre l'usage</td>
-                <td>Données analytiques anonymes (§2.4), si tu y consens</td>
-            </tr>
-            <tr>
-                <td>Te permettre d'exporter / supprimer tes données</td>
-                <td>Données de profil + technique</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>5. Base légale (RGPD)</h2>
-    <ul>
-        <li><strong>Traitement des données de santé</strong> (§2.1) : <strong>consentement explicite</strong> (art. 9.2.a RGPD), recueilli via l'autorisation HealthKit et l'usage de l'app. Les données de santé sont des données sensibles : leur traitement repose sur ton consentement explicite et s'effectue localement.</li>
-        <li><strong>Fonctionnement du service</strong> (profil, coaching, programme) : <strong>exécution du contrat</strong> (art. 6.1.b) — fournir le service que tu demandes.</li>
-        <li><strong>Mesure d'usage</strong> (§2.4) : <strong>consentement</strong> (art. 6.1.a), opt-in, révocable à tout moment.</li>
-    </ul>
-
-    <h2>6. Destinataires et sous-traitants</h2>
-    <ul>
-        <li><strong>Fournisseur du modèle d'IA (Anthropic), pour le bilan hebdomadaire</strong> : reçoit des caractéristiques agrégées <strong>anonymisées</strong> (UUID, <strong>sans prénom</strong>). Le transfert de ces données anonymisées vers ce prestataire, situé hors Union européenne, est encadré par les <strong>clauses contractuelles types</strong> de la Commission européenne et un <strong>accord de traitement des données (DPA)</strong>.</li>
-        <li><strong>Hébergeur</strong> : hébergement en <strong>Union européenne</strong> (région Paris).</li>
-        <li><strong>Base de données analytique</strong> : résidence des données en <strong>Union européenne</strong>.</li>
-        <li>Aucune autre divulgation à des tiers, sauf obligation légale.</li>
-    </ul>
-
-    <h2>7. Localisation et conservation des données</h2>
-    <ul>
-        <li><strong>Données de santé</strong> : sur ton appareil, jusqu'à suppression par toi (désinstallation ou suppression de compte).</li>
-        <li><strong>Données analytiques</strong> : conservées <strong>180 jours</strong> glissants, puis purgées.</li>
-        <li><strong>Données de compte/profil</strong> : jusqu'à la suppression de ton compte.</li>
-        <li><strong>Hébergement</strong> : Union européenne (hors traitement anonymisé du bilan hebdomadaire, encadré au §6).</li>
-    </ul>
-
-    <h2>8. Mesure d'usage — consentement et révocation</h2>
-    <p>La mesure d'usage (§2.4) est <strong>désactivée par défaut</strong>. Elle ne s'active que si tu coches explicitement l'option correspondante lors de l'onboarding. Tu peux la <strong>désactiver à tout moment</strong> depuis Profil &gt; RGPD.</p>
-
-    <h2>9. Tes droits (RGPD)</h2>
-    <p>Tu disposes des droits d'accès, de rectification, d'effacement, de portabilité, de limitation, d'opposition, et de retrait du consentement à tout moment.</p>
-    <ul>
-        <li><strong>Export</strong> de tes données (format JSON) : depuis Profil (fonction d'export intégrée).</li>
-        <li><strong>Suppression</strong> de ton compte et de tes données : depuis Profil (fonction de suppression intégrée).</li>
-        <li>Autres demandes : <a href="mailto:contact@getbaseload.com">contact@getbaseload.com</a></li>
-        <li>Tu peux introduire une réclamation auprès de la <strong>CNIL</strong> (autorité française de protection des données, <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>).</li>
-    </ul>
-
-    <h2>10. Engagements spécifiques Apple HealthKit</h2>
-    <p>Conformément aux règles d'Apple : les données issues de HealthKit ne sont <strong>jamais</strong> utilisées à des fins publicitaires ou de marketing, ne sont <strong>jamais</strong> vendues, et ne sont <strong>pas</strong> divulguées à des tiers à des fins de publicité ou d'exploitation de données. Elles servent uniquement à te fournir le coaching et le suivi.</p>
-
-    <h2>11. Âge minimum</h2>
-    <p>En France, l'âge du consentement numérique est de 15 ans. Nous appliquons cette règle : l'application est réservée aux personnes âgées d'au moins 15 ans.</p>
-
-    <h2>12. Modifications</h2>
-    <p>Nous pouvons mettre à jour cette politique. Les changements substantiels te seront signalés dans l'app. La date de dernière mise à jour figure en tête.</p>
+    <h2>12. Changes</h2>
+    <p>We may modify these Terms. Substantial changes will be notified to you in the app.</p>
 
     <h2>13. Contact</h2>
     <p>Florian Boquet — <a href="mailto:contact@getbaseload.com">contact@getbaseload.com</a></p>
-
-    <p style="margin-top:48px;font-size:14px;color:var(--ink-muted);">Voir aussi : <a href="/terms">Conditions générales d'utilisation</a>.</p>
 
 </article>
 
@@ -605,12 +540,12 @@
         <div class="footer-logo">BL</div>
         <div class="footer-copy-block">
             <span class="footer-copy">© 2026 Baseload</span>
-            <span class="footer-disclaimer"><a href="/terms#sante">Baseload ne remplace pas un avis médical.</a></span>
+            <span class="footer-disclaimer"><a href="/en/terms#health">Baseload is not a substitute for medical advice.</a></span>
         </div>
     </div>
     <div class="footer-links">
-        <a href="/privacy">Confidentialité</a>
-        <a href="/terms">Conditions</a>
+        <a href="/en/privacy">Privacy</a>
+        <a href="/en/terms">Terms</a>
         <a href="mailto:contact@getbaseload.com">Contact</a>
     </div>
 </footer>
