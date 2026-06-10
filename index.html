@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baseload — Un coach sportif personnel qui te connaît</title>
-    <meta name="description" content="Baseload analyse tes séances, ta fatigue et ta progression pour te guider chaque jour. Pas de programme générique — un accompagnement sur mesure.">
-    <meta property="og:title" content="Baseload — Un coach qui te connaît">
-    <meta property="og:description" content="Un coach sportif personnel sur mesure, pas un programme générique.">
+    <title>Baseload — Progresser sans se blesser</title>
+    <meta name="description" content="Baseload lit ta fatigue, repère la surcharge avant la blessure et te dit quand pousser, quand lever le pied. Ton coach endurance sur mesure.">
+    <meta property="og:title" content="Baseload — Progresser sans se blesser">
+    <meta property="og:description" content="Le coach endurance qui repère la surcharge avant la blessure et te dit quand lever le pied.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getbaseload.com/">
     <link rel="alternate" hreflang="fr" href="https://getbaseload.com/">
@@ -827,6 +827,21 @@
             color: var(--ink-muted);
         }
 
+        /* ─── STORY ─── */
+        .story { padding: 100px 24px; }
+        .story-inner { max-width: 720px; margin: 0 auto; }
+        .story-prose {
+            max-width: 600px; margin: 0 auto;
+            font-size: 17px; line-height: 1.7; color: var(--paper);
+        }
+        .story-prose p { margin-bottom: 20px; }
+        .story-prose strong { color: var(--signal); font-weight: 600; }
+        .story-sign {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px; letter-spacing: 1px;
+            color: var(--ink-muted); margin-top: 28px;
+        }
+
         /* ─── TESTIMONIALS ─── */
         .testimonials {
             padding: 100px 0;
@@ -1063,14 +1078,14 @@
 <!-- HERO -->
 <section class="hero">
     <div class="hero-text">
-        <div class="hero-eyebrow">Coach sportif personnel</div>
+        <div class="hero-eyebrow">Ton coach endurance, sur mesure</div>
         <h1 class="hero-title">
-            Un coach<br>
-            qui te <span class="accent">connaît</span>
+            <span class="accent">Progresser</span><br>
+            sans te blesser
         </h1>
         <p class="hero-sub">
-            Un coach et un plan. Sur mesure. Baseload analyse tes séances, ta
-            fatigue et ta progression pour te guider chaque jour.
+            Baseload lit ta fatigue, repère la surcharge avant la blessure et te
+            dit quand pousser, quand lever le pied.
         </p>
         <a href="https://testflight.apple.com/join/QrkWunZe" class="hero-cta" data-umami-event="cta-download">
             Tester mon coach
@@ -1261,6 +1276,8 @@
             <li><span>Ton programme s'adapte à <strong>ton</strong> corps, <strong>ta</strong> fatigue, <strong>tes</strong> douleurs</span></li>
             <li><span>Le coach détecte le surentraînement <strong>avant</strong> la blessure</span></li>
             <li><span>Le coach tient compte de tes <strong>blessures passées</strong> pour mieux te préserver</span></li>
+            <li><span>Marche avec <strong>ta montre</strong> : Apple Watch, Garmin, Coros, Polar, Whoop, Strava</span></li>
+            <li><span>Tes données restent <strong>sur ton iPhone</strong> — rien n'est vendu, aucun tracking publicitaire</span></li>
             <li><span>Basé sur les modèles de charge d'entraînement de la recherche en médecine du sport (Gabbett, 2016 &amp; 2020)</span></li>
         </ul>
     </div>
@@ -1302,6 +1319,21 @@
                 <h3>Tu progresses</h3>
                 <p>Suis tes progrès semaine après semaine. L'objectif : avancer durablement, sans casser.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ORIGIN STORY -->
+<section class="story">
+    <div class="story-inner">
+        <div class="section-eyebrow">Notre histoire</div>
+        <h2 class="section-title">La séance<br>de trop</h2>
+        <div class="story-prose">
+            <p>J'ai attrapé une tendinite au genou que j'aurais facilement pu éviter. Au lieu de lever le pied, je me suis entraîné dessus. Beaucoup trop.</p>
+            <p>Le jour de l'écho, le médecin m'annonce qu'il reste <strong>3 millimètres avant la rupture du tendon</strong>. Je me suis dit : « j'ai fait le con. » Tous les athlètes blessés le disent. S'en sont suivis des mois d'arrêt et près d'un an de réathlétisation.</p>
+            <p>Ce qui m'a manqué, ce n'était pas de la motivation — c'en était l'excès. C'était qu'on me dise, avant le couperet : repose-toi, reprends progressivement, adapte ton plan.</p>
+            <p>Ingénieur et sportif, j'ai conçu l'outil que j'aurais voulu avoir.</p>
+            <p class="story-sign">— Florian, fondateur de Baseload</p>
         </div>
     </div>
 </section>
