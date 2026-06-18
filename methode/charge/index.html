@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La charge d'entraînement — mesurer l'effort, pas juste la durée | Baseload</title>
+    <meta name="description" content="Comment Baseload mesure la charge d'une séance avec le TRIMP, distingue charge aiguë et charge chronique, et exprime ton volume en effort réel plutôt qu'en minutes.">
+    <meta property="og:title" content="La charge d'entraînement — Baseload">
+    <meta property="og:description" content="TRIMP, charge aiguë, charge chronique : comment Baseload mesure vraiment l'effort d'une séance.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://getbaseload.com/methode/charge/">
+    <link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/charge/">
+    <link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/training-load/">
+    <link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/charge/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/method.css">
+    <script defer src="https://stats.getbaseload.com/script.js" data-website-id="7e389fa9-de08-4450-94ee-96360c03508b"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-brand">
+        <div class="nav-logo">BL</div>
+        <span class="nav-name">Baseload</span>
+    </a>
+    <div class="nav-right">
+        <div class="lang-switch" aria-label="Langue">
+            <span class="lang-active" aria-current="page">FR</span>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <a href="/en/method/training-load/" class="lang-link" hreflang="en">EN</a>
+        </div>
+        <a href="/methode/" class="nav-back">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            La méthode
+        </a>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="breadcrumb"><a href="/methode/">La méthode</a><span class="sep">›</span>La charge</div>
+    <div class="page-eyebrow">01 · La base</div>
+    <h1 class="page-title">La charge<br>d'entraînement</h1>
+    <p class="page-lead">
+        Deux heures de vélo tranquille et une heure de fractionné ne « coûtent »
+        pas la même chose à ton corps. Mesurer l'entraînement en minutes, c'est
+        passer à côté de l'essentiel : l'effort.
+    </p>
+</section>
+
+<!-- PROSE -->
+<article class="prose">
+    <h2>Pourquoi pas juste la durée ?</h2>
+    <p>
+        La durée d'une séance ne dit rien de son intensité. Une sortie longue à
+        allure facile et une séance de seuil courte peuvent durer le même temps,
+        mais la seconde sollicite ton organisme bien davantage. Pour piloter
+        l'entraînement sans se blesser, il faut une mesure qui capte
+        <strong>l'effort réel</strong>, pas le temps passé.
+    </p>
+
+    <h2>Le TRIMP : une unité d'effort</h2>
+    <p>
+        Baseload calcule pour chaque séance un <strong>TRIMP</strong> (de
+        l'anglais <em>training impulse</em>). C'est un nombre qui combine la
+        <strong>durée</strong> et l'<strong>intensité</strong> de la séance.
+        L'intensité vient de ta fréquence cardiaque : plus tu passes de temps dans
+        les zones hautes, plus le TRIMP grimpe. Le calcul est pondéré (modèle de
+        type Banister) pour refléter le coût croissant des hautes intensités.
+    </p>
+    <ul>
+        <li><strong>Avec fréquence cardiaque</strong> : le TRIMP intègre l'intensité minute par minute.</li>
+        <li><strong>Sans fréquence cardiaque</strong> (nage en bassin, séance importée sans HR) : Baseload bascule sur une estimation à partir de la durée et de l'effort perçu — la séance n'est jamais ignorée.</li>
+    </ul>
+
+    <div class="callout">
+        <span class="callout-label">Ton ressenti compte</span>
+        <p>
+            Quand tu notes l'effort perçu (RPE) d'une séance d'endurance, Baseload
+            l'utilise pour <strong>corriger</strong> le TRIMP calculé sur la
+            fréquence cardiaque. Une journée « tout était dur » et une journée
+            « jambes légères » à la même allure ne sont pas comptées pareil.
+        </p>
+    </div>
+
+    <h2>Le relief, ça compte aussi</h2>
+    <p>
+        Pour la course, la marche et la randonnée, Baseload ajuste l'effort en
+        fonction du <strong>dénivelé</strong> (modèle métabolique de Minetti). Un
+        10&nbsp;km avec 500&nbsp;m de D+ coûte nettement plus qu'un 10&nbsp;km plat.
+        Le vélo n'est pas concerné&nbsp;: la fréquence cardiaque y capte déjà le
+        coût des montées.
+    </p>
+
+    <h2>Charge aiguë et charge chronique</h2>
+    <p>
+        Une fois chaque séance mesurée, Baseload suit deux moyennes :
+    </p>
+    <table>
+        <thead>
+            <tr><th>Indicateur</th><th>Fenêtre</th><th>Ce qu'il représente</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Charge aiguë</strong></td><td>~7 jours</td><td>Ta fatigue récente — ce que tu viens d'encaisser.</td></tr>
+            <tr><td><strong>Charge chronique</strong></td><td>~28 jours</td><td>Ta <em>condition</em> — ce à quoi ton corps est habitué.</td></tr>
+        </tbody>
+    </table>
+    <p>
+        Les deux sont des moyennes pondérées (les jours récents pèsent plus). Le
+        rapport entre elles est le cœur du modèle de prévention : c'est l'
+        <a href="/methode/acwr/">ACWR</a>.
+    </p>
+
+    <h2>Ton volume, en effort réel</h2>
+    <p>
+        Baseload exprime ton volume hebdomadaire en TRIMP, pas en minutes. Et la
+        cible n'est pas un chiffre universel&nbsp;: c'est <strong>ta propre charge
+        chronique</strong>. Autrement dit, l'app te compare à toi-même, à ta forme
+        des dernières semaines — jamais à un autre athlète.
+    </p>
+
+    <div class="callout is-limit">
+        <span class="callout-label">La limite</span>
+        <p>
+            Le TRIMP est une <strong>estimation</strong> de l'effort, pas une
+            vérité physiologique. Il dépend de la qualité de tes données de
+            fréquence cardiaque et de l'étalonnage de tes zones. Baseload le traite
+            comme un signal robuste à l'échelle de la semaine, pas comme une mesure
+            de laboratoire à la séance près. Plus de détails sur la
+            <a href="/methode/modele-et-limites/">page des limites</a>.
+        </p>
+    </div>
+</article>
+
+<!-- PAGE NAV -->
+<nav class="page-nav" aria-label="Pages de la méthode">
+    <a href="/methode/">
+        <div class="pn-dir">← Retour</div>
+        <div class="pn-title">La méthode</div>
+    </a>
+    <a href="/methode/acwr/" class="pn-next">
+        <div class="pn-dir">Suite →</div>
+        <div class="pn-title">ACWR : aigu vs chronique</div>
+    </a>
+</nav>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <div class="footer-logo">BL</div>
+        <div class="footer-copy-block">
+            <span class="footer-copy">© 2026 Baseload</span>
+            <span class="footer-disclaimer"><a href="/terms#sante">Baseload ne remplace pas un avis médical.</a></span>
+        </div>
+    </div>
+    <div class="footer-links">
+        <a href="/methode/">Méthode</a>
+        <a href="/privacy">Confidentialité</a>
+        <a href="/terms">Conditions</a>
+        <a href="mailto:contact@getbaseload.com">Contact</a>
+    </div>
+    <p class="footer-note">Ce site utilise une mesure d'audience anonyme et sans cookie (Umami, auto-hébergée en Union européenne). Aucune donnée personnelle, aucun traceur tiers.</p>
+</footer>
+
+</body>
+</html>

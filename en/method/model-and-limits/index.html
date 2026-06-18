@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our model, its limits — what Baseload can and cannot do | Baseload</title>
+    <meta name="description" content="Honest about what the model approximates and what it doesn't do: muscle-load heuristics, no age adjustment, no injury prediction. Baseload is not a medical device.">
+    <meta property="og:title" content="Our model, its limits | Baseload">
+    <meta property="og:description" content="What the model can do, what it approximates, what it doesn't do. And why it all stays on your iPhone.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://getbaseload.com/en/method/model-and-limits/">
+    <link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/modele-et-limites/">
+    <link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/model-and-limits/">
+    <link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/modele-et-limites/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/method.css">
+    <script defer src="https://stats.getbaseload.com/script.js" data-website-id="7e389fa9-de08-4450-94ee-96360c03508b"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-brand">
+        <div class="nav-logo">BL</div>
+        <span class="nav-name">Baseload</span>
+    </a>
+    <div class="nav-right">
+        <div class="lang-switch" aria-label="Language">
+            <a href="/methode/modele-et-limites/" class="lang-link" hreflang="fr">FR</a>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <span class="lang-active" aria-current="page">EN</span>
+        </div>
+        <a href="/en/method/" class="nav-back">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            The method
+        </a>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="breadcrumb"><a href="/en/method/">The method</a><span class="sep">›</span>Our model, its limits</div>
+    <div class="page-eyebrow">06 · Honesty</div>
+    <h1 class="page-title">Our model,<br>its limits</h1>
+    <p class="page-lead">
+        An honest coach also tells you what it doesn't know. Here, without
+        sugar-coating, is what Baseload's model approximates, what it doesn't do, and
+        why we own it.
+    </p>
+</section>
+
+<!-- PROSE -->
+<article class="prose">
+    <h2>Where the model comes from</h2>
+    <p>
+        Baseload is <strong>grounded in the sports-science literature on the
+        load ↔ injury relationship</strong> — in particular the work on the
+        acute:chronic workload ratio (<a href="/en/method/acwr/">ACWR</a>,
+        Gabbett 2016 &amp; 2020). We say "grounded in" deliberately: this work
+        describes population-level trends and is still debated within the
+        scientific community. We don't claim it is "validated" or that it
+        guarantees an individual outcome. These are
+        <strong>solid reference points to guide a decision</strong>, not laws.
+    </p>
+
+    <h2>What the model can do</h2>
+    <ul>
+        <li>Measure the effort of each session (<a href="/en/method/training-load/">TRIMP</a>), across every sport, with or without heart-rate data.</li>
+        <li>Track the balance between recent load and underlying fitness (<a href="/en/method/acwr/">ACWR</a>) and warn you when it rises too fast.</li>
+        <li>Distribute fatigue <a href="/en/method/multisport/">by muscle group</a> and estimate your recovery, group by group.</li>
+        <li>Cross-reference these signals with your <a href="/en/method/hrv/">HRV, your resting HR and your sleep</a> to adjust the day's recommendation.</li>
+        <li>Explain everything in plain language: you always see <em>why</em>.</li>
+    </ul>
+
+    <h2>What it approximates — and what we own</h2>
+
+    <h3>Muscle load is a heuristic</h3>
+    <p>
+        The distribution of effort across muscle groups relies on
+        <strong>empirically calibrated expert coefficients</strong>, not on a
+        measurement of your actual activation. The literature (EMG) can validate an
+        <em>order</em> and a <em>magnitude</em> — not an exact figure per muscle.
+        It's deliberately a good order of magnitude, refinable by your feedback,
+        not a laboratory truth.
+    </p>
+
+    <h3>No age adjustment on recovery</h3>
+    <p>
+        Muscle recovery rates are the same for every athlete. Yet a master
+        athlete, in reality, recovers more slowly. This simplification is
+        <strong>cautious on the load side</strong> (it never shortens estimated
+        recovery) and owned for the beta. (Maximum heart rate, on the other hand,
+        <em>is</em> adjusted for age.)
+    </p>
+
+    <h3>Downhill cost is not modelled separately</h3>
+    <p>
+        In trail running, it's the <strong>descent</strong> — not the climb — that
+        marks the legs the most. Baseload accounts for elevation in a
+        <em>conservative</em> way (it tends to over-count rather than under-count),
+        but it doesn't yet treat downhill braking as a distinct damage channel.
+        It's an identified work item, not an oversight.
+    </p>
+
+    <h2>What it doesn't do</h2>
+    <div class="callout is-limit">
+        <span class="callout-label">Keep in mind</span>
+        <p>
+            <strong>Baseload doesn't predict an injury</strong> and doesn't guarantee
+            that you won't get hurt. An injury depends on factors the app can't see:
+            technique, gear, actual sleep, stress, terrain, history, chance. Baseload
+            reduces <em>one</em> known risk — load spikes — it doesn't remove the
+            risk. It never compares you to other users, and never plays on guilt or
+            streaks.
+        </p>
+    </div>
+
+    <h2>Not a medical device</h2>
+    <p id="medical">
+        Baseload is a <strong>training-support tool</strong>, not a medical
+        device. It makes no diagnosis and replaces neither a doctor, nor a
+        physiotherapist, nor a professional coach. In case of pain that persists,
+        an injury or any doubt about your health,
+        <strong>consult a professional</strong>. The details are in our
+        <a href="/en/terms#health">terms of use</a>.
+    </p>
+
+    <h2>Everything stays on your iPhone</h2>
+    <p>
+        On a health product, trust can't be declared — it shows in the
+        architecture:
+    </p>
+    <ul>
+        <li><strong>Your health data stays on your device.</strong> No raw heart rate, no GPS track, no full workout is sent to a server.</li>
+        <li><strong>The coaching is computed locally</strong>, on your iPhone — including the weekly review.</li>
+        <li><strong>No account, no mandatory email.</strong> An anonymous technical identifier is enough.</li>
+        <li><strong>No advertising-tracking SDK</strong>, no reselling of data. Audience measurement is anonymous and off by default.</li>
+    </ul>
+    <p>
+        Full details in our <a href="/en/privacy">privacy policy</a>.
+    </p>
+
+    <div class="callout">
+        <span class="callout-label">Our stance</span>
+        <p>
+            Saying what we can't do isn't a weakness — it's the condition for
+            coaching you can trust. <strong>We prefer honest, explainable advice to
+            a promise no one can keep.</strong>
+        </p>
+    </div>
+</article>
+
+<!-- PAGE NAV -->
+<nav class="page-nav" aria-label="Method pages">
+    <a href="/en/method/multisport/">
+        <div class="pn-dir">← Previous</div>
+        <div class="pn-title">One fatigue, many sports</div>
+    </a>
+    <a href="/en/method/" class="pn-next">
+        <div class="pn-dir">Back →</div>
+        <div class="pn-title">The full method</div>
+    </a>
+</nav>
+
+<!-- CTA -->
+<section class="cta-band">
+    <h2>Ready to train <span class="accent">smarter</span>?</h2>
+    <p>Free during the beta. No commitment.</p>
+    <a href="https://testflight.apple.com/join/QrkWunZe" class="cta-button" data-umami-event="cta-download">
+        Try my coach
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <div class="footer-logo">BL</div>
+        <div class="footer-copy-block">
+            <span class="footer-copy">© 2026 Baseload</span>
+            <span class="footer-disclaimer"><a href="/en/terms#health">Baseload is not a substitute for medical advice.</a></span>
+        </div>
+    </div>
+    <div class="footer-links">
+        <a href="/en/method/">Method</a>
+        <a href="/en/privacy">Privacy</a>
+        <a href="/en/terms">Terms</a>
+        <a href="mailto:contact@getbaseload.com">Contact</a>
+    </div>
+    <p class="footer-note">This site uses anonymous, cookieless audience measurement (Umami, self-hosted in the European Union). No personal data, no third-party trackers.</p>
+</footer>
+
+</body>
+</html>

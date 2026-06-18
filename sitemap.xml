@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://getbaseload.com/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/"/>
+  </url>
+
+  <!-- Method hub -->
+  <url>
+    <loc>https://getbaseload.com/methode/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/method/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/"/>
+  </url>
+
+  <!-- Method · Training load -->
+  <url>
+    <loc>https://getbaseload.com/methode/charge/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/charge/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/training-load/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/charge/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/method/training-load/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/charge/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/training-load/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/charge/"/>
+  </url>
+
+  <!-- Method · ACWR -->
+  <url>
+    <loc>https://getbaseload.com/methode/acwr/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/acwr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/acwr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/acwr/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/method/acwr/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/acwr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/acwr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/acwr/"/>
+  </url>
+
+  <!-- Method · Overtraining -->
+  <url>
+    <loc>https://getbaseload.com/methode/surentrainement/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/surentrainement/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/overtraining/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/surentrainement/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/method/overtraining/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/surentrainement/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/overtraining/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/surentrainement/"/>
+  </url>
+
+  <!-- Method · HRV -->
+  <url>
+    <loc>https://getbaseload.com/methode/vfc/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/vfc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/hrv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/vfc/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/method/hrv/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/vfc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/hrv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/vfc/"/>
+  </url>
+
+  <!-- Method · Multi-sport -->
+  <url>
+    <loc>https://getbaseload.com/methode/multisport/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/multisport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/multisport/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/multisport/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/method/multisport/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/multisport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/multisport/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/multisport/"/>
+  </url>
+
+  <!-- Method · Our model, its limits -->
+  <url>
+    <loc>https://getbaseload.com/methode/modele-et-limites/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/modele-et-limites/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/model-and-limits/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/modele-et-limites/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/method/model-and-limits/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/modele-et-limites/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/model-and-limits/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/modele-et-limites/"/>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://getbaseload.com/privacy/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/privacy/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/terms/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://getbaseload.com/en/terms/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getbaseload.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getbaseload.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getbaseload.com/terms/"/>
+  </url>
+
+</urlset>

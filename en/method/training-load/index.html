@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training load — measure effort, not just duration | Baseload</title>
+    <meta name="description" content="How Baseload measures the load of a session with TRIMP, distinguishes acute load from chronic load, and expresses your volume as real effort rather than minutes.">
+    <meta property="og:title" content="Training load — Baseload">
+    <meta property="og:description" content="TRIMP, acute load, chronic load: how Baseload truly measures the effort of a session.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://getbaseload.com/en/method/training-load/">
+    <link rel="alternate" hreflang="fr" href="https://getbaseload.com/methode/charge/">
+    <link rel="alternate" hreflang="en" href="https://getbaseload.com/en/method/training-load/">
+    <link rel="alternate" hreflang="x-default" href="https://getbaseload.com/methode/charge/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/method.css">
+    <script defer src="https://stats.getbaseload.com/script.js" data-website-id="7e389fa9-de08-4450-94ee-96360c03508b"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-brand">
+        <div class="nav-logo">BL</div>
+        <span class="nav-name">Baseload</span>
+    </a>
+    <div class="nav-right">
+        <div class="lang-switch" aria-label="Language">
+            <a href="/methode/charge/" class="lang-link" hreflang="fr">FR</a>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <span class="lang-active" aria-current="page">EN</span>
+        </div>
+        <a href="/en/method/" class="nav-back">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            The method
+        </a>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="breadcrumb"><a href="/en/method/">The method</a><span class="sep">›</span>Training load</div>
+    <div class="page-eyebrow">01 · The basics</div>
+    <h1 class="page-title">Training<br>load</h1>
+    <p class="page-lead">
+        Two hours of easy cycling and one hour of intervals don't "cost"
+        your body the same thing. Measuring training in minutes means
+        missing the point: the effort.
+    </p>
+</section>
+
+<!-- PROSE -->
+<article class="prose">
+    <h2>Why not just duration?</h2>
+    <p>
+        The duration of a session says nothing about its intensity. A long run at
+        an easy pace and a short threshold session can last the same amount of time,
+        but the second one taxes your body far more. To steer your
+        training without getting injured, you need a measure that captures
+        <strong>real effort</strong>, not time spent.
+    </p>
+
+    <h2>TRIMP: a unit of effort</h2>
+    <p>
+        For each session, Baseload computes a <strong>TRIMP</strong> (from
+        <em>training impulse</em>). It's a number that combines the
+        <strong>duration</strong> and the <strong>intensity</strong> of the session.
+        Intensity comes from your heart rate: the more time you spend in
+        the high zones, the higher the TRIMP climbs. The calculation is weighted (a
+        Banister-type model) to reflect the rising cost of high intensities.
+    </p>
+    <ul>
+        <li><strong>With heart rate</strong>: TRIMP factors in intensity minute by minute.</li>
+        <li><strong>Without heart rate</strong> (pool swimming, a session imported without HR): Baseload switches to an estimate based on duration and perceived effort — the session is never ignored.</li>
+    </ul>
+
+    <div class="callout">
+        <span class="callout-label">Your perceived effort counts</span>
+        <p>
+            When you log the perceived effort (RPE) of an endurance session, Baseload
+            uses it to <strong>correct</strong> the TRIMP computed from your
+            heart rate. A day when "everything felt hard" and a day with
+            "light legs" at the same pace aren't counted the same way.
+        </p>
+    </div>
+
+    <h2>Elevation counts too</h2>
+    <p>
+        For running, walking and hiking, Baseload adjusts effort
+        based on <strong>elevation gain</strong> (Minetti's metabolic model). A
+        10&nbsp;km with 500&nbsp;m of elevation gain costs noticeably more than a flat 10&nbsp;km.
+        Cycling is excluded&nbsp;: heart rate already captures the
+        cost of the climbs there.
+    </p>
+
+    <h2>Acute load and chronic load</h2>
+    <p>
+        Once each session is measured, Baseload tracks two averages:
+    </p>
+    <table>
+        <thead>
+            <tr><th>Indicator</th><th>Window</th><th>What it represents</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Acute load</strong></td><td>~7 days</td><td>Your recent fatigue — what you've just absorbed.</td></tr>
+            <tr><td><strong>Chronic load</strong></td><td>~28 days</td><td>Your <em>fitness</em> — what your body is used to.</td></tr>
+        </tbody>
+    </table>
+    <p>
+        Both are weighted averages (recent days count for more). The
+        ratio between them is the heart of the prevention model: it's the
+        <a href="/en/method/acwr/">ACWR</a>.
+    </p>
+
+    <h2>Your volume, as real effort</h2>
+    <p>
+        Baseload expresses your weekly volume in TRIMP, not minutes. And the
+        target isn't a universal figure&nbsp;: it's <strong>your own chronic
+        load</strong>. In other words, the app compares you to yourself, to your fitness
+        over the past weeks — never to another athlete.
+    </p>
+
+    <div class="callout is-limit">
+        <span class="callout-label">The limit</span>
+        <p>
+            TRIMP is an <strong>estimate</strong> of effort, not a
+            physiological truth. It depends on the quality of your
+            heart-rate data and the calibration of your zones. Baseload treats it
+            as a robust signal at the scale of the week, not as a
+            lab-grade measurement down to the individual session. More details on the
+            <a href="/en/method/model-and-limits/">limits page</a>.
+        </p>
+    </div>
+</article>
+
+<!-- PAGE NAV -->
+<nav class="page-nav" aria-label="Method pages">
+    <a href="/en/method/">
+        <div class="pn-dir">← Back</div>
+        <div class="pn-title">The method</div>
+    </a>
+    <a href="/en/method/acwr/" class="pn-next">
+        <div class="pn-dir">Next →</div>
+        <div class="pn-title">ACWR: acute vs chronic</div>
+    </a>
+</nav>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <div class="footer-logo">BL</div>
+        <div class="footer-copy-block">
+            <span class="footer-copy">© 2026 Baseload</span>
+            <span class="footer-disclaimer"><a href="/en/terms#health">Baseload is not a substitute for medical advice.</a></span>
+        </div>
+    </div>
+    <div class="footer-links">
+        <a href="/en/method/">Method</a>
+        <a href="/en/privacy">Privacy</a>
+        <a href="/en/terms">Terms</a>
+        <a href="mailto:contact@getbaseload.com">Contact</a>
+    </div>
+    <p class="footer-note">This site uses anonymous, cookieless audience measurement (Umami, self-hosted in the European Union). No personal data, no third-party trackers.</p>
+</footer>
+
+</body>
+</html>
