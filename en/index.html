@@ -1396,20 +1396,44 @@
     .ec-note { font-size: 12px; color: var(--ink-subtle); margin-top: 16px; line-height: 1.5; }
     .ec-note a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
     .ec-note a:hover { color: var(--signal); }
+    .ec-success { font-size: 15px; line-height: 1.6; color: var(--signal); font-weight: 600; max-width: 460px; margin: 8px auto 0; }
+    .ec-frame { position: absolute; left: -9999px; width: 0; height: 0; border: 0; }
 </style>
 <section class="email-capture" id="newsletter">
     <div class="section-eyebrow">Stay in the loop</div>
     <h2 class="ec-title">Not ready<br>to try it yet?</h2>
     <p class="ec-sub">Leave your email — we'll let you know about updates and the public launch. No spam, one-click unsubscribe.</p>
-    <form class="ec-form" method="POST" action="https://1300fcc3.sibforms.com/serve/MUIFAKc9x0Mx2r6DnFdknTQcPmSUpg-MWFcbxXFbeH4Us9o-pOuAkT4ZhzqEkjyT90pFXnxXXZlz2ST54FjLBn1BSe5Kp2z0Re2idlYeXl0cspvigBpxJEtSS7Q2n4e1rFVII65QNNSlvBJEIHqKM44oLPhHYy1hGTSde_esroO7GJ03J2cvpsQHgGqnZW7TzP-cFrN5XJhDzoNJrw==">
+    <form class="ec-form" id="ecForm" target="ecFrame" method="POST" action="https://1300fcc3.sibforms.com/serve/MUIFAKc9x0Mx2r6DnFdknTQcPmSUpg-MWFcbxXFbeH4Us9o-pOuAkT4ZhzqEkjyT90pFXnxXXZlz2ST54FjLBn1BSe5Kp2z0Re2idlYeXl0cspvigBpxJEtSS7Q2n4e1rFVII65QNNSlvBJEIHqKM44oLPhHYy1hGTSde_esroO7GJ03J2cvpsQHgGqnZW7TzP-cFrN5XJhDzoNJrw==">
         <input type="email" name="EMAIL" class="ec-input" placeholder="you@email.com" required autocomplete="email" aria-label="Email address">
         <!-- anti-bot honeypot: must stay empty -->
         <input type="text" name="email_address_check" value="" class="ec-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="locale" value="en">
-        <button type="submit" class="ec-button" data-umami-event="email-subscribe">Keep me posted</button>
+        <button type="submit" class="ec-button" id="ecBtn" data-umami-event="email-subscribe">Keep me posted</button>
     </form>
-    <p class="ec-note">By subscribing, you agree to receive our emails. See our <a href="/en/privacy">privacy policy</a>.</p>
+    <p class="ec-success" id="ecSuccess" hidden>Almost there&nbsp;! Check your inbox and click the confirmation link to complete your signup.</p>
+    <p class="ec-note" id="ecNote">By subscribing, you agree to receive our emails. See our <a href="/en/privacy">privacy policy</a>.</p>
+    <iframe name="ecFrame" id="ecFrame" class="ec-frame" title="Brevo" aria-hidden="true"></iframe>
 </section>
+<script>
+(function () {
+    var f = document.getElementById('ecForm'),
+        fr = document.getElementById('ecFrame'),
+        submitted = false;
+    if (!f || !fr) return;
+    f.addEventListener('submit', function () {
+        submitted = true;
+        var b = document.getElementById('ecBtn');
+        if (b) { b.disabled = true; b.textContent = '…'; }
+    });
+    fr.addEventListener('load', function () {
+        if (!submitted) return;
+        f.hidden = true;
+        var n = document.getElementById('ecNote');
+        if (n) n.hidden = true;
+        document.getElementById('ecSuccess').hidden = false;
+    });
+})();
+</script>
 
 <!-- FOOTER -->
 <footer>
