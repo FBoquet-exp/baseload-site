@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de confidentialité — Baseload</title>
-    <meta name="description" content="Politique de confidentialité de Baseload — coach sportif IA pour athlètes d'endurance.">
+    <meta name="description" content="Politique de confidentialité de Baseload — coaching sportif d'endurance. Tes données de santé restent sur ton iPhone, le coaching est calculé localement.">
     <meta property="og:title" content="Politique de confidentialité — Baseload">
     <meta property="og:description" content="Comment Baseload traite tes données : tes données de santé restent sur ton iPhone.">
     <meta property="og:type" content="website">
@@ -478,7 +478,7 @@
 <section class="page-header">
     <div class="page-eyebrow">Mentions légales</div>
     <h1 class="page-title">Politique de<br>confidentialité</h1>
-    <div class="page-date">Dernière mise à jour : 28 mai 2026</div>
+    <div class="page-date">Dernière mise à jour : 18 juin 2026</div>
 </section>
 
 <!-- PROSE CONTENT -->
@@ -487,7 +487,7 @@
     <p class="lead"><strong>Responsable de traitement :</strong> Florian Boquet · <strong>Contact :</strong> <a href="mailto:contact@getbaseload.com">contact@getbaseload.com</a></p>
 
     <h2>1. Préambule</h2>
-    <p>Baseload est une application de coaching sportif d'endurance. Nous attachons une importance centrale à la protection de tes données, en particulier tes données de santé. Notre principe directeur : <strong>tes données de santé restent sur ton iPhone.</strong> Seules des informations agrégées et anonymisées sont, le cas échéant, transmises à nos serveurs pour faire fonctionner le coaching.</p>
+    <p>Baseload est une application de coaching sportif d'endurance. Nous attachons une importance centrale à la protection de tes données, en particulier tes données de santé. Notre principe directeur : <strong>tes données de santé restent sur ton iPhone.</strong> <strong>L'intégralité du coaching — quotidien comme hebdomadaire — est calculée localement, sur ton appareil</strong> : rien n'est transmis à un serveur ou à un tiers pour le générer. Seules des données de mesure d'usage anonymes peuvent, si tu y consens, être envoyées à nos serveurs (voir §2.4).</p>
     <p>Cette politique explique quelles données nous traitons, pourquoi, sur quelle base légale, avec qui elles sont éventuellement partagées, combien de temps elles sont conservées, et quels sont tes droits.</p>
 
     <h2>2. Les données que nous traitons</h2>
@@ -497,14 +497,14 @@
     <ul>
         <li>Ces données sont traitées <strong>localement, sur ton iPhone</strong>. L'application n'écrit jamais dans Apple Santé.</li>
         <li>Elles <strong>ne sont pas envoyées telles quelles</strong> à nos serveurs : ni fréquence cardiaque brute, ni tracé GPS, ni série de séance complète ne quittent l'appareil.</li>
-        <li>Seules des <strong>caractéristiques agrégées</strong> (par ex. une charge d'entraînement quotidienne, une tendance de récupération, un indicateur de fatigue par groupe musculaire) peuvent être transmises pour le calcul du bilan hebdomadaire (voir §4).</li>
+        <li>Le coaching — y compris le <strong>bilan hebdomadaire</strong> — est calculé <strong>entièrement sur ton appareil</strong> : aucune caractéristique de santé, même agrégée, n'est transmise à un serveur pour le générer.</li>
     </ul>
 
     <h3>2.2 Données de profil (que tu renseignes)</h3>
     <p>Prénom, âge, sexe, poids, taille, objectif sportif, disciplines pratiquées, nombre de séances cible, historique de blessures (zone + description), préférences (heure du briefing, langue, unités, ton du coach).</p>
 
-    <h3>2.3 Données du canal de coaching hebdomadaire</h3>
-    <p>Une fois par semaine, pour générer un bilan narratif, des <strong>caractéristiques agrégées et anonymisées</strong> (voir §2.1), rattachées à un identifiant technique (UUID), sont transmises à notre prestataire d'intelligence artificielle (Anthropic — voir §6). <strong>Ton prénom n'est PAS transmis</strong> : il est réinséré <strong>localement, sur ton appareil</strong>, dans le texte du bilan après calcul.</p>
+    <h3>2.3 Coaching — calculé sur ton appareil</h3>
+    <p>L'intégralité du coaching — le briefing quotidien <strong>et</strong> le bilan hebdomadaire — est calculée <strong>localement, sur ton iPhone</strong>. Aucune donnée d'entraînement ou de santé, même agrégée ou anonymisée, n'est transmise à un serveur ou à un prestataire tiers pour produire ces analyses. Ton prénom non plus ne quitte jamais l'appareil.</p>
 
     <h3>2.4 Données de mesure d'usage (analytique) — uniquement si tu y consens</h3>
     <p>Si tu actives la mesure d'usage (désactivée par défaut, voir §8), nous collectons un ensemble <strong>restreint, anonyme et agrégé</strong> d'événements, rattachés à un <strong>identifiant technique aléatoire (UUID)</strong> — jamais à ton identité. Aucune donnée de santé brute n'y figure. Liste exhaustive :</p>
@@ -542,8 +542,8 @@
                 <td>Profil + caractéristiques santé (traitées localement)</td>
             </tr>
             <tr>
-                <td>Générer le bilan hebdomadaire narratif</td>
-                <td>Caractéristiques agrégées anonymisées (via un service d'IA tiers — Anthropic). <strong>Le prénom n'est pas transmis</strong> : il est réinséré localement sur ton appareil.</td>
+                <td>Générer le bilan hebdomadaire</td>
+                <td>Profil + caractéristiques santé, <strong>traités localement sur ton appareil</strong> — aucune donnée transmise à un tiers.</td>
             </tr>
             <tr>
                 <td>Améliorer le produit et comprendre l'usage</td>
@@ -565,7 +565,7 @@
 
     <h2>6. Destinataires et sous-traitants</h2>
     <ul>
-        <li><strong>Fournisseur du modèle d'IA (Anthropic), pour le bilan hebdomadaire</strong> : reçoit des caractéristiques agrégées <strong>anonymisées</strong> (UUID, <strong>sans prénom</strong>). Le transfert de ces données anonymisées vers ce prestataire, situé hors Union européenne, est encadré par les <strong>clauses contractuelles types</strong> de la Commission européenne et un <strong>accord de traitement des données (DPA)</strong>.</li>
+        <li><strong>Aucun prestataire tiers pour le coaching</strong> : le coaching (quotidien et hebdomadaire) est calculé sur ton appareil ; aucune donnée de santé ou d'entraînement n'est transmise à un sous-traitant pour le produire.</li>
         <li><strong>Hébergeur</strong> : hébergement en <strong>Union européenne</strong> (région Paris).</li>
         <li><strong>Base de données analytique</strong> : résidence des données en <strong>Union européenne</strong>.</li>
         <li>Aucune autre divulgation à des tiers, sauf obligation légale.</li>
@@ -576,7 +576,7 @@
         <li><strong>Données de santé</strong> : sur ton appareil, jusqu'à suppression par toi (désinstallation ou suppression de compte).</li>
         <li><strong>Données analytiques</strong> : conservées <strong>180 jours</strong> glissants, puis purgées.</li>
         <li><strong>Données de compte/profil</strong> : jusqu'à la suppression de ton compte.</li>
-        <li><strong>Hébergement</strong> : Union européenne (hors traitement anonymisé du bilan hebdomadaire, encadré au §6).</li>
+        <li><strong>Hébergement</strong> : Union européenne (région Paris).</li>
     </ul>
 
     <h2>8. Mesure d'usage — consentement et révocation</h2>

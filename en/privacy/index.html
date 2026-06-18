@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Baseload</title>
-    <meta name="description" content="Baseload privacy policy — AI sports coach for endurance athletes.">
+    <meta name="description" content="Baseload privacy policy — endurance sports coaching. Your health data stays on your iPhone, and coaching is computed locally.">
     <meta property="og:title" content="Privacy Policy — Baseload">
     <meta property="og:description" content="How Baseload handles your data: your health data stays on your iPhone.">
     <meta property="og:type" content="website">
@@ -478,7 +478,7 @@
 <section class="page-header">
     <div class="page-eyebrow">Legal</div>
     <h1 class="page-title">Privacy<br>Policy</h1>
-    <div class="page-date">Last updated: 28 May 2026</div>
+    <div class="page-date">Last updated: 18 June 2026</div>
 </section>
 
 <!-- PROSE CONTENT -->
@@ -487,7 +487,7 @@
     <p class="lead"><strong>Data controller:</strong> Florian Boquet · <strong>Contact:</strong> <a href="mailto:contact@getbaseload.com">contact@getbaseload.com</a></p>
 
     <h2>1. Introduction</h2>
-    <p>Baseload is an endurance sports coaching app. Protecting your data — and your health data in particular — is central to how we build it. Our guiding principle: <strong>your health data stays on your iPhone.</strong> Only aggregated, anonymized information is, where applicable, sent to our servers to power your coaching.</p>
+    <p>Baseload is an endurance sports coaching app. Protecting your data — and your health data in particular — is central to how we build it. Our guiding principle: <strong>your health data stays on your iPhone.</strong> <strong>All coaching — daily and weekly — is computed locally, on your device</strong>: nothing is sent to a server or a third party to generate it. Only anonymous usage-measurement data may, with your consent, be sent to our servers (see §2.4).</p>
     <p>This policy explains what data we process, why, on what legal basis, who it may be shared with, how long it is kept, and what your rights are.</p>
 
     <h2>2. The data we process</h2>
@@ -497,14 +497,14 @@
     <ul>
         <li>This data is processed <strong>locally, on your iPhone</strong>. The app never writes to Apple Health.</li>
         <li>It is <strong>not sent as-is</strong> to our servers: no raw heart rate, no GPS track, and no full workout series ever leaves your device.</li>
-        <li>Only <strong>aggregated characteristics</strong> (e.g. a daily training load, a recovery trend, a per-muscle-group fatigue indicator) may be transmitted to compute your weekly review (see §4).</li>
+        <li>Coaching — including the <strong>weekly review</strong> — is computed <strong>entirely on your device</strong>: no health characteristic, even aggregated, is transmitted to a server to generate it.</li>
     </ul>
 
     <h3>2.2 Profile data (that you provide)</h3>
     <p>First name, age, sex, weight, height, sports goal, disciplines practiced, target number of sessions, injury history (area + description), preferences (briefing time, language, units, coach tone).</p>
 
-    <h3>2.3 Weekly coaching channel data</h3>
-    <p>Once a week, to generate a narrative review, <strong>aggregated and anonymized characteristics</strong> (see §2.1), linked to a technical identifier (UUID), are sent to our AI provider (Anthropic — see §6). <strong>Your first name is NOT transmitted</strong>: it is re-inserted <strong>locally, on your device</strong>, into the review text after computation.</p>
+    <h3>2.3 Coaching — computed on your device</h3>
+    <p>All coaching — the daily briefing <strong>and</strong> the weekly review — is computed <strong>locally, on your iPhone</strong>. No training or health data, even aggregated or anonymized, is sent to a server or a third-party provider to produce these analyses. Your first name never leaves the device either.</p>
 
     <h3>2.4 Usage measurement (analytics) data — only with your consent</h3>
     <p>If you enable usage measurement (off by default, see §8), we collect a <strong>limited, anonymous and aggregated</strong> set of events, linked to a <strong>random technical identifier (UUID)</strong> — never to your identity. No raw health data is included. Exhaustive list:</p>
@@ -542,8 +542,8 @@
                 <td>Profile + health characteristics (processed locally)</td>
             </tr>
             <tr>
-                <td>Generate the weekly narrative review</td>
-                <td>Aggregated, anonymized characteristics (via a third-party AI service — Anthropic). <strong>The first name is not transmitted</strong>: it is re-inserted locally on your device.</td>
+                <td>Generate the weekly review</td>
+                <td>Profile + health characteristics, <strong>processed locally on your device</strong> — no data sent to a third party.</td>
             </tr>
             <tr>
                 <td>Improve the product and understand usage</td>
@@ -565,7 +565,7 @@
 
     <h2>6. Recipients and processors</h2>
     <ul>
-        <li><strong>AI model provider (Anthropic), for the weekly review</strong>: receives <strong>anonymized</strong> aggregated characteristics (UUID, <strong>without first name</strong>). The transfer of this anonymized data to this provider, located outside the European Union, is governed by the European Commission's <strong>Standard Contractual Clauses</strong> and a <strong>Data Processing Agreement (DPA)</strong>.</li>
+        <li><strong>No third-party provider for coaching</strong>: coaching (daily and weekly) is computed on your device; no health or training data is sent to any processor to produce it.</li>
         <li><strong>Hosting provider</strong>: hosting in the <strong>European Union</strong> (Paris region).</li>
         <li><strong>Analytics database</strong>: data residency in the <strong>European Union</strong>.</li>
         <li>No other disclosure to third parties, except as required by law.</li>
@@ -576,7 +576,7 @@
         <li><strong>Health data</strong>: on your device, until you delete it (uninstall or account deletion).</li>
         <li><strong>Analytics data</strong>: kept for a rolling <strong>180 days</strong>, then purged.</li>
         <li><strong>Account/profile data</strong>: until you delete your account.</li>
-        <li><strong>Hosting</strong>: European Union (except the anonymized weekly-review processing, governed by §6).</li>
+        <li><strong>Hosting</strong>: European Union (Paris region).</li>
     </ul>
 
     <h2>8. Usage measurement — consent and revocation</h2>
