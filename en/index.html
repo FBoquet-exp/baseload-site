@@ -1410,7 +1410,7 @@
         <input type="hidden" name="locale" value="en">
         <button type="submit" class="ec-button" id="ecBtn" data-umami-event="email-subscribe">Keep me posted</button>
     </form>
-    <p class="ec-success" id="ecSuccess" hidden>Almost there&nbsp;! Check your inbox and click the confirmation link to complete your signup.</p>
+    <p class="ec-success" id="ecSuccess" hidden>Got it&nbsp;! We've just sent you an email — click the confirmation link and you're in the loop.</p>
     <p class="ec-note" id="ecNote">By subscribing, you agree to receive our emails. See our <a href="/en/privacy">privacy policy</a>.</p>
     <iframe name="ecFrame" id="ecFrame" class="ec-frame" title="Brevo" aria-hidden="true"></iframe>
 </section>
@@ -1423,13 +1423,13 @@
     f.addEventListener('submit', function () {
         submitted = true;
         var b = document.getElementById('ecBtn');
-        if (b) { b.disabled = true; b.textContent = '…'; }
+        if (b) { b.disabled = true; b.textContent = 'Sending…'; }
     });
     fr.addEventListener('load', function () {
         if (!submitted) return;
-        f.hidden = true;
+        f.style.display = 'none';
         var n = document.getElementById('ecNote');
-        if (n) n.hidden = true;
+        if (n) n.style.display = 'none';
         document.getElementById('ecSuccess').hidden = false;
     });
 })();
