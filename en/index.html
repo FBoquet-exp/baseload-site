@@ -1330,7 +1330,7 @@
     </a>
 </section>
 
-<!-- EMAIL CAPTURE (Brevo hosted form via iframe — runs in Brevo's own origin, signup registration guaranteed) -->
+<!-- EMAIL CAPTURE (Brevo, double opt-in) -->
 <style>
     .email-capture {
         padding: 56px 24px 80px;
@@ -1353,33 +1353,87 @@
         line-height: 1.6;
         color: var(--ink-muted);
         max-width: 460px;
-        margin: 0 auto 20px;
+        margin: 0 auto 28px;
     }
-    .ec-frame {
-        width: 100%;
-        max-width: 540px;
-        height: 500px;
-        border: 0;
+    .ec-form {
+        display: flex;
+        gap: 10px;
+        max-width: 460px;
         margin: 0 auto;
-        display: block;
-        background: transparent;
+        flex-wrap: wrap;
     }
-    .ec-note {
+    .ec-input {
+        flex: 1 1 220px;
+        padding: 14px 16px;
+        background: var(--card);
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        color: var(--paper);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 15px;
+    }
+    .ec-input::placeholder { color: var(--ink-subtle); }
+    .ec-input:focus { outline: none; border-color: var(--signal); }
+    .ec-button {
+        padding: 14px 28px;
+        background: var(--signal);
+        color: var(--ink);
+        border: none;
+        border-radius: 8px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 600;
         font-size: 12px;
-        color: var(--ink-subtle);
-        margin-top: 8px;
-        line-height: 1.5;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s;
     }
+    .ec-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(212, 255, 61, 0.25);
+    }
+    .ec-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+    .ec-note { font-size: 12px; color: var(--ink-subtle); margin-top: 16px; line-height: 1.5; }
     .ec-note a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
     .ec-note a:hover { color: var(--signal); }
+    .ec-success { font-size: 15px; line-height: 1.6; color: var(--signal); font-weight: 600; max-width: 460px; margin: 8px auto 0; }
+    .ec-frame { position: absolute; left: -9999px; width: 0; height: 0; border: 0; }
 </style>
 <section class="email-capture" id="newsletter">
     <div class="section-eyebrow">Stay in the loop</div>
     <h2 class="ec-title">Not ready<br>to try it yet?</h2>
     <p class="ec-sub">Leave your email — we'll let you know about updates and the public launch. No spam, one-click unsubscribe.</p>
-    <iframe class="ec-frame" src="https://1300fcc3.sibforms.com/serve/MUIFAKc9x0Mx2r6DnFdknTQcPmSUpg-MWFcbxXFbeH4Us9o-pOuAkT4ZhzqEkjyT90pFXnxXXZlz2ST54FjLBn1BSe5Kp2z0Re2idlYeXl0cspvigBpxJEtSS7Q2n4e1rFVII65QNNSlvBJEIHqKM44oLPhHYy1hGTSde_esroO7GJ03J2cvpsQHgGqnZW7TzP-cFrN5XJhDzoNJrw==" title="Subscribe to the Baseload email list" loading="lazy"></iframe>
-    <p class="ec-note">Signups handled by Brevo (European Union). See our <a href="/en/privacy">privacy policy</a>.</p>
+    <form class="ec-form" id="ecForm" target="ecFrame" method="POST" action="https://1300fcc3.sibforms.com/serve/MUIFAKc9x0Mx2r6DnFdknTQcPmSUpg-MWFcbxXFbeH4Us9o-pOuAkT4ZhzqEkjyT90pFXnxXXZlz2ST54FjLBn1BSe5Kp2z0Re2idlYeXl0cspvigBpxJEtSS7Q2n4e1rFVII65QNNSlvBJEIHqKM44oLPhHYy1hGTSde_esroO7GJ03J2cvpsQHgGqnZW7TzP-cFrN5XJhDzoNJrw==">
+        <input type="email" name="EMAIL" class="ec-input" placeholder="you@email.com" required autocomplete="email" aria-label="Email address">
+        <!-- anti-bot honeypot: must stay empty -->
+        <input type="text" name="email_address_check" value="" class="ec-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="en">
+        <button type="submit" class="ec-button" id="ecBtn" data-umami-event="email-subscribe">Keep me posted</button>
+    </form>
+    <p class="ec-success" id="ecSuccess" hidden>Almost there&nbsp;! Check your inbox and click the confirmation link to complete your signup.</p>
+    <p class="ec-note" id="ecNote">By subscribing, you agree to receive our emails. See our <a href="/en/privacy">privacy policy</a>.</p>
+    <iframe name="ecFrame" id="ecFrame" class="ec-frame" title="Brevo" aria-hidden="true"></iframe>
 </section>
+<script>
+(function () {
+    var f = document.getElementById('ecForm'),
+        fr = document.getElementById('ecFrame'),
+        submitted = false;
+    if (!f || !fr) return;
+    f.addEventListener('submit', function () {
+        submitted = true;
+        var b = document.getElementById('ecBtn');
+        if (b) { b.disabled = true; b.textContent = '…'; }
+    });
+    fr.addEventListener('load', function () {
+        if (!submitted) return;
+        f.hidden = true;
+        var n = document.getElementById('ecNote');
+        if (n) n.hidden = true;
+        document.getElementById('ecSuccess').hidden = false;
+    });
+})();
+</script>
 
 <!-- FOOTER -->
 <footer>
