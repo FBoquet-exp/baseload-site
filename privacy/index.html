@@ -501,7 +501,7 @@
     </ul>
 
     <h3>2.2 Données de profil (que tu renseignes)</h3>
-    <p>Prénom, âge, sexe, poids, taille, objectif sportif et son échéance, niveau d'expérience, disciplines pratiquées et leur répartition hebdomadaire par sport, nombre de séances et volume hebdomadaire cibles, jours de repos préférés, habitudes de substitution d'une séance, équipement disponible, historique de blessures (zone + description), préférences (heure du briefing, langue, unités, ton du coach, marche ou randonnée par défaut).</p>
+    <p>Prénom, âge, sexe, poids, taille, objectif sportif et son échéance, niveau d'expérience, disciplines pratiquées et leur répartition hebdomadaire par sport, nombre de séances et volume hebdomadaire cibles, jours de repos préférés, habitudes de substitution d'une séance, équipement disponible, historique de blessures (zone + description), préférences (heure du briefing, langue, unités, ton du coach, marche ou randonnée par défaut, zone de renfo travaillée, qualités de renfo travaillées, séances facultatives incluses ou non).</p>
 
     <p>Tu peux aussi déclarer des <strong>performances</strong>, si tu le souhaites : tes performances de référence actuelles (un chrono de course, ta puissance vélo FTP, un test de natation) et les performances que tu vises (un chrono ou une puissance objectif). Elles servent à calculer tes allures et à mesurer ta progression — <strong>sur ton iPhone</strong>, comme le reste.</p>
 
@@ -520,6 +520,16 @@
 
     <h3>2.5 Identifiant technique</h3>
     <p>Un identifiant aléatoire (UUID) est associé à ton appareil/compte. Il ne permet pas de t'identifier nommément.</p>
+
+    <h3>2.6 Ce que l'application garde sur ton iPhone</h3>
+    <p>Au-delà de ton profil, l'application conserve <strong>localement</strong> ce que tu lui dis et ce qu'elle calcule pour toi. Rien de tout cela n'est envoyé à un serveur.</p>
+    <ul>
+        <li><strong>Ton suivi quotidien</strong> : chaque check-in du matin (sensation, sommeil, et la douleur que tu signales, avec sa zone du corps), la note d'effort que tu donnes à une séance, et les questions en attente auxquelles tu n'as pas encore répondu.</li>
+        <li><strong>Ce que le coach produit</strong> : le briefing du jour et la décision qui le motive, le journal du coach, le bilan hebdomadaire et ses agrégats, le coût de fatigue figé d'une séance passée, et la séance prévue d'un jour écoulé.</li>
+        <li><strong>Ton programme</strong> : ta semaine type et tes objectifs par sport, tes plans d'entraînement en cours et terminés, l'état des séances (faite, pas faite, allégée, déplacée), chaque résultat de test, chaque activité hors plan (y compris la zone du corps quand il s'agit d'un soin), le journal des plans terminés, et les jours indisponibles que tu déclares.</li>
+        <li><strong>Ta santé déclarée</strong> : une blessure ou une reprise après un arrêt que tu signales, et les exercices écartés de tes séances de renforcement.</li>
+    </ul>
+    <p><strong>Combien de temps.</strong> Ton suivi quotidien est effacé au bout de 180 jours. Une douleur signalée est effacée 180 jours après sa résolution ; tant qu'elle est en cours, elle est conservée — la trace durable d'une blessure, elle, reste dans ton historique de blessures. Le journal du coach, le journal des plans terminés, tes résultats de test, <strong>l'état de chacune de tes séances</strong> et tes activités hors plan sont conservés <strong>sans limite de durée</strong> : ils sont ta mémoire d'entraînement, et une sortie longue de mars 2025 reste quelque chose que tu as fait. Tout s'efface d'un coup si tu supprimes ton compte (§9), et tout figure dans l'export de tes données.</p>
 
     <h2>3. Ce que nous ne faisons PAS</h2>
     <ul>
